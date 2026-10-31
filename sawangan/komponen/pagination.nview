@@ -1,0 +1,71 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen navigasi pembagian halaman data ala <code>&lt;p-paginator&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-pagination&gt;</code>. Menghitung total halaman secara otomatis, mendukung laporan data, dan memicu event perubahan halaman tanpa kode DOM manual.</p>
+
+    <!-- 1. Paginasi Standar dengan Laporan Data -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Paginasi Data Otomatis (&lt;l-pagination&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <l-pagination total-records="142" rows="10" page="1" show-report></l-pagination>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Paginator Deklaratif --&gt;
+&lt;l-pagination total-records="142" rows="10" page="1" show-report&gt;&lt;/l-pagination&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Paginasi Dataset Besar (500 Data) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Paginasi Dataset Besar (Halaman Aktif di Tengah)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <l-pagination total-records="500" rows="25" page="6" show-report></l-pagination>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Paginasi 500 Data dengan 25 Baris per Halaman --&gt;
+&lt;l-pagination total-records="500" rows="25" page="6" show-report&gt;&lt;/l-pagination&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Paginasi Ringkas Tanpa Laporan -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Paginasi Ringkas (Hanya Tombol Kontrol)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; display: flex; justify-content: flex-end;">
+                <l-pagination total-records="50" rows="10" page="2"></l-pagination>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Paginasi Kompak Tanpa Teks Laporan --&gt;
+&lt;l-pagination total-records="50" rows="10" page="2"&gt;&lt;/l-pagination&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/tabel" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tabel Data</span></a>
+        <a href="/komponen/breadcrumb" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Navigasi Breadcrumb</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

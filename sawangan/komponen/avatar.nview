@@ -1,0 +1,55 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Identitas profil pengguna deklaratif ala <code>&lt;p-avatar&gt;</code> dengan dukungan ukuran, bentuk bulat, dan tumpukan avatar group.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Varian Avatar & Avatar Group Deklaratif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas">
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+    <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <l-avatar label="LP" shape="circle" size="large"></l-avatar>
+        <l-avatar label="NG" shape="circle" size="normal"></l-avatar>
+        <l-avatar label="UI" shape="circle" size="sm"></l-avatar>
+    </div>
+    <div>
+        <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem;">Avatar Group (Tumpukan Tim)</div>
+        <l-avatar-group>
+            <l-avatar label="LP" shape="circle"></l-avatar>
+            <l-avatar label="NG" shape="circle"></l-avatar>
+            <l-avatar label="AD" shape="circle"></l-avatar>
+            <l-avatar label="+5" shape="circle"></l-avatar>
+        </l-avatar-group>
+    </div>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Avatar &amp; Avatar Group Deklaratif --&gt;
+&lt;l-avatar label="LP" shape="circle" size="large"&gt;&lt;/l-avatar&gt;
+&lt;l-avatar label="NG" shape="circle" size="normal"&gt;&lt;/l-avatar&gt;
+
+&lt;!-- Avatar Group Bertumpuk --&gt;
+&lt;l-avatar-group&gt;
+    &lt;l-avatar label="LP" shape="circle"&gt;&lt;/l-avatar&gt;
+    &lt;l-avatar label="NG" shape="circle"&gt;&lt;/l-avatar&gt;
+    &lt;l-avatar label="+5" shape="circle"&gt;&lt;/l-avatar&gt;
+&lt;/l-avatar-group&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/timeline" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Timeline Aktivitas</span></a>
+        <a href="/komponen/akordeon" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Akordeon & FAQ</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

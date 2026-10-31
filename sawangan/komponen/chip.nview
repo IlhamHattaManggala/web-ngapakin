@@ -1,0 +1,150 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen chip interaktif ala <code>&lt;p-chip&gt;</code> di PrimeNG. Digunakan untuk merepresentasikan tag kategori, filter entitas, token kata kunci, atau profil pengguna kecil dengan opsi tombol hapus (dismissible).</p>
+
+    <!-- 1. Chip Standar & Berikon -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Chip Tag Standar & Berikon</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-chip label="Ngapakin V1.1"></l-chip>
+                <l-chip label="Python 3.10" icon="terminal"></l-chip>
+                <l-chip label="JIT Engine" icon="zap"></l-chip>
+                <l-chip label="Dialek Banyumasan" icon="message-square"></l-chip>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Chip Teks Dasar --&gt;
+&lt;l-chip label="Ngapakin V1.1"&gt;&lt;/l-chip&gt;
+
+&lt;!-- Chip Berikon --&gt;
+&lt;l-chip label="Python 3.10" icon="terminal"&gt;&lt;/l-chip&gt;
+&lt;l-chip label="JIT Engine" icon="zap"&gt;&lt;/l-chip&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Chip Dapat Dihapus (Removable / Dismissible) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Chip Interaktif Dapat Dihapus (Removable)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Klik tanda silang (x) untuk menghapus tag filter pencarian:</div>
+                <div id="removableChipsContainer" style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                    <l-chip label="Kategori: E-Commerce" removable></l-chip>
+                    <l-chip label="Status: Aktif" icon="check-circle" removable></l-chip>
+                    <l-chip label="Lokasi: Banyumas" icon="map-pin" removable></l-chip>
+                    <l-chip label="Harga: &lt; 500rb" removable></l-chip>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Chip dengan Tombol Hapus (Removable) --&gt;
+&lt;l-chip label="Kategori: E-Commerce" removable&gt;&lt;/l-chip&gt;
+&lt;l-chip label="Status: Aktif" icon="check-circle" removable&gt;&lt;/l-chip&gt;
+&lt;l-chip label="Lokasi: Banyumas" icon="map-pin" removable&gt;&lt;/l-chip&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Avatar Chip Pengguna -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Avatar Chip (Identitas Pengguna & Petugas)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <l-chip label="Ilham Hatta (Lead)" icon="user"></l-chip>
+                <l-chip label="Admin Sistem" icon="shield" removable></l-chip>
+                <l-chip label="Support 24/7" icon="headphones"></l-chip>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Chip Pengguna / Petugas --&gt;
+&lt;l-chip label="Ilham Hatta (Lead)" icon="user"&gt;&lt;/l-chip&gt;
+&lt;l-chip label="Admin Sistem" icon="shield" removable&gt;&lt;/l-chip&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Interactive Tag Manager Demo -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Input Token / Tag Dinamis Interaktif</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <div style="font-size: 0.9rem; font-weight: 600; color: #ffffff; margin-bottom: 0.75rem;">Kata Kunci Artikel (Tekan Enter untuk Menambah)</div>
+                <div id="dynamicTagsList" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.75rem;">
+                    <l-chip label="Web Framework" removable></l-chip>
+                    <l-chip label="Rikat UI" removable></l-chip>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                    <l-input id="newTagInput" placeholder="Ketik tag baru..." style="flex: 1;"></l-input>
+                    <l-button id="btnAddTag" label="Tambah" severity="primary" icon="plus" size="sm"></l-button>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Dynamic Tag Manager Implementation --&gt;
+&lt;div id="tagsList" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"&gt;
+    &lt;l-chip label="Web Framework" removable&gt;&lt;/l-chip&gt;
+&lt;/div&gt;
+&lt;l-input id="newTagInput" placeholder="Ketik tag baru..."&gt;&lt;/l-input&gt;
+&lt;l-button label="Tambah" severity="primary" icon="plus"&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/divider" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Divider Pemisah</span></a>
+        <a href="/komponen/kbd" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Kbd (Keyboard Shortcut)</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const inpEl = document.getElementById('newTagInput');
+    const btn = document.getElementById('btnAddTag');
+    const container = document.getElementById('dynamicTagsList');
+
+    function addTag() {
+        if (!inpEl || !container) return;
+        const inputTag = inpEl.querySelector('input');
+        const val = (inputTag ? inputTag.value : inpEl.getAttribute('value') || '').trim();
+        if (!val) return;
+        const chip = document.createElement('l-chip');
+        chip.setAttribute('label', val);
+        chip.setAttribute('removable', '');
+        container.appendChild(chip);
+        if (inputTag) inputTag.value = '';
+        inpEl.setAttribute('value', '');
+    }
+
+    if (btn) btn.addEventListener('click', addTag);
+    if (inpEl) {
+        inpEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTag();
+            }
+        });
+    }
+});
+</script>
+
+@rampung
+

@@ -1,0 +1,147 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen panel geser samping ala <code>&lt;p-drawer&gt;</code> (atau <code>p-sidebar</code>) di PrimeNG menggunakan tag <code>&lt;l-drawer&gt;</code>. Menyediakan transisi geser mulus dari tepi layar untuk keranjang belanja, panel filter pencarian, log audit, atau pengaturan profil tanpa meninggalkan halaman aktif.</p>
+
+    <!-- 1. Drawer Interaktif Reaktif -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Drawer Interaktif Deklaratif (&lt;l-drawer&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <l-button id="btnOpenRightDrawer" label="Buka Drawer Kanan" severity="primary" icon="sidebar"></l-button>
+                <l-button id="btnOpenLeftDrawer" label="Buka Drawer Kiri" severity="secondary" icon="menu"></l-button>
+            </div>
+
+            <!-- Drawer Kanan -->
+            <l-drawer id="demoRightDrawer" title="Panel Pengaturan Cepat" [(visible)]="showRightDrawer" position="right">
+                <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                        Panel samping ini dapat menampung formulir, log aktivitas real-time, atau konfigurasi akun pengguna.
+                    </p>
+                    <l-input label="Nama Profil" value="Ilham Hatta Manggala"></l-input>
+                    <l-input label="Surel Kontak" value="ilham@ngapakin.id"></l-input>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--bg-hover); border-radius: 6px;">
+                        <span style="font-size: 0.85rem; color: #f4f4f5;">Notifikasi Email</span>
+                        <l-switch checked></l-switch>
+                    </div>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                        <l-button id="btnCloseRightDrawer" label="Simpan &amp; Tutup" severity="primary" size="sm" icon="check" style="flex: 1;"></l-button>
+                    </div>
+                </div>
+            </l-drawer>
+
+            <!-- Drawer Kiri -->
+            <l-drawer id="demoLeftDrawer" title="Menu Navigasi Tambahan" [(visible)]="showLeftDrawer" position="left">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+                        Drawer posisi kiri ideal untuk navigasi seluler atau pohon menu bertingkat.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><a href="/dok" style="color: #f4f4f5; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--bg-hover); border-radius: 6px;"><l-icon name="book" size="14"></l-icon> Dokumentasi Inti</a></li>
+                        <li><a href="/komponen" style="color: #f4f4f5; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--bg-hover); border-radius: 6px;"><l-icon name="layers" size="14"></l-icon> Katalog 34 Komponen</a></li>
+                        <li><a href="https://github.com/ngapakin-bos" target="_blank" style="color: #f4f4f5; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--bg-hover); border-radius: 6px;"><l-icon name="github" size="14"></l-icon> Repositori GitHub</a></li>
+                    </ul>
+                </div>
+            </l-drawer>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol Pemicu Buka Drawer --&gt;
+&lt;l-button label="Buka Drawer" onclick="Rikat.set('showRightDrawer', true)"&gt;&lt;/l-button&gt;
+
+&lt;!-- Komponen Drawer Deklaratif PrimeNG-Style --&gt;
+&lt;l-drawer title="Panel Pengaturan" [(visible)]="showRightDrawer" position="right"&gt;
+    &lt;p&gt;Konten formulir atau informasi detail...&lt;/p&gt;
+    &lt;l-button label="Tutup" onclick="Rikat.set('showRightDrawer', false)"&gt;&lt;/l-button&gt;
+&lt;/l-drawer&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Simulasi Desain Drawer Terbuka (Inline Blueprint) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Simulasi Desain Keranjang Belanja (Cart Drawer Layout)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+                <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #ffffff;">
+                        <l-icon name="shopping-bag" size="16"></l-icon>
+                        <span>Keranjang Belanja (2 Item)</span>
+                    </div>
+                    <span class="c-badge c-badge-primary">Rp 450.000</span>
+                </div>
+                <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #f4f4f5; font-size: 0.9rem;">Lisensi Pro Ngapakin BOS</div>
+                            <div style="font-size: 0.75rem; color: var(--text-dim);">Jumlah: 1 Lisensi</div>
+                        </div>
+                        <span style="font-weight: 700; color: #ffffff; font-size: 0.9rem;">Rp 350.000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #f4f4f5; font-size: 0.9rem;">Dukungan Teknis Prioritas</div>
+                            <div style="font-size: 0.75rem; color: var(--text-dim);">Durasi: 1 Bulan</div>
+                        </div>
+                        <span style="font-weight: 700; color: #ffffff; font-size: 0.9rem;">Rp 100.000</span>
+                    </div>
+                </div>
+                <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border); background: var(--bg-card); display: flex; gap: 0.75rem;">
+                    <l-button label="Lanjutkan Pembayaran" severity="primary" size="sm" icon="credit-card" style="flex: 1;"></l-button>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Layout Keranjang di Dalam Drawer --&gt;
+&lt;div class="cart-drawer-content"&gt;
+    &lt;div class="item-list"&gt;...&lt;/div&gt;
+    &lt;div class="cart-footer"&gt;
+        &lt;l-button label="Lanjutkan Pembayaran" severity="primary"&gt;&lt;/l-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/toast" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Toast &amp; Pop-up</span></a>
+        <a href="/komponen/tabel" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tabel Data</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btnRight = document.getElementById('btnOpenRightDrawer');
+    const btnLeft = document.getElementById('btnOpenLeftDrawer');
+    const btnCloseRight = document.getElementById('btnCloseRightDrawer');
+
+    if (btnRight) {
+        btnRight.addEventListener('click', () => {
+            Rikat.set('showRightDrawer', true);
+        });
+    }
+    if (btnLeft) {
+        btnLeft.addEventListener('click', () => {
+            Rikat.set('showLeftDrawer', true);
+        });
+    }
+    if (btnCloseRight) {
+        btnCloseRight.addEventListener('click', () => {
+            Rikat.set('showRightDrawer', false);
+        });
+    }
+});
+</script>
+
+@rampung

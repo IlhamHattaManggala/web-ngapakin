@@ -1,0 +1,100 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Sistem Template Sawangan (<code>.nview</code>)</h2>
+    <p>Larapak mengusung sistem template Blade-like bawaan yang sangat intuitif. Seluruh file template disimpan di folder <code>sawangan/</code> dan menggunakan ekstensi file <code>.nview</code>.</p>
+
+    <h2>1. Layout &amp; Pewarisan Halaman</h2>
+    <p>Anda dapat membuat template induk master (misalnya <code>sawangan/layout.nview</code>) dengan penanda posisi <code>&#64;yield</code>:</p>
+
+    <pre><code>&lt;!-- sawangan/layout.nview --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&#123;&#123; title &#125;&#125;&lt;/title&gt;
+    &lt;link rel="stylesheet" href="/css/rikat.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Aplikasi Larapak&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &#64;yield "content"
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <p>Halaman anak dapat mewarisi layout tersebut menggunakan <code>&#64;layout</code> dan mendefinisikan blok konten dengan <code>&#64;section</code>:</p>
+
+    <pre><code>&lt;!-- sawangan/produk.nview --&gt;
+&#64;layout "layout.nview"
+
+&#64;section "content"
+    &lt;h2&gt;Daftar Produk Unggulan&lt;/h2&gt;
+    &lt;p&gt;Selamat berbelanja di toko kami.&lt;/p&gt;
+&#64;rampung</code></pre>
+
+    <h2>2. Interpolasi Variabel</h2>
+    <p>Nilai variabel dapat ditampilkan menggunakan sintaksis kurung kurawal ganda <code>&#123;&#123; variabel &#125;&#125;</code> (otomatis disanitasi terhadap serangan XSS HTML injection):</p>
+    
+    <pre><code>&lt;p&gt;Halo, &#123;&#123; nama_pengguna &#125;&#125;!&lt;/p&gt;</code></pre>
+
+    <p>Jika Anda secara sengaja ingin merender string HTML mentah tanpa sanitasi, gunakan penanda <code>&#123;!! html_raw !!&#125;</code>:</p>
+    <pre><code>&lt;div&gt;&#123;!! artikel.konten_html !!&#125;&lt;/div&gt;</code></pre>
+
+    <h2>3. Perulangan (<code>&#64;baleni</code>)</h2>
+    <p>Ulangi data array atau koleksi list menggunakan <code>&#64;baleni</code>:</p>
+
+    <pre><code>&lt;ul&gt;
+    &#64;baleni item neng daftar_produk
+        &lt;li&gt;&#123;&#123; item.nama &#125;&#125; - Rp &#123;&#123; item.harga &#125;&#125;&lt;/li&gt;
+    &#64;rampung
+&lt;/ul&gt;</code></pre>
+
+    <h2>4. Percabangan Kondisional (<code>&#64;nek</code>, <code>&#64;liyane</code>)</h2>
+    <p>Gunakan percabangan kondisi untuk menampilkan blok antarmuka secara bersyarat:</p>
+    <pre><code>&#64;nek pengguna.aktif ya
+    &lt;span class="badge badge-success"&gt;Akun Aktif&lt;/span&gt;
+&#64;liyane
+    &lt;span class="badge badge-danger"&gt;Akun Terkunci&lt;/span&gt;
+&#64;rampung</code></pre>
+
+    <h2>5. Proteksi CSRF &amp; Validasi Form (<code>&#64;csrf</code>, <code>&#64;error</code>)</h2>
+    <p>Directive <code>&#64;csrf</code> menyisipkan input hidden token keamanan otomatis, sementara <code>&#64;error</code> menampilkan pesan validasi formulir:</p>
+    <pre><code>&lt;form action="/kontak" method="POST"&gt;
+    &#64;csrf
+    
+    &lt;label&gt;Alamat Email:&lt;/label&gt;
+    &lt;input type="email" name="email" value="&#123;&#123; lawas('email') &#125;&#125;"&gt;
+    
+    &#64;error("email")
+        &lt;span class="text-danger"&gt;&#123;&#123; pesan &#125;&#125;&lt;/span&gt;
+    &#64;rampung
+    
+    &lt;button type="submit"&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+    <h2>6. Menyelipkan File Bagian (<code>&#64;include</code> atau <code>&#64;mlebui</code>)</h2>
+    <p>Gunakan <code>&#64;include "nama_komponen"</code> untuk memecah antarmuka menjadi komponen modular yang rapi (seperti navbar atau footer):</p>
+    <pre><code>&#64;include "komponen/footer"</code></pre>
+
+    <div class="callout">
+        <strong>Peningkatan di v1.1.0:</strong> Sistem Template Sawangan kini mengevaluasi kedalaman directive bersarang (<em>nested directives</em> seperti <code>&#64;nek</code>, <code>&#64;baleni</code>, dan <code>&#64;error</code>) di dalam blok <code>&#64;section</code> secara presisi tanpa memotong penutupan master layout secara prematur.
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/middleware" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Middleware &amp; CSRF</span></a>
+        <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Migrasi Skema Database</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

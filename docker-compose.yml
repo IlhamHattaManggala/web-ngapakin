@@ -1,0 +1,31 @@
+services:
+  app:
+    image: ilhamhatta/larapak:latest
+    container_name: web-ngapakin-app
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=salah
+      - APP_PORT=8000
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=database.sqlite
+
+  proxy:
+    image: caddy:alpine
+    container_name: web-ngapakin-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    command: caddy reverse-proxy --from larapak.my.id --to app:8000
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:

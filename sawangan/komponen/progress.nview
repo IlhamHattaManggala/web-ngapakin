@@ -1,0 +1,50 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Indikator pemuatan deklaratif: bilah progres persentase dan skeleton shimmer placeholder untuk konten yang sedang dimuat.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Progress Bar & Skeleton Loader Deklaratif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; width: 100%;">
+    <div>
+        <div style="font-size: 0.8rem; font-weight: 600; color: #ffffff; margin-bottom: 0.5rem;">Progres Unduhan Berkas</div>
+        <l-progress value="68" show-value></l-progress>
+    </div>
+    <div>
+        <div style="font-size: 0.8rem; font-weight: 600; color: #ffffff; margin-bottom: 0.5rem;">Skeleton Shimmer Loader</div>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <l-skeleton width="100%" height="18px"></l-skeleton>
+            <l-skeleton width="75%" height="18px"></l-skeleton>
+            <l-skeleton width="45%" height="18px"></l-skeleton>
+        </div>
+    </div>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Progress Bar &amp; Skeleton Loader --&gt;
+&lt;l-progress value="68" show-value&gt;&lt;/l-progress&gt;
+
+&lt;!-- Skeleton Shimmer Placeholder --&gt;
+&lt;l-skeleton width="100%" height="18px"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="75%" height="18px"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="45%" height="18px"&gt;&lt;/l-skeleton&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/unggah" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Upload Berkas</span></a>
+        <a href="/komponen/tooltip" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tooltip & Popover</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

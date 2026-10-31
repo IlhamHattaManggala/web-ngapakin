@@ -1,0 +1,54 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>DataTable enterprise deklaratif persis seperti <code>&lt;p-table&gt;</code> di PrimeNG dengan pencarian data live (*client-side search*), sorting kolom klik header, dan paginasi otomatis.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Enterprise DataTable Deklaratif dengan Paginator & Live Search</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <script>
+        Rikat.state.usersDemo = [
+            { id: "#001", nama: "Ilham Hatta Manggala", peran: "Super Admin", status: "Aktif", lokasi: "Purwokerto" },
+            { id: "#002", nama: "Bambang Susanto", peran: "Senior Engineer", status: "Aktif", lokasi: "Banyumas" },
+            { id: "#003", nama: "Slamet Riyadi", peran: "DevOps Specialist", status: "Review", lokasi: "Cilacap" },
+            { id: "#004", nama: "Dewi Sartika", peran: "UI/UX Designer", status: "Aktif", lokasi: "Purbalingga" },
+            { id: "#005", nama: "Eko Prasetyo", peran: "Frontend Lead", status: "Nonaktif", lokasi: "Kebumen" },
+            { id: "#006", nama: "Fitri Handayani", peran: "Product Manager", status: "Aktif", lokasi: "Semarang" },
+            { id: "#007", nama: "Guruh Sukarno", peran: "QA Engineer", status: "Review", lokasi: "Solo" }
+        ];
+    </script>
+    <l-table [data]="usersDemo" paginator rows="4"></l-table>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Enterprise DataTable (&lt;l-table&gt;) --&gt;
+&lt;!-- Mendukung pencarian instan, sorting kolom, dan paginator terintegrasi --&gt;
+&lt;script&gt;
+    Rikat.state.usersDemo = [
+        { id: "#001", nama: "Ilham Hatta", peran: "Admin", status: "Aktif" },
+        { id: "#002", nama: "Bambang", peran: "Dev", status: "Aktif" },
+        { id: "#003", nama: "Slamet", peran: "DevOps", status: "Review" }
+    ];
+&lt;/script&gt;
+
+&lt;l-table [data]="usersDemo" paginator rows="5"&gt;&lt;/l-table&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/drawer" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Drawer & Offcanvas</span></a>
+        <a href="/komponen/pagination" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Paginasi Data</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

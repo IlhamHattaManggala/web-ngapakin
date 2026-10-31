@@ -1,0 +1,147 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen kotak umpan balik kontekstual ala <code>&lt;p-messages&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-alert&gt;</code>. Menyampaikan informasi status, keberhasilan aksi, peringatan, atau galat sistem lengkap dengan ikon otomatis dan tombol tutup (closable).</p>
+
+    <!-- 1. Varian Kontekstual (Severity) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Varian Tingkat Keparahan (Severities)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; width: 100%;">
+                <l-alert title="Pembaruan Berhasil" severity="success">
+                    Konfigurasi server Ngapakin telah berhasil dimuat ulang dan berjalan optimal.
+                </l-alert>
+                <l-alert title="Informasi Pemeliharaan" severity="info">
+                    Sistem akan melakukan pembaruan dependensi otomatis pada hari Minggu pukul 02:00 WIB.
+                </l-alert>
+                <l-alert title="Peringatan Kuota Memori" severity="warning">
+                    Penggunaan memori kerja proses telah mencapai 82% dari alokasi yang ditentukan.
+                </l-alert>
+                <l-alert title="Koneksi Basis Data Gagal" severity="danger">
+                    Gagal menghubungi host basis data PostgreSQL pada port 5432. Silakan periksa kredensial di .env.
+                </l-alert>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Alert Kontekstual PrimeNG-Style --&gt;
+&lt;l-alert title="Pembaruan Berhasil" severity="success"&gt;
+    Konfigurasi server telah dimuat ulang.
+&lt;/l-alert&gt;
+
+&lt;l-alert title="Peringatan Kuota" severity="warning"&gt;
+    Penggunaan memori telah mencapai 82%.
+&lt;/l-alert&gt;
+
+&lt;l-alert title="Koneksi Gagal" severity="danger"&gt;
+    Gagal menghubungi basis data.
+&lt;/l-alert&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Alert Dapat Ditutup (Closable / Dismissible) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Alert Dapat Ditutup Pengguna (Closable)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; width: 100%;">
+                <l-alert title="Tips Pintasan Keyboard" severity="info" closable>
+                    Tekan <l-kbd>Ctrl</l-kbd> + <l-kbd>K</l-kbd> untuk membuka pencarian cepat dari halaman manapun.
+                </l-alert>
+                <l-alert title="Sinkronisasi Selesai" severity="success" closable>
+                    Sebanyak 1.450 data pelanggan berhasil diselaraskan ke dalam basis data lokal.
+                </l-alert>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Alert dengan Tombol Tutup (Atribut 'closable') --&gt;
+&lt;l-alert title="Tips Pintasan Keyboard" severity="info" closable&gt;
+    Tekan &lt;l-kbd&gt;Ctrl&lt;/l-kbd&gt; + &lt;l-kbd&gt;K&lt;/l-kbd&gt; untuk membuka pencarian cepat.
+&lt;/l-alert&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Alert dengan Tombol Aksi Tambahan -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Alert dengan Tombol Panggilan Aksi (Action Buttons)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <div class="c-alert c-alert-danger" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <l-icon name="alert-triangle" size="20" class="c-alert-icon"></l-icon>
+                        <div style="flex: 1;">
+                            <div class="c-alert-title" style="font-weight: 700;">Gagal Mengunggah Berkas Media</div>
+                            <div class="c-alert-desc" style="font-size: 0.85rem; margin-top: 0.25rem;">
+                                Berkas <code>arsip_backup_2026.zip</code> melebihi batas ukuran maksimal 50 MB.
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-left: 1.75rem;">
+                        <l-button label="Coba Lagi" severity="danger" size="sm" icon="refresh-cw"></l-button>
+                        <l-button label="Buka Pengaturan Batas Ukuran" severity="ghost" size="sm"></l-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Alert dengan Tombol Aksi Mandiri --&gt;
+&lt;div class="c-alert c-alert-danger"&gt;
+    &lt;l-icon name="alert-triangle"&gt;&lt;/l-icon&gt;
+    &lt;div&gt;
+        &lt;div class="c-alert-title"&gt;Gagal Mengunggah Berkas&lt;/div&gt;
+        &lt;div class="c-alert-desc"&gt;Ukuran melebihi batas 50 MB.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;l-button label="Coba Lagi" severity="danger" size="sm"&gt;&lt;/l-button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Format Banner Sistem Penuh -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Format Banner Pengumuman Sistem</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <div style="background: rgba(255,45,32,0.12); border: 1px solid rgba(255,45,32,0.3); border-radius: 8px; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <l-badge value="BARU" severity="primary"></l-badge>
+                        <span style="font-size: 0.85rem; color: #f4f4f5;">Ngapakin Framework v1.1 resmi dirilis dengan mesin kompilasi Rikat CSS JIT 10x lebih cepat!</span>
+                    </div>
+                    <l-button label="Lihat Rilis" severity="primary" size="sm" icon="arrow-right" icon-pos="right"></l-button>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Banner Pengumuman Rilis --&gt;
+&lt;div class="banner-pengumuman"&gt;
+    &lt;l-badge value="BARU" severity="primary"&gt;&lt;/l-badge&gt;
+    &lt;span&gt;Ngapakin v1.1 telah dirilis!&lt;/span&gt;
+    &lt;l-button label="Lihat Rilis" size="sm"&gt;&lt;/l-button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/badge" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Badge &amp; Status</span></a>
+        <a href="/komponen/modal" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Modal &amp; Dialog</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

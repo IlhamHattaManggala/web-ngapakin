@@ -1,0 +1,95 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen notifikasi pop-up mengambang ala <code>&lt;p-toast&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-toast&gt;</code> dan fungsi bawaan <code>Rikat.toast.show()</code>. Memberikan umpan balik instan di pojok layar dengan dismiss otomatis dan animasi geser halus.</p>
+
+    <!-- 1. Varian Toast Statis Deklaratif -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Varian Tingkat Keparahan (&lt;l-toast&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; width: 100%; max-width: 440px;">
+                <l-toast severity="success" summary="Perubahan Tersimpan" detail="Konfigurasi basis data berhasil diperbarui." closable></l-toast>
+                <l-toast severity="info" summary="Informasi Sistem" detail="Cadangan data otomatis dijadwalkan pukul 00:00." closable></l-toast>
+                <l-toast severity="warning" summary="Peringatan Kuota" detail="Kapasitas penyimpanan tersisa kurang dari 15%." closable></l-toast>
+                <l-toast severity="danger" summary="Galat Autentikasi" detail="Sesi masuk telah kedaluwarsa, silakan login kembali." closable></l-toast>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Toast Deklaratif --&gt;
+&lt;l-toast severity="success" summary="Perubahan Tersimpan" detail="Konfigurasi berhasil disimpan." closable&gt;&lt;/l-toast&gt;
+&lt;l-toast severity="info" summary="Informasi Sistem" detail="Cadangan data dijadwalkan." closable&gt;&lt;/l-toast&gt;
+&lt;l-toast severity="danger" summary="Galat Autentikasi" detail="Sesi masuk telah kedaluwarsa." closable&gt;&lt;/l-toast&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Pemicu Toast Interaktif Layar Penuh -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Pemicu Toast Interaktif (Rikat.toast.show)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-button id="btnToastSuccess" label="Picu Toast Sukses" severity="success" icon="check-circle"></l-button>
+                <l-button id="btnToastInfo" label="Picu Toast Info" severity="info" icon="info"></l-button>
+                <l-button id="btnToastWarning" label="Picu Toast Peringatan" severity="warning" icon="alert-circle"></l-button>
+                <l-button id="btnToastDanger" label="Picu Toast Bahaya" severity="danger" icon="x-circle"></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Memicu Toast Mengambang Dinamis via JavaScript --&gt;
+&lt;l-button label="Picu Toast Sukses" onclick="showToast()"&gt;&lt;/l-button&gt;
+
+&lt;script&gt;
+function showToast() {
+    Rikat.toast.show({
+        severity: 'success',
+        summary: 'Aksi Berhasil',
+        detail: 'Data pelanggan baru telah didaftarkan ke server.',
+        life: 3000
+    });
+}
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/modal" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Modal &amp; Dialog</span></a>
+        <a href="/komponen/drawer" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Drawer &amp; Offcanvas</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const s = document.getElementById('btnToastSuccess');
+    const i = document.getElementById('btnToastInfo');
+    const w = document.getElementById('btnToastWarning');
+    const d = document.getElementById('btnToastDanger');
+
+    if (s) s.addEventListener('click', () => {
+        Rikat.toast.show({ severity: 'success', summary: 'Aksi Berhasil', detail: 'Data baru berhasil disimpan ke basis data.', life: 3500 });
+    });
+    if (i) i.addEventListener('click', () => {
+        Rikat.toast.show({ severity: 'info', summary: 'Pemberitahuan', detail: 'Sinkronisasi latar belakang sedang berlangsung.', life: 3500 });
+    });
+    if (w) w.addEventListener('click', () => {
+        Rikat.toast.show({ severity: 'warning', summary: 'Perhatian', detail: 'Koneksi jaringan mengalami fluktuasi latensi.', life: 3500 });
+    });
+    if (d) d.addEventListener('click', () => {
+        Rikat.toast.show({ severity: 'danger', summary: 'Galat Server', detail: 'Terjadi kegagalan saat mengeksekusi kueri.', life: 3500 });
+    });
+});
+</script>
+
+@rampung

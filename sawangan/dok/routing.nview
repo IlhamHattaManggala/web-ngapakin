@@ -1,0 +1,81 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Mendefinisikan Rute HTTP</h2>
+    <p>Semua rute web didefinisikan di dalam file <code>dalan/web.ngpk</code>. Router Larapak mendukung seluruh metode HTTP standar:</p>
+
+    <pre><code># dalan/web.ngpk
+
+# Rute HTTP GET dasar
+rute.get("/", "HomeController@index")
+rute.get("/tentang", "HomeController@tentang")
+
+# Rute dengan aksi Controller
+rute.get("/produk", "ProdukController@index")
+rute.post("/produk", "ProdukController@simpan")
+rute.put("/produk/{id}", "ProdukController@update")
+rute.delete("/produk/{id}", "ProdukController@hapus")</code></pre>
+
+    <h2>Parameter Rute Dinamis</h2>
+    <p>Anda dapat menangkap segmen URL menggunakan kurung kurawal <code>{nama_parameter}</code>:</p>
+
+    <pre><code># Menangkap parameter tunggal
+rute.get("/dok/{slug}", "HomeController@bab")
+
+# Menangkap beberapa parameter
+rute.get("/artikel/{kategori}/{id}", "ArtikelController@detail")</code></pre>
+
+    <p>Di dalam controller, parameter ini dapat dibaca langsung melalui objek <code>req.params</code>:</p>
+    <pre><code>gawe bab(req, res)
+    slug = req.params["slug"]
+    balekna res.view("dok/" + slug, ["slug": slug])
+rampung</code></pre>
+
+    <h2>HTTP Method Spoofing</h2>
+    <p>Karena formulir standar HTML tidak mendukung metode <code>PUT</code>, <code>PATCH</code>, atau <code>DELETE</code>, Larapak menyediakan fitur <em>Method Spoofing</em> melalui field tersembunyi <code>_method</code> atau header HTTP <code>X-HTTP-Method-Override</code>:</p>
+
+    <pre><code>&lt;form action="/produk/42" method="POST"&gt;
+    &#64;csrf
+    &lt;input type="hidden" name="_method" value="PUT"&gt;
+    
+    &lt;label&gt;Nama Produk:&lt;/label&gt;
+    &lt;input type="text" name="nama" value="Kaos Ngapak"&gt;
+    &lt;button type="submit"&gt;Perbarui Data&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+    <h2>Inspeksi Rute Melalui Baris Perintah (CLI)</h2>
+    <p>Anda dapat melihat daftar seluruh pemetaan rute HTTP, method, aksi controller, dan middleware yang aktif langsung di terminal:</p>
+
+    <pre><code># Dialek Ngapak Asli
+ngapakin dalan:daptar
+
+# Atau menggunakan alias standar
+ngapakin route:list</code></pre>
+
+    <p>Contoh keluaran di terminal:</p>
+    <pre><code>Method   | Path                           | Action                         | Middleware          
+------------------------------------------------------------------------------------------------
+GET      | /                              | HomeController@index           | None                
+GET      | /dok/{slug}                    | HomeController@bab             | None                
+POST     | /api/produk                    | ProdukController@simpan        | csrf                
+GET      | /api-studio                    | StudioController@index         | None</code></pre>
+
+    <div class="callout">
+        <strong>Eksplorasi Rute Interaktif:</strong> Buka <a href="/api-studio">Larapak Route &amp; API Studio (<code>/api-studio</code>)</a> untuk melihat seluruh daftar rute aplikasi, parameter, dan melakukan simulasi request secara langsung!
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/sintaksis" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Sintaksis Bahasa NgapakIn</span></a>
+        <a href="/dok/controller" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Controller &amp; Request</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

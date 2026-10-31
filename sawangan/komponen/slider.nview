@@ -1,0 +1,155 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen slider interaktif ala <code>&lt;p-slider&gt;</code> di PrimeNG untuk memilih nilai angka atau rentang dengan geseran halus (drag), mendukung batasan nilai, langkah bertahap (step), dan two-way binding data reaktif.</p>
+
+    <!-- 1. Varian Slider Standar & Nilai Awal -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Slider Rentang Standar (0 - 100)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 460px; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Nilai Default (35%)</span>
+                    </div>
+                    <l-slider value="35"></l-slider>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Volume Audio (70%)</span>
+                    </div>
+                    <l-slider value="70"></l-slider>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Slider Standar Nilai Awal 35% --&gt;
+&lt;l-slider value="35"&gt;&lt;/l-slider&gt;
+
+&lt;!-- Slider Volume 70% --&gt;
+&lt;l-slider value="70"&gt;&lt;/l-slider&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Slider Step Interval -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Slider Bertahap (Step Intervals)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 460px; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <div style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Langkah per 10 Unit (Step = 10)</span>
+                    </div>
+                    <l-slider value="40" step="10" min="0" max="100"></l-slider>
+                </div>
+                <div>
+                    <div style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Langkah per 25 Kuartal (Step = 25)</span>
+                    </div>
+                    <l-slider value="75" step="25" min="0" max="100"></l-slider>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Slider dengan kenaikan per 10 angka --&gt;
+&lt;l-slider value="40" step="10" min="0" max="100"&gt;&lt;/l-slider&gt;
+
+&lt;!-- Slider kuartal kelipatan 25 --&gt;
+&lt;l-slider value="75" step="25" min="0" max="100"&gt;&lt;/l-slider&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Slider Batasan Kustom (Min & Max) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Rentang Kustom (Min & Maks)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 460px; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Rentang Kapasitas Server (100 - 1.000 MB)</span>
+                    </div>
+                    <l-slider value="500" min="100" max="1000" step="50"></l-slider>
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                        <span>Status Nonaktif (Disabled)</span>
+                    </div>
+                    <l-slider value="60" disabled></l-slider>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Rentang khusus 100 s/d 1000 dengan step 50 --&gt;
+&lt;l-slider value="500" min="100" max="1000" step="50"&gt;&lt;/l-slider&gt;
+
+&lt;!-- Slider terkunci nonaktif --&gt;
+&lt;l-slider value="60" disabled&gt;&lt;/l-slider&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Interactive Live Binding Showcase -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Reaktif Two-Way Data Binding</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 500px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <span style="font-weight: 600; color: #f4f4f5; font-size: 0.95rem;">Tingkat Kecerahan Layar</span>
+                    <span id="sliderValueBadge" class="c-badge c-badge-primary">50%</span>
+                </div>
+                <l-slider id="interactiveSlider" value="50" min="0" max="100"></l-slider>
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem;">
+                    <span>0% (Redup)</span>
+                    <span>50% (Normal)</span>
+                    <span>100% (Maksimal)</span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Reaktif Two-Way Binding dengan State Rikat --&gt;
+&lt;l-slider [(value)]="kecerahanLayar" min="0" max="100"&gt;&lt;/l-slider&gt;
+
+&lt;!-- Terbaca langsung di elemen teks atau badge --&gt;
+&lt;span class="c-badge c-badge-primary"&gt;{{ kecerahanLayar }}%&lt;/span&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/empty-state" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tampilan Data Kosong</span></a>
+        <a href="/komponen/rating" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Rating Bintang</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sl = document.getElementById('interactiveSlider');
+    const badge = document.getElementById('sliderValueBadge');
+    if (sl && badge) {
+        sl.addEventListener('input', (e) => {
+            badge.textContent = e.detail.value + '%';
+        });
+    }
+});
+</script>
+
+@rampung
+

@@ -1,0 +1,68 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Pilihan Metode Instalasi</h2>
+    <p>Larapak menyediakan beberapa metode instalasi fleksibel yang disesuaikan dengan lingkungan pengembangan Anda.</p>
+
+    <h3>Metode 1: Standalone Windows Binary (Tanpa Butuh Python)</h3>
+    <p>Bagi pengguna sistem operasi Windows yang menginginkan kemudahan tanpa perlu menginstal Python, unduh langsung file biner mandiri resmi dari GitHub Releases:</p>
+    
+    <p>
+        <a href="https://github.com/IlhamHattaManggala/ngapakin/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.05rem;">
+            &DownArrowBar; Unduh ngapakin.exe (Rilis Resmi v1.1.0 - 12.6 MB)
+        </a>
+    </p>
+    
+    <p>Setelah mengunduh, letakkan <code>ngapakin.exe</code> di folder yang Anda inginkan (atau tambahkan ke variabel sistem <code>PATH</code>), lalu buka terminal PowerShell atau Command Prompt:</p>
+    
+    <pre><code># 1. Membuat proyek baru (mendukung dialek Ngapak atau standar)
+ngapakin.exe anyar toko-online --bahasa=ngapak
+# Atau alias standar: ngapakin.exe new toko-online --bahasa=ngapak
+
+# 2. Masuk ke direktori proyek
+cd toko-online
+
+# 3. Jalankan server lokal
+ngapakin.exe ladeni 8000
+# Atau alias standar: ngapakin.exe serve 8000</code></pre>
+
+    <h3>Metode 2: Menggunakan pip (Ekosistem Python)</h3>
+    <p>Bagi pengembang yang sudah memiliki Python 3.8+ di komputernya, pasang Larapak langsung melalui registry resmi PyPI:</p>
+    
+    <pre><code>pip install ngapakin</code></pre>
+
+    <p>Setelah instalasi selesai, perintah global <code>ngapakin</code> langsung tersedia secara sistem:</p>
+    <pre><code>ngapakin new portal-berita --bahasa=ngapak
+cd portal-berita
+ngapakin serve 8000</code></pre>
+
+    <h3>Metode 3: Menggunakan Docker &amp; Docker Compose</h3>
+    <p>Untuk server Linux VPS atau developer yang menggunakan container terisolasi, jalankan proyek langsung dengan Docker Compose:</p>
+    
+    <pre><code># Unduh citra container resmi dari Docker Hub
+docker pull ilhamhatta/larapak:1.1.0
+docker pull ilhamhatta/larapak:latest
+
+# Jalankan seluruh container web dan background service
+docker compose up -d</code></pre>
+
+    <div class="callout">
+        <strong>Tips Cepat:</strong> Setelah server berjalan, buka peramban web di alamat <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> untuk melihat aplikasi aktif.
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/changelog" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Catatan Rilis</span></a>
+        <a href="/dok/struktur" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Struktur Direktori Proyek</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

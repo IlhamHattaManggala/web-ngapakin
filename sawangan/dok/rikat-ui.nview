@@ -1,0 +1,54 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Komponen Web Reaktif Mandiri (Rikat UI)</h2>
+    <p>Rikat UI adalah pustaka komponen web reaktif ultra-ringan (hanya <strong>14.7 KB</strong> tanpa dependensi) yang disertakan langsung di <code>njobo/js/rikat.js</code>.</p>
+
+    <p>Rikat UI memungkinkan Anda membangun antarmuka interaktif yang reaktif tanpa memerlukan framework raksasa seperti React atau Vue.</p>
+
+    <h2>Sintaksis Deklaratif</h2>
+    <ul>
+        <li><code>[(model)]="namaVariabel"</code>: Two-way data binding dua arah otomatis antara input formulir dan status komponen.</li>
+        <li><code>(click)="namaFungsi()"</code>: Event binding untuk menangani klik mouse, perubahan form, atau input keyboard.</li>
+        <li><code>[disabled]="kondisi"</code>: Binding atribut properti HTML reaktif.</li>
+    </ul>
+
+    <h2>Komponen Enterprise Siap Pakai</h2>
+
+    <h3>1. Tabel Data Cerdas (<code>&lt;l-table&gt;</code>)</h3>
+    <p>Menyediakan pagination, sorting kolom, dan pencarian cepat secara otomatis di sisi klien:</p>
+    <pre><code>&lt;l-table 
+    [src]="'/api/pengguna'" 
+    columns="id:ID,nama:Nama Lengkap,email:Email Pengguna,status:Status" 
+    per-page="10" 
+    searchable="true"&gt;
+&lt;/l-table&gt;</code></pre>
+
+    <h3>2. Modal Dialog Interaktif (<code>&lt;l-dialog&gt;</code>)</h3>
+    <p>Komponen modal yang mudah dipicu tanpa menulis JavaScript manual:</p>
+    <pre><code>&lt;button (click)="bukaModal()" class="btn-primary"&gt;Buka Modal&lt;/button&gt;
+
+&lt;l-dialog id="modalKonfirmasi" title="Konfirmasi Penghapusan"&gt;
+    &lt;p&gt;Apakah Anda yakin ingin menghapus catatan ini?&lt;/p&gt;
+    &lt;div class="flex justify-end gap-2 mt-4"&gt;
+        &lt;button class="btn-batal" (click)="tutupModal()"&gt;Batal&lt;/button&gt;
+        &lt;button class="btn-bahaya" (click)="eksekusiHapus()"&gt;Ya, Hapus&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/l-dialog&gt;</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/rikat-css" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Rikat CSS Engine (JIT)</span></a>
+        <a href="/dok/docker" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Deployment &amp; Docker</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

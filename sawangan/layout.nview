@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }} - Dokumentasi Resmi Larapak</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.png">
+
+    <link rel="alternate icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="/css/rikat.css?v=1.1.0-fix6">
+
+    <link rel="stylesheet" href="/css/docs.css?v=1.1.0-fix18">
+
+    <script src="/js/rikat.js?v=1.1.0-fix18"></script>
+
+</head>
+
+<body>
+
+
+
+    <!-- Header / Navbar Atas -->
+
+    <header class="topbar">
+
+        <a href="/" class="brand-container">
+
+            <img src="/images/logo.png" alt="Larapak" class="brand-logo">
+
+            <span class="brand-title">Larapak</span>
+
+        </a>
+
+
+
+        <div class="search-box-wrapper">
+
+            <l-icon name="search" size="16" class="search-icon"></l-icon>
+
+            <input type="text" class="search-box" placeholder="Cari dokumentasi Larapak..." id="searchDocs" autocomplete="off" spellcheck="false">
+
+            <span class="search-shortcut">Ctrl K</span>
+
+        </div>
+
+
+
+        <div class="nav-actions">
+
+            <span class="version-badge">
+
+                Version 1.1.0
+
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                </svg>
+
+            </span>
+
+            <a href="https://github.com/IlhamHattaManggala/ngapakin" target="_blank" rel="noopener noreferrer" class="nav-link" title="Repositori GitHub Resmi Larapak">
+
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+
+                </svg>
+
+                <span>GitHub</span>
+
+            </a>
+
+            <a href="/api-studio" class="nav-btn-studio">
+
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                    <polyline points="4 17 10 11 4 5"></polyline>
+
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+
+                </svg>
+
+                <span>Route Studio</span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Main Container -->
+
+    <div class="layout-container">
+
+                <!-- Sidebar Navigasi Kiri (Menggunakan <l-tree> Rikat) -->
+        <aside class="sidebar" id="sidebarNav">
+            <l-tree id="sidebarTree" class="sidebar-tree">
+                <!-- 1. Prolog -->
+                <l-tree-node label="Prolog" icon="book-open" expanded>
+                    <l-tree-node label="Catatan Rilis (Changelog)" icon="file-text" href="/dok/changelog"></l-tree-node>
+                </l-tree-node>
+
+                <!-- 2. Memulai -->
+                <l-tree-node label="Memulai" icon="zap" expanded>
+                    <l-tree-node label="Instalasi Cepat" icon="download" href="/dok/instalasi"></l-tree-node>
+                    <l-tree-node label="Struktur Direktori" icon="folder" href="/dok/struktur"></l-tree-node>
+                    <l-tree-node label="Konfigurasi Lingkungan" icon="settings" href="/dok/konfigurasi"></l-tree-node>
+                </l-tree-node>
+
+                <!-- 3. Inti Framework -->
+                <l-tree-node label="Dasar Framework" icon="layers" expanded>
+                    <l-tree-node label="Sintaksis NgapakIn" icon="code" href="/dok/sintaksis"></l-tree-node>
+                    <l-tree-node label="Routing & Penanganan URL" icon="share-2" href="/dok/routing"></l-tree-node>
+                    <l-tree-node label="Controller & Request" icon="server" href="/dok/controller"></l-tree-node>
+                    <l-tree-node label="Middleware & CSRF" icon="shield" href="/dok/middleware"></l-tree-node>
+                    <l-tree-node label="Sistem Template Sawangan" icon="layout" href="/dok/template"></l-tree-node>
+                </l-tree-node>
+
+                <!-- 4. Database & Model -->
+                <l-tree-node label="Database & Model" icon="database" expanded>
+                    <l-tree-node label="Migrasi Skema Database" icon="refresh-cw" href="/dok/migrasi"></l-tree-node>
+                    <l-tree-node label="Database & Model ORM" icon="database" href="/dok/database"></l-tree-node>
+                </l-tree-node>
+
+                <!-- 5. Frontend Rikat -->
+                <l-tree-node label="Frontend Modern (Rikat)" icon="box" expanded>
+                    <l-tree-node label="Rikat CSS Engine (JIT)" icon="zap" href="/dok/rikat-css"></l-tree-node>
+                    <l-tree-node label="Rikat UI Reaktif" icon="grid" href="/dok/rikat-ui"></l-tree-node>
+
+                    <!-- Katalog 34 Komponen Berkelompok -->
+                    <l-tree-node label="Katalog Komponen (34)" icon="folder" expanded>
+                        <l-tree-node label="Galeri Semua Komponen" icon="grid" href="/komponen"></l-tree-node>
+                        <l-tree-node label="Koleksi Ikon (<l-icon>)" icon="star" href="/komponen/ikon"></l-tree-node>
+
+                        <!-- Sub-kategori: Form & Masukan -->
+                        <l-tree-node label="Form & Masukan" icon="folder" expanded>
+                            <l-tree-node label="Tombol (Buttons)" icon="square" href="/komponen/tombol"></l-tree-node>
+                            <l-tree-node label="Formulir & Input" icon="edit" href="/komponen/input"></l-tree-node>
+                            <l-tree-node label="Dropdown & Pilihan" icon="chevron-down" href="/komponen/dropdown"></l-tree-node>
+                            <l-tree-node label="Checkbox, Radio & Switch" icon="check-square" href="/komponen/pilihan"></l-tree-node>
+                            <l-tree-node label="Slider Rentang Nilai" icon="sliders" href="/komponen/slider"></l-tree-node>
+                            <l-tree-node label="Rating Bintang" icon="star" href="/komponen/rating"></l-tree-node>
+                            <l-tree-node label="Segmented Control" icon="columns" href="/komponen/segmented"></l-tree-node>
+                            <l-tree-node label="Input OTP / PIN" icon="lock" href="/komponen/otp"></l-tree-node>
+                            <l-tree-node label="Pemilih Warna" icon="droplet" href="/komponen/color-picker"></l-tree-node>
+                        </l-tree-node>
+
+                        <!-- Sub-kategori: Data & Tampilan -->
+                        <l-tree-node label="Data & Tampilan" icon="folder">
+                            <l-tree-node label="Kartu & Panel" icon="layout" href="/komponen/kartu"></l-tree-node>
+                            <l-tree-node label="Tabel Data" icon="grid" href="/komponen/tabel"></l-tree-node>
+                            <l-tree-node label="Modal & Dialog" icon="maximize" href="/komponen/modal"></l-tree-node>
+                            <l-tree-node label="Toast & Pop-up" icon="message-square" href="/komponen/toast"></l-tree-node>
+                            <l-tree-node label="Drawer & Offcanvas" icon="sidebar" href="/komponen/drawer"></l-tree-node>
+                            <l-tree-node label="Akordeon & FAQ" icon="list" href="/komponen/akordeon"></l-tree-node>
+                            <l-tree-node label="Tooltip & Popover" icon="info" href="/komponen/tooltip"></l-tree-node>
+                        </l-tree-node>
+
+                        <!-- Sub-kategori: Navigasi & Alur -->
+                        <l-tree-node label="Navigasi & Alur" icon="folder">
+                            <l-tree-node label="Paginasi Data" icon="more-horizontal" href="/komponen/pagination"></l-tree-node>
+                            <l-tree-node label="Navigasi Breadcrumb" icon="chevron-right" href="/komponen/breadcrumb"></l-tree-node>
+                            <l-tree-node label="Tab & Segmen" icon="folder" href="/komponen/navigasi"></l-tree-node>
+                            <l-tree-node label="Stepper Multi-Langkah" icon="arrow-right" href="/komponen/stepper"></l-tree-node>
+                            <l-tree-node label="Timeline Aktivitas" icon="clock" href="/komponen/timeline"></l-tree-node>
+                            <l-tree-node label="Tree Berkas Hierarki" icon="folder" href="/komponen/tree"></l-tree-node>
+                        </l-tree-node>
+
+                        <!-- Sub-kategori: Indikator & Media -->
+                        <l-tree-node label="Indikator & Media" icon="folder">
+                            <l-tree-node label="Badge & Status" icon="award" href="/komponen/badge"></l-tree-node>
+                            <l-tree-node label="Alert & Notifikasi" icon="alert-circle" href="/komponen/alert"></l-tree-node>
+                            <l-tree-node label="Avatar & Pengguna" icon="user" href="/komponen/avatar"></l-tree-node>
+                            <l-tree-node label="Upload Berkas" icon="upload" href="/komponen/unggah"></l-tree-node>
+                            <l-tree-node label="Progres & Spinner" icon="loader" href="/komponen/progress"></l-tree-node>
+                            <l-tree-node label="Skeleton Shimmer" icon="layers" href="/komponen/skeleton"></l-tree-node>
+                            <l-tree-node label="Statistik & KPI" icon="trending-up" href="/komponen/statistik"></l-tree-node>
+                            <l-tree-node label="Tampilan Kosong" icon="inbox" href="/komponen/empty-state"></l-tree-node>
+                            <l-tree-node label="Divider Pemisah" icon="minus" href="/komponen/divider"></l-tree-node>
+                            <l-tree-node label="Chip & Tag" icon="tag" href="/komponen/chip"></l-tree-node>
+                            <l-tree-node label="Kbd Shortcut" icon="command" href="/komponen/kbd"></l-tree-node>
+                        </l-tree-node>
+                    </l-tree-node>
+                </l-tree-node>
+
+                <!-- 6. Deployment & Alat -->
+                <l-tree-node label="Deployment & Alat" icon="terminal">
+                    <l-tree-node label="Deployment & Docker" icon="server" href="/dok/docker"></l-tree-node>
+                    <l-tree-node label="Route & API Studio" icon="zap" href="/api-studio"></l-tree-node>
+                    <l-tree-node label="Referensi Larapak CLI" icon="terminal" href="/dok/cli"></l-tree-node>
+                </l-tree-node>
+            </l-tree>
+        </aside>
+
+        <!-- Area Konten Utama -->
+
+        <main class="main-wrapper">
+
+            @yield "content"
+
+        </main>
+
+    </div>
+
+
+
+    <script>
+        // Global Copy Code Handler for Component Previews
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('.btn-copy-code');
+            if (!btn) return;
+            const card = btn.closest('.component-card');
+            if (!card) return;
+            const codeEl = card.querySelector('pre code');
+            if (!codeEl) return;
+            
+            navigator.clipboard.writeText(codeEl.innerText).then(() => {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = `<l-icon name="check" size="13" color="#34d399"></l-icon> <span>Tersalin!</span>`;
+                btn.style.color = '#34d399';
+                btn.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin:', err);
+            });
+        });
+
+        // Quick search shortcut (Ctrl+K atau Cmd+K)
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchDocs');
+                if (searchInput) searchInput.focus();
+            }
+        });
+
+        // Sidebar Tree live filter
+        const searchInput = document.getElementById('searchDocs');
+        if (searchInput) {
+            searchInput.addEventListener('input', e => {
+                const term = e.target.value.toLowerCase().trim();
+                const tree = document.getElementById('sidebarTree');
+                if (!tree) return;
+                const items = tree.querySelectorAll('.c-tree-item');
+                
+                if (!term) {
+                    items.forEach(it => it.style.display = '');
+                    return;
+                }
+
+                items.forEach(it => {
+                    const row = it.querySelector('.c-tree-row');
+                    const labelText = row ? row.textContent.toLowerCase() : '';
+                    const branch = it.querySelector('.c-tree-branch');
+                    const branchMatches = branch && branch.textContent.toLowerCase().includes(term);
+
+                    if (labelText.includes(term) || branchMatches) {
+                        it.style.display = '';
+                        if (branch && branchMatches) {
+                            branch.style.display = 'block';
+                            const chev = row ? row.querySelector('l-icon[name="chevron-down"]') : null;
+                            if (chev) chev.style.transform = 'rotate(0deg)';
+                        }
+                    } else {
+                        it.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Preservasi Posisi Scroll Sidebar saat Navigasi Antar-Halaman
+        const sidebar = document.getElementById('sidebarNav');
+        if (sidebar) {
+            const STORAGE_KEY = 'larapak_sidebar_scroll_pos';
+            
+            const saveScroll = () => {
+                try {
+                    sessionStorage.setItem(STORAGE_KEY, String(sidebar.scrollTop));
+                } catch(e) {}
+            };
+
+            sidebar.addEventListener('click', (e) => {
+                if (e.target.closest('a')) saveScroll();
+            });
+            window.addEventListener('beforeunload', saveScroll);
+
+            const restoreScroll = () => {
+                try {
+                    const saved = sessionStorage.getItem(STORAGE_KEY);
+                    if (saved !== null) {
+                        sidebar.scrollTop = parseInt(saved, 10);
+                    }
+                    const activeRow = sidebar.querySelector('.c-tree-row.active');
+                    if (activeRow) {
+                        const rect = activeRow.getBoundingClientRect();
+                        const sRect = sidebar.getBoundingClientRect();
+                        if (rect.top < sRect.top || rect.bottom > sRect.bottom) {
+                            activeRow.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+                        }
+                    }
+                } catch(e) {}
+            };
+
+            restoreScroll();
+            setTimeout(restoreScroll, 60);
+            setTimeout(restoreScroll, 200);
+            document.addEventListener('rikat-tree-ready', restoreScroll);
+        }
+
+    </script>
+
+</body>
+
+</html>

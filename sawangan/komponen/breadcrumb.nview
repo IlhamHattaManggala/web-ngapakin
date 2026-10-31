@@ -1,0 +1,68 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen penunjuk posisi hierarki navigasi ala <code>&lt;p-breadcrumb&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-breadcrumb&gt;</code>. Menyajikan jejak navigasi terstruktur dengan separator ikon otomatis dan tautan yang ramah SEO.</p>
+
+    <!-- 1. Breadcrumb Berikon dengan Atribut items -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Breadcrumb Model Data (&lt;l-breadcrumb items="..."&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <l-breadcrumb items='[{"label":"Beranda","url":"/","icon":"home"},{"label":"Komponen UI","url":"/komponen","icon":"layers"},{"label":"Breadcrumb Navigasi"}]'></l-breadcrumb>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Breadcrumb Deklaratif Model --&gt;
+&lt;l-breadcrumb items='[
+    {"label": "Beranda", "url": "/", "icon": "home"},
+    {"label": "Komponen UI", "url": "/komponen", "icon": "layers"},
+    {"label": "Breadcrumb Navigasi"}
+]'&gt;&lt;/l-breadcrumb&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Breadcrumb dengan Elemen Anak Langsung -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Breadcrumb Beranak Tautan HTML Langsung</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%;">
+                <l-breadcrumb>
+                    <a href="/" style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--text-muted); text-decoration: none;"><l-icon name="grid" size="14"></l-icon> <span>Dasbor</span></a>
+                    <a href="/dok" style="color: var(--text-muted); text-decoration: none;">Dokumentasi</a>
+                    <a href="/dok/arsitektur" style="color: var(--text-muted); text-decoration: none;">Arsitektur</a>
+                    <span style="color: #f4f4f5; font-weight: 600;">Pangatur (Controller)</span>
+                </l-breadcrumb>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Breadcrumb dengan Anak Tag Langsung --&gt;
+&lt;l-breadcrumb&gt;
+    &lt;a href="/"&gt;&lt;l-icon name="grid"&gt;&lt;/l-icon&gt; Dasbor&lt;/a&gt;
+    &lt;a href="/dok"&gt;Dokumentasi&lt;/a&gt;
+    &lt;a href="/dok/arsitektur"&gt;Arsitektur&lt;/a&gt;
+    &lt;span&gt;Pangatur (Controller)&lt;/span&gt;
+&lt;/l-breadcrumb&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/pagination" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Paginasi Data</span></a>
+        <a href="/komponen/navigasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tab &amp; Segmen</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

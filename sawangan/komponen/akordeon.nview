@@ -1,0 +1,54 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Panel lipat ekspansif deklaratif persis seperti <code>&lt;p-accordion&gt;</code> di PrimeNG dengan transisi chevron otomatis.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Akordeon Deklaratif Interaktif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <l-accordion>
+        <l-accordion-tab header="Apa itu Framework Larapak?" open>
+            Larapak adalah framework web modern berbasis Python dengan sintaksis ekspresif dialek Ngapak, arsitektur MVC bersih, dan performa WSGI ultra cepat.
+        </l-accordion-tab>
+        <l-accordion-tab header="Bagaimana cara kerja Rikat UI?">
+            Rikat UI menyediakan komponen deklaratif mirip PrimeNG dengan zero-dependencies, Web Components standar, dan reactivity instan.
+        </l-accordion-tab>
+        <l-accordion-tab header="Apakah Larapak siap digunakan di produksi?">
+            Ya! Larapak dilengkapi build Docker multi-stage resmi, server WSGI siap produksi, dan dukungan deployment VPS penuh.
+        </l-accordion-tab>
+    </l-accordion>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Declarative Accordion --&gt;
+&lt;l-accordion&gt;
+    &lt;l-accordion-tab header="Apa itu Framework Larapak?" open&gt;
+        Larapak adalah framework web modern dialek Ngapak.
+    &lt;/l-accordion-tab&gt;
+    &lt;l-accordion-tab header="Bagaimana cara kerja Rikat UI?"&gt;
+        Rikat UI menyediakan komponen deklaratif mirip PrimeNG.
+    &lt;/l-accordion-tab&gt;
+    &lt;l-accordion-tab header="Dukungan Produksi"&gt;
+        Dilengkapi Docker dan server WSGI siap produksi.
+    &lt;/l-accordion-tab&gt;
+&lt;/l-accordion&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/avatar" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Avatar & Pengguna</span></a>
+        <a href="/komponen/unggah" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Upload Berkas</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

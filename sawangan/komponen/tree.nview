@@ -1,0 +1,106 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen penjelajah struktur data bertingkat (hierarki) ala <code>&lt;p-tree&gt;</code> di PrimeNG. Digunakan untuk navigasi pohon direktori berkas, struktur organisasi, atau daftar kategori dengan interaksi buka-tutup (expand/collapse) halus.</p>
+
+    <!-- 1. Pohon Direktori Berkas Standar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Struktur Direktori Proyek Ngapakin</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 460px; padding: 1rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <l-tree>
+                    <l-tree-node label="proyek-ngapakin" icon="folder" expanded>
+                        <l-tree-node label="aplikasi" icon="folder" expanded>
+                            <l-tree-node label="Pangatur" icon="folder" expanded>
+                                <l-tree-node label="HomeController.ngpk" icon="file-text"></l-tree-node>
+                                <l-tree-node label="UserController.ngpk" icon="file-text"></l-tree-node>
+                            </l-tree-node>
+                            <l-tree-node label="Model" icon="folder">
+                                <l-tree-node label="Pengguna.ngpk" icon="file-text"></l-tree-node>
+                            </l-tree-node>
+                        </l-tree-node>
+                        <l-tree-node label="sawangan" icon="folder" expanded>
+                            <l-tree-node label="layout.nview" icon="file-code"></l-tree-node>
+                            <l-tree-node label="beranda.nview" icon="file-code"></l-tree-node>
+                        </l-tree-node>
+                        <l-tree-node label="konfig" icon="folder">
+                            <l-tree-node label="basisdata.json" icon="file"></l-tree-node>
+                        </l-tree-node>
+                        <l-tree-node label=".env" icon="lock"></l-tree-node>
+                        <l-tree-node label="README.md" icon="book-open"></l-tree-node>
+                    </l-tree-node>
+                </l-tree>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Pohon Direktori Bertingkat (Tree) --&gt;
+&lt;l-tree&gt;
+    &lt;l-tree-node label="proyek-ngapakin" icon="folder" expanded&gt;
+        &lt;l-tree-node label="aplikasi" icon="folder" expanded&gt;
+            &lt;l-tree-node label="Pangatur" icon="folder"&gt;
+                &lt;l-tree-node label="HomeController.ngpk" icon="file-text"&gt;&lt;/l-tree-node&gt;
+            &lt;/l-tree-node&gt;
+        &lt;/l-tree-node&gt;
+        &lt;l-tree-node label="sawangan" icon="folder"&gt;
+            &lt;l-tree-node label="layout.nview" icon="file-code"&gt;&lt;/l-tree-node&gt;
+        &lt;/l-tree-node&gt;
+        &lt;l-tree-node label="README.md" icon="book-open"&gt;&lt;/l-tree-node&gt;
+    &lt;/l-tree-node&gt;
+&lt;/l-tree&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Hierarki Hak Akses & Modul -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Hierarki Hak Akses & Peran (Role RBAC)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 460px; padding: 1rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <l-tree>
+                    <l-tree-node label="Super Admin (Akses Penuh)" icon="shield" expanded>
+                        <l-tree-node label="Manajemen Pengguna" icon="users" expanded>
+                            <l-tree-node label="Tambah Pengguna Baru" icon="check"></l-tree-node>
+                            <l-tree-node label="Ubah Peran &amp; Hak Akses" icon="check"></l-tree-node>
+                            <l-tree-node label="Hapus Akun Pengguna" icon="check"></l-tree-node>
+                        </l-tree-node>
+                        <l-tree-node label="Manajemen Keuangan" icon="database">
+                            <l-tree-node label="Laporan Transaksi" icon="check"></l-tree-node>
+                            <l-tree-node label="Pencairan Dana Vendor" icon="check"></l-tree-node>
+                        </l-tree-node>
+                    </l-tree-node>
+                </l-tree>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Hierarki Peran Pengguna --&gt;
+&lt;l-tree&gt;
+    &lt;l-tree-node label="Super Admin" icon="shield" expanded&gt;
+        &lt;l-tree-node label="Manajemen Pengguna" icon="users"&gt;
+            &lt;l-tree-node label="Tambah Pengguna" icon="check"&gt;&lt;/l-tree-node&gt;
+        &lt;/l-tree-node&gt;
+    &lt;/l-tree-node&gt;
+&lt;/l-tree&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/color-picker" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Pemilih Warna</span></a>
+        <a href="/komponen/skeleton" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Skeleton Shimmer</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung
+

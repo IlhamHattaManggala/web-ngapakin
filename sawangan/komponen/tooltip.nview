@@ -1,0 +1,66 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Petunjuk kontekstual ringkas deklaratif ala <code>pTooltip</code> di PrimeNG yang otomatis melayang saat kursor mendekati elemen atau saat elemen menerima fokus keyboard.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Tooltip Deklaratif 4 Arah Posisi</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <l-button label="Tooltip Atas" severity="primary" pTooltip="Pintas keyboard: Ctrl+K" tooltipPosition="top"></l-button>
+            <l-button label="Tooltip Bawah" severity="secondary" pTooltip="100% Dukungan Dialek Ngapak" tooltipPosition="bottom"></l-button>
+            <l-button label="Tooltip Kiri" severity="outline" pTooltip="Simpan perubahan data" tooltipPosition="left"></l-button>
+            <l-button label="Tooltip Kanan" severity="ghost" pTooltip="Lihat riwayat revisi" tooltipPosition="right"></l-button>
+        </div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Directive Tooltip (pTooltip) --&gt;
+&lt;l-button label="Tooltip Atas" pTooltip="Pintas keyboard: Ctrl+K" tooltipPosition="top"&gt;&lt;/l-button&gt;
+&lt;l-button label="Tooltip Bawah" pTooltip="100% Dukungan Dialek Ngapak" tooltipPosition="bottom"&gt;&lt;/l-button&gt;
+&lt;l-button label="Tooltip Kiri" pTooltip="Simpan perubahan data" tooltipPosition="left"&gt;&lt;/l-button&gt;
+&lt;l-button label="Tooltip Kanan" pTooltip="Lihat riwayat revisi" tooltipPosition="right"&gt;&lt;/l-button&gt;</code></pre>
+</div>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Tooltip Tag Komponen & Badge</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+            <l-tooltip text="Versi rilis stabil terbaru Larapak" position="top">
+                <l-badge value="v1.1.0 Stable" severity="success"></l-badge>
+            </l-tooltip>
+            <l-tooltip text="Menunggu verifikasi admin" position="top">
+                <l-badge value="Pending" severity="warning"></l-badge>
+            </l-tooltip>
+            <span style="font-size: 0.875rem; color: var(--text-muted); cursor: pointer;" pTooltip="Klik untuk membaca dokumentasi arsitektur" tooltipPosition="top">
+                <l-icon name="info" size="15" style="margin-right: 4px;"></l-icon> Arahkan ke teks ini
+            </span>
+        </div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Wrapper &lt;l-tooltip&gt; atau Atribut pTooltip pada Elemen Apa Pun --&gt;
+&lt;l-tooltip text="Versi rilis stabil terbaru Larapak" position="top"&gt;
+    &lt;l-badge value="v1.1.0 Stable" severity="success"&gt;&lt;/l-badge&gt;
+&lt;/l-tooltip&gt;
+
+&lt;span pTooltip="Info panduan"&gt;Arahkan kursor ke sini&lt;/span&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/progress" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Progress & Spinner</span></a>
+        <a href="/komponen/statistik" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Statistik & Metrik</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

@@ -1,0 +1,87 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen pemilih modern deklaratif ala <code>&lt;p-checkbox&gt;</code>, <code>&lt;p-radioButton&gt;</code>, dan <code>&lt;p-inputSwitch&gt;</code> di PrimeNG. Menggunakan tag kustom <code>&lt;l-checkbox&gt;</code>, <code>&lt;l-radio&gt;</code>, dan <code>&lt;l-switch&gt;</code> untuk kontrol formulir tanpa div wrapper berulang.</p>
+
+    <!-- 1. Checkbox Deklaratif -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kotak Centang Deklaratif (&lt;l-checkbox&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <l-checkbox label="Saya menyetujui Syarat &amp; Ketentuan Layanan" checked></l-checkbox>
+                <l-checkbox label="Langganan Nawala Mingguan (Newsletter)"></l-checkbox>
+                <l-checkbox label="Warna Sukses" severity="success" checked></l-checkbox>
+                <l-checkbox label="Opsi Dinonaktifkan (Disabled)" disabled></l-checkbox>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Checkbox --&gt;
+&lt;l-checkbox label="Saya menyetujui Syarat &amp; Ketentuan" checked&gt;&lt;/l-checkbox&gt;
+&lt;l-checkbox label="Langganan Nawala Mingguan"&gt;&lt;/l-checkbox&gt;
+&lt;l-checkbox label="Warna Sukses" severity="success" checked&gt;&lt;/l-checkbox&gt;
+&lt;l-checkbox label="Opsi Terkunci" disabled&gt;&lt;/l-checkbox&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Radio Button Grup Eksklusif -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Grup Tombol Radio Eksklusif (&lt;l-radio&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Pilih Frekuensi Pencadangan Data:</div>
+                <l-radio name="backupFreq" label="Setiap Hari (Rekomendasi Produksi)" value="daily" checked></l-radio>
+                <l-radio name="backupFreq" label="Setiap Minggu" value="weekly"></l-radio>
+                <l-radio name="backupFreq" label="Setiap Bulan" value="monthly"></l-radio>
+                <l-radio name="backupFreq" label="Pencadangan Kustom (Khusus Enterprise)" value="custom" disabled></l-radio>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Radio Buttons --&gt;
+&lt;l-radio name="backupFreq" label="Setiap Hari" value="daily" checked&gt;&lt;/l-radio&gt;
+&lt;l-radio name="backupFreq" label="Setiap Minggu" value="weekly"&gt;&lt;/l-radio&gt;
+&lt;l-radio name="backupFreq" label="Setiap Bulan" value="monthly"&gt;&lt;/l-radio&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Toggle Switch Reaktif -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Toggle Switch Reaktif (&lt;l-switch&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 400px;">
+                <l-switch label="Aktifkan Mode Gelap (Dark Mode)" checked></l-switch>
+                <l-switch label="Notifikasi Email Otomatis"></l-switch>
+                <l-switch label="Fitur Beta Eksperimental" disabled></l-switch>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Toggle Switch Deklaratif ala PrimeNG --&gt;
+&lt;l-switch label="Mode Gelap" [(model)]="darkMode" checked&gt;&lt;/l-switch&gt;
+&lt;l-switch label="Notifikasi Email" [(model)]="emailNotif"&gt;&lt;/l-switch&gt;
+&lt;l-switch label="Fitur Beta" disabled&gt;&lt;/l-switch&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/dropdown" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Dropdown &amp; Pilihan</span></a>
+        <a href="/komponen/kartu" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Kartu &amp; Panel</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

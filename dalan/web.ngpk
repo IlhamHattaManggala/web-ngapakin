@@ -1,0 +1,6 @@
+# Rute Web Dokumentasi Larapak
+
+rute.get("/", "HomeController@index")
+rute.get("/dok/{slug}", "HomeController@bab")
+rute.get("/komponen", "HomeController@komponen_semua")
+rute.get("/komponen/{slug}", "HomeController@komponen_detail")

@@ -1,0 +1,135 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen kontainer konten deklaratif ala <code>&lt;p-card&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-card&gt;</code>. Menyajikan informasi terstruktur, metrik bisnis (KPI), kartu media, profil, dan grup konfigurasi dengan pembagian header, subheader, dan footer yang rapi.</p>
+
+    <!-- 1. Kartu Deklaratif Standar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kartu Deklaratif Ringkasan & Profil (p-card Style)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; width: 100%;">
+                <l-card header="Ringkasan Analitik" subheader="Data 30 Hari Terakhir">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0; line-height: 1.5;">Total transaksi tercatat mencapai 24.850 dengan tingkat keberhasilan 99.8% tanpa kendala server.</p>
+                    <l-button label="Lihat Laporan" icon="arrow-right" icon-pos="right" severity="primary" size="sm"></l-button>
+                </l-card>
+
+                <l-card header="Pengembang Lead" subheader="Arsitek Ngapakin Framework">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <l-avatar label="IH" shape="circle" size="lg"></l-avatar>
+                        <div>
+                            <div style="font-weight: 700; color: #ffffff; font-size: 0.95rem;">Ilham Hatta Manggala</div>
+                            <div style="font-size: 0.75rem; color: var(--text-dim);">Purwokerto, Jawa Tengah</div>
+                        </div>
+                    </div>
+                    <l-button label="Profil GitHub" icon="external-link" severity="outline" size="sm"></l-button>
+                </l-card>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Kartu Deklaratif Header &amp; Subheader --&gt;
+&lt;l-card header="Ringkasan Analitik" subheader="Data 30 Hari Terakhir"&gt;
+    &lt;p&gt;Total transaksi tercatat mencapai 24.850.&lt;/p&gt;
+    &lt;l-button label="Lihat Laporan" size="sm"&gt;&lt;/l-button&gt;
+&lt;/l-card&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Kartu Metrik KPI Dasbor -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kartu Metrik Performa Bisnis (&lt;l-stat&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; width: 100%;">
+                <l-stat label="TOTAL PENDAPATAN" value="Rp 148,2 Jt" icon="dollar-sign" trend="up" delta="+14.2% dari bulan lalu"></l-stat>
+                <l-stat label="PENGGUNA AKTIF" value="8.420" icon="users" delta="120 sedang online saat ini"></l-stat>
+                <l-stat label="KECEPATAN RESPON" value="18 ms" icon="zap" trend="up" delta="10x lebih cepat dari standar"></l-stat>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Metrik Bisnis Deklaratif --&gt;
+&lt;l-stat label="TOTAL PENDAPATAN" value="Rp 148,2 Jt" icon="dollar-sign" trend="up" delta="+14.2%"&gt;&lt;/l-stat&gt;
+&lt;l-stat label="PENGGUNA AKTIF" value="8.420" icon="users" delta="120 sedang online"&gt;&lt;/l-stat&gt;
+&lt;l-stat label="KECEPATAN RESPON" value="18 ms" icon="zap" trend="up" delta="10x lebih cepat"&gt;&lt;/l-stat&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Kartu Interaktif Hoverable -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kartu Konten Terstruktur (&lt;l-card&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; width: 100%;">
+                <l-card header="Kluster Produksi BMS" subheader="Region: ID-Central">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0; line-height: 1.5;">Node utama penanganan permintaan API dengan redundansi tinggi dan auto-healing.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <l-badge value="Berjalan Stabil" severity="success" dot></l-badge>
+                        <l-button label="Kelola Node" severity="ghost" size="sm" icon="chevron-right" icon-pos="right"></l-button>
+                    </div>
+                </l-card>
+
+                <l-card header="Replika Basis Data" subheader="PostgreSQL v16.2">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0; line-height: 1.5;">Instans pembacaan cadangan untuk query analitik berat tanpa membebani primary node.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <l-badge value="Sinkron (0.2s lag)" severity="info" dot></l-badge>
+                        <l-button label="Kelola DB" severity="ghost" size="sm" icon="chevron-right" icon-pos="right"></l-button>
+                    </div>
+                </l-card>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Kartu Deklaratif --&gt;
+&lt;l-card header="Kluster Produksi BMS" subheader="Region: ID-Central"&gt;
+    &lt;p&gt;Node utama penanganan permintaan API.&lt;/p&gt;
+    &lt;l-badge value="Berjalan Stabil" severity="success" dot&gt;&lt;/l-badge&gt;
+&lt;/l-card&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Kartu Pengaturan Berkelompok -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kartu Konfigurasi Berkelompok (&lt;l-card&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px;">
+                <l-card header="Keamanan &amp; Notifikasi Akun" subheader="Konfigurasi preferensi privasi Anda">
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+                        <l-switch label="Autentikasi Dua Faktor (2FA)" checked></l-switch>
+                        <l-switch label="Pemberitahuan Sesi Masuk Baru" checked></l-switch>
+                        <l-switch label="Mode Debug Terminal"></l-switch>
+                    </div>
+                </l-card>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Kartu Konfigurasi Berkelompok --&gt;
+&lt;l-card header="Keamanan Akun" subheader="Preferensi Privasi"&gt;
+    &lt;l-switch label="Autentikasi Dua Faktor (2FA)" checked&gt;&lt;/l-switch&gt;
+    &lt;l-switch label="Pemberitahuan Sesi Masuk Baru" checked&gt;&lt;/l-switch&gt;
+&lt;/l-card&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/pilihan" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Checkbox &amp; Switch</span></a>
+        <a href="/komponen/badge" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Badge &amp; Status</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

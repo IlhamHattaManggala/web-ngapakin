@@ -1,0 +1,76 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen menu pilihan tarik-turun ala <code>&lt;p-dropdown&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-dropdown&gt;</code>. Menyediakan popup pilihan opsi melayang, dukungan ikon per item, penanganan klik luar otomatis, dan integrasi data reaktif.</p>
+
+    <!-- 1. Dropdown Pilihan Sederhana -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Dropdown Pemilih Peran Pengguna (&lt;l-dropdown&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 380px;">
+                <l-dropdown label="Peran Akun Pengguna" options='["Super Admin", "Manajer Toko", "Editor Konten", "Kasir / Petugas"]' value="Super Admin"></l-dropdown>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Dropdown Array Sederhana --&gt;
+&lt;l-dropdown label="Peran Akun" options='["Super Admin", "Manajer Toko", "Editor Konten"]' value="Super Admin"&gt;&lt;/l-dropdown&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Dropdown Berikon & Opsi Objek -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Dropdown Berikon (Menu Aksi & Navigasi)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 380px;">
+                <l-dropdown label="Pilih Tindakan Cepat" icon="zap" options='[{"label":"Kompilasi JIT CSS","value":"compile","icon":"zap"},{"label":"Jalankan Migrasi Basis Data","value":"migrate","icon":"database"},{"label":"Bersihkan Cache Server","value":"clear-cache","icon":"trash-2"},{"label":"Unduh Log Aktivitas","value":"download-logs","icon":"download"}]' placeholder="Pilih aksi yang diinginkan..."></l-dropdown>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Dropdown dengan Objek Label &amp; Ikon --&gt;
+&lt;l-dropdown 
+    label="Pilih Tindakan" 
+    icon="zap" 
+    options='[{"label":"Kompilasi JIT","value":"compile","icon":"zap"},{"label":"Migrasi DB","value":"migrate","icon":"database"}]' 
+    placeholder="Pilih aksi..."&gt;
+&lt;/l-dropdown&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Status Terkunci (Disabled) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Dropdown Nonaktif (Disabled State)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 380px;">
+                <l-dropdown label="Region Server (Terkunci)" options='["ID-Jakarta", "SG-Singapore"]' value="ID-Jakarta" disabled></l-dropdown>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Dropdown Terkunci Nonaktif --&gt;
+&lt;l-dropdown label="Region Server" options='["ID-Jakarta"]' value="ID-Jakarta" disabled&gt;&lt;/l-dropdown&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/input" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Formulir &amp; Input</span></a>
+        <a href="/komponen/pilihan" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Checkbox, Radio &amp; Switch</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

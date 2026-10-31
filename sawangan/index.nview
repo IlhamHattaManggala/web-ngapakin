@@ -1,0 +1,7 @@
+@layout "layout.nview"
+
+@section "content"
+<script>
+    window.location.replace("/dok/changelog");
+</script>
+@rampung

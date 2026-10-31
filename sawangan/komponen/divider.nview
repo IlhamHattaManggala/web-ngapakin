@@ -1,0 +1,122 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen pemisah visual ala <code>&lt;p-divider&gt;</code> di PrimeNG. Digunakan untuk memisahkan bagian konten atau opsi aksi, baik dalam tata letak horizontal maupun vertikal, dengan dukungan teks di tengah, ikon, atau garis putus-putus.</p>
+
+    <!-- 1. Divider Horizontal Standar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Divider Horizontal Sederhana</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; display: flex; flex-direction: column;">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">Bagian atas dokumen berisi informasi ringkas mengenai arsitektur server.</p>
+                <l-divider></l-divider>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">Bagian bawah menjelaskan konfigurasi basis data dan migrasi skema tabel.</p>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Garis Pemisah Horizontal Tipis --&gt;
+&lt;p&gt;Bagian Atas Dokumen&lt;/p&gt;
+&lt;l-divider&gt;&lt;/l-divider&gt;
+&lt;p&gt;Bagian Bawah Dokumen&lt;/p&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Divider dengan Teks Tengah & Tepi -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Divider Beranotasi Teks & Ikon</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <l-divider align="center"><span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--text-dim); background: var(--bg-card); padding: 0 0.5rem;">ATAU MASUK DENGAN</span></l-divider>
+                </div>
+                <div>
+                    <l-divider align="left"><span style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #f4f4f5;"><l-icon name="shield" size="14"></l-icon> Keamanan &amp; Autentikasi</span></l-divider>
+                </div>
+                <div>
+                    <l-divider align="center"><span class="c-badge c-badge-primary">VERSI 1.1.0</span></l-divider>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Divider Berposisi Teks Tengah --&gt;
+&lt;l-divider align="center"&gt;&lt;span&gt;ATAU MASUK DENGAN&lt;/span&gt;&lt;/l-divider&gt;
+
+&lt;!-- Divider Berposisi Kiri dengan Ikon --&gt;
+&lt;l-divider align="left"&gt;&lt;span&gt;&lt;l-icon name="shield"&gt;&lt;/l-icon&gt; Keamanan&lt;/span&gt;&lt;/l-divider&gt;
+
+&lt;!-- Divider dengan Badge --&gt;
+&lt;l-divider align="center"&gt;&lt;span class="c-badge c-badge-primary"&gt;VERSI 1.1.0&lt;/span&gt;&lt;/l-divider&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Divider Garis Putus-putus (Dashed) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Gaya Garis Putus-Putus (Dashed Style)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; display: flex; flex-direction: column;">
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Area unggah berkas spesifikasi teknis:</span>
+                <l-divider type="dashed"></l-divider>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim);">
+                    <span>Format: .ngpk, .nview, .json</span>
+                    <span>Maksimal 25 MB</span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Divider Garis Putus-Putus --&gt;
+&lt;l-divider type="dashed"&gt;&lt;/l-divider&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Divider Vertikal pada Toolbar Aksi -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Divider Vertikal (Toolbar Aksi)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <l-button label="Format" severity="ghost" size="sm" icon="edit"></l-button>
+                <l-button label="Salin" severity="ghost" size="sm" icon="copy"></l-button>
+                <l-divider layout="vertical"></l-divider>
+                <l-button label="Simpan" severity="primary" size="sm" icon="save"></l-button>
+                <l-divider layout="vertical"></l-divider>
+                <l-button severity="danger" size="sm" icon="trash-2" icon-only></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Divider Vertikal di Antara Tombol Toolbar --&gt;
+&lt;div style="display: inline-flex; align-items: center; gap: 0.5rem;"&gt;
+    &lt;l-button label="Format" severity="ghost" size="sm" icon="edit"&gt;&lt;/l-button&gt;
+    &lt;l-button label="Salin" severity="ghost" size="sm" icon="copy"&gt;&lt;/l-button&gt;
+    &lt;l-divider layout="vertical"&gt;&lt;/l-divider&gt;
+    &lt;l-button label="Simpan" severity="primary" size="sm" icon="save"&gt;&lt;/l-button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/segmented" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Segmented Control</span></a>
+        <a href="/komponen/chip" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Chip &amp; Tag</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung
+

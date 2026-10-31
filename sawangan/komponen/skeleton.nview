@@ -1,0 +1,162 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen kerangka transisi pemuatan data ala <code>&lt;p-skeleton&gt;</code> di PrimeNG. Memberikan umpan balik visual animasi kilau halus (shimmer) yang menyerupai bentuk konten asli sehingga mengurangi rasa menunggu pada pengguna saat data sedang diambil dari server.</p>
+
+    <!-- 1. Skeleton Baris Paragraf Teks -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Skeleton Baris Paragraf & Tipografi</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 0.75rem;">
+                <l-skeleton width="100%" height="1.25rem"></l-skeleton>
+                <l-skeleton width="85%" height="1.25rem"></l-skeleton>
+                <l-skeleton width="60%" height="1.25rem"></l-skeleton>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Kerangka Teks Multi-Baris --&gt;
+&lt;l-skeleton width="100%" height="1.25rem"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="85%" height="1.25rem"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="60%" height="1.25rem"&gt;&lt;/l-skeleton&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Skeleton Profil Pengguna -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Skeleton Profil & Identitas Pengguna</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; align-items: center; gap: 1rem; width: 100%; max-width: 420px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <l-skeleton width="48px" height="48px" shape="circle"></l-skeleton>
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <l-skeleton width="50%" height="1rem"></l-skeleton>
+                    <l-skeleton width="80%" height="0.8rem"></l-skeleton>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Skeleton Avatar &amp; Nama Pengguna --&gt;
+&lt;div style="display: flex; align-items: center; gap: 1rem;"&gt;
+    &lt;l-skeleton width="48px" height="48px" shape="circle"&gt;&lt;/l-skeleton&gt;
+    &lt;div style="flex: 1;"&gt;
+        &lt;l-skeleton width="50%" height="1rem"&gt;&lt;/l-skeleton&gt;
+        &lt;l-skeleton width="80%" height="0.8rem"&gt;&lt;/l-skeleton&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Skeleton Kartu Konten & Media -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Skeleton Kartu Artikel / Produk</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 320px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; gap: 1rem;">
+                <l-skeleton width="100%" height="140px"></l-skeleton>
+                <l-skeleton width="70%" height="1.2rem"></l-skeleton>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <l-skeleton width="100%" height="0.8rem"></l-skeleton>
+                    <l-skeleton width="90%" height="0.8rem"></l-skeleton>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                    <l-skeleton width="35%" height="1.8rem"></l-skeleton>
+                    <l-skeleton width="28px" height="28px" shape="circle"></l-skeleton>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Kerangka Kartu Produk --&gt;
+&lt;l-skeleton width="100%" height="140px"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="70%" height="1.2rem"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="100%" height="0.8rem"&gt;&lt;/l-skeleton&gt;
+&lt;l-skeleton width="35%" height="1.8rem"&gt;&lt;/l-skeleton&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Interactive Loading Toggle Demo -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Simulasi Pemuatan Data Interaktif</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; justify-content: flex-end;">
+                    <l-button id="btnToggleLoading" label="Simulasikan Ulang Memuat" severity="outline" size="sm" icon="refresh-cw"></l-button>
+                </div>
+                
+                <!-- Skeleton State -->
+                <div id="skeletonView" style="padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <l-skeleton width="40%" height="1.1rem"></l-skeleton>
+                        <l-skeleton width="20%" height="1.1rem"></l-skeleton>
+                    </div>
+                    <l-skeleton width="100%" height="0.9rem"></l-skeleton>
+                    <l-skeleton width="75%" height="0.9rem"></l-skeleton>
+                </div>
+
+                <!-- Real Data State -->
+                <div id="realDataView" style="display: none; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <h4 style="margin: 0; font-size: 1rem; color: #ffffff;">Data Pengguna Siap</h4>
+                        <span class="c-badge c-badge-success">Terkoneksi</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Basis data terhubung secara asinkron dalam 18 milidetik. Seluruh skema tabel telah dimuat ke dalam memori kerja.</p>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Pola Kondisional Pengalihan Skeleton &amp; Data --&gt;
+&lt;div id="skeletonView"&gt;
+    &lt;l-skeleton width="100%" height="1.25rem"&gt;&lt;/l-skeleton&gt;
+&lt;/div&gt;
+&lt;div id="realDataView" style="display: none;"&gt;
+    &lt;p&gt;Konten data aktual dari API&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/tree" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tree Berkas Hierarki</span></a>
+        <a href="/komponen" class="btn-page-nav btn-page-nav-next"><span>Kembali ke Galeri Komponen (34)</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('btnToggleLoading');
+    const sk = document.getElementById('skeletonView');
+    const rd = document.getElementById('realDataView');
+
+    function simulate() {
+        if (!sk || !rd) return;
+        sk.style.display = 'flex';
+        rd.style.display = 'none';
+        setTimeout(() => {
+            sk.style.display = 'none';
+            rd.style.display = 'block';
+        }, 1200);
+    }
+
+    if (btn) btn.addEventListener('click', simulate);
+    simulate();
+});
+</script>
+
+@rampung
+

@@ -1,0 +1,23 @@
+# Environment file
+.env
+
+# SQLite Databases & WAL
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Python & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/

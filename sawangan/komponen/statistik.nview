@@ -1,0 +1,40 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Widget kartu dasbor analitik deklaratif dengan nilai angka tebal, indikator tren persentase, dan deskripsi performa.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Dasbor Statistik KPI Deklaratif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; width: 100%;">
+    <l-stat label="Permintaan Masuk" value="854,210" trend="&uarr; 24.5%" severity="success" desc="+14.2k sejak minggu lalu"></l-stat>
+    <l-stat label="Durasi Respon" value="8.4 ms" trend="Cepat" severity="info" desc="Rata-rata latensi WSGI"></l-stat>
+    <l-stat label="Uptime Server" value="99.98%" trend="Stabil" severity="success" desc="Tanpa crash selama 30 hari"></l-stat>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Dashboard KPI Cards Deklaratif --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;
+    &lt;l-stat label="Permintaan Masuk" value="854,210" trend="↑ 24.5%" severity="success" desc="+14.2k sejak minggu lalu"&gt;&lt;/l-stat&gt;
+    &lt;l-stat label="Durasi Respon" value="8.4 ms" trend="Cepat" severity="info" desc="Rata-rata latensi WSGI"&gt;&lt;/l-stat&gt;
+    &lt;l-stat label="Uptime Server" value="99.98%" trend="Stabil" severity="success" desc="Tanpa crash 30 hari"&gt;&lt;/l-stat&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/tooltip" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tooltip & Popover</span></a>
+        <a href="/komponen/empty-state" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tampilan Data Kosong</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

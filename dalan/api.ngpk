@@ -1,0 +1,5 @@
+# API routes for Larapak (ngapak)
+
+rute.get("/status", gawe(req, res)
+    balekna res.json(["status": "bener", "app": "Larapak", "bahasa": "ngapak", "author": "Ilham Hatta Manggala"])
+rampung)

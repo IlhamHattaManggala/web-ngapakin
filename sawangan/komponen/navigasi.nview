@@ -1,0 +1,63 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Panel tab segmental deklaratif ala <code>&lt;p-tabView&gt;</code> di PrimeNG dengan perpindahan panel otomatis tanpa menuliskan JavaScript manual.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Tab Navigasi Deklaratif Interaktif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <l-tabs>
+        <l-tab-panel header="Pengaturan Umum">
+            <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">
+                <p>Konfigurasi parameter umum aplikasi, zona waktu server, dan bahasa tampilan default sistem.</p>
+                <l-button label="Simpan Preferensi" icon="check" severity="primary" size="sm"></l-button>
+            </div>
+        </l-tab-panel>
+        <l-tab-panel header="Keamanan & Kunci API">
+            <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">
+                <p>Manajemen token akses OAuth, rotasi kunci rahasia, dan log autentikasi dua faktor.</p>
+                <l-button label="Perbarui Kunci Rahasia" icon="refresh" severity="secondary" size="sm"></l-button>
+            </div>
+        </l-tab-panel>
+        <l-tab-panel header="Notifikasi">
+            <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">
+                <p>Pengaturan saluran notifikasi Discord webhook, Slack bot, dan pengiriman email SMTP.</p>
+            </div>
+        </l-tab-panel>
+    </l-tabs>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Declarative Tabs (TabView) --&gt;
+&lt;l-tabs&gt;
+    &lt;l-tab-panel header="Pengaturan Umum"&gt;
+        &lt;p&gt;Konfigurasi parameter umum aplikasi.&lt;/p&gt;
+        &lt;l-button label="Simpan" severity="primary" size="sm"&gt;&lt;/l-button&gt;
+    &lt;/l-tab-panel&gt;
+    &lt;l-tab-panel header="Keamanan &amp; API"&gt;
+        &lt;p&gt;Manajemen token akses OAuth.&lt;/p&gt;
+    &lt;/l-tab-panel&gt;
+    &lt;l-tab-panel header="Notifikasi"&gt;
+        &lt;p&gt;Pengaturan webhook Discord &amp; Slack.&lt;/p&gt;
+    &lt;/l-tab-panel&gt;
+&lt;/l-tabs&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/breadcrumb" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Breadcrumb</span></a>
+        <a href="/komponen/stepper" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Stepper Multi-Langkah</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

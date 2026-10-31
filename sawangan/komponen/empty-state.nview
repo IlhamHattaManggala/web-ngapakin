@@ -1,0 +1,40 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Tampilan ramah pengguna saat data kosong secara deklaratif dengan ikon, judul, deskripsi, dan tombol aksi.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Empty State Deklaratif dengan Aksi</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <l-empty-state title="Belum Ada Proyek Dibuat" desc="Mulai bangun aplikasi web pertama Anda dengan framework Larapak sekarang juga." icon="inbox">
+        <l-button label="Buat Proyek Baru" icon="plus" severity="primary"></l-button>
+        <l-button label="Baca Dokumentasi" icon="file" severity="outline"></l-button>
+    </l-empty-state>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Declarative Empty State Placeholder --&gt;
+&lt;l-empty-state title="Belum Ada Proyek Dibuat" desc="Mulai bangun aplikasi pertama Anda sekarang juga." icon="inbox"&gt;
+    &lt;l-button label="Buat Proyek Baru" icon="plus" severity="primary"&gt;&lt;/l-button&gt;
+    &lt;l-button label="Baca Dokumentasi" icon="file" severity="outline"&gt;&lt;/l-button&gt;
+&lt;/l-empty-state&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/statistik" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Statistik & Metrik</span></a>
+        <a href="/komponen/slider" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Slider Rentang</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

@@ -1,0 +1,63 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen unggah berkas ala <code>&lt;p-fileUpload&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-upload&gt;</code>. Menyediakan dropzone drag-and-drop interaktif, pemilih berkas native, daftar antrean berkas dengan ukuran file, dan penanganan event seleksi otomatis.</p>
+
+    <!-- 1. Upload Berkas Multi-File -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Area Unggah Drag & Drop (&lt;l-upload multiple&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px;">
+                <l-upload label="Tarik &amp; Letakkan Berkas ke Sini" hint="Mendukung format PNG, JPG, PDF, atau ZIP hingga 25 MB" accept=".png,.jpg,.jpeg,.pdf,.zip" multiple></l-upload>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style File Upload Deklaratif --&gt;
+&lt;l-upload 
+    label="Tarik &amp; Letakkan Berkas ke Sini" 
+    hint="Mendukung PNG, JPG, PDF hingga 25 MB" 
+    accept=".png,.jpg,.pdf" 
+    multiple&gt;
+&lt;/l-upload&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Upload Foto Profil Tunggal -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Unggah Foto Profil / Dokumen Tunggal</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px;">
+                <l-upload label="Unggah Foto Profil Pengguna" hint="Format gambar JPG atau PNG (Maksimal 2 MB)" accept="image/*"></l-upload>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Unggah Berkas Tunggal --&gt;
+&lt;l-upload 
+    label="Unggah Foto Profil" 
+    hint="Format gambar JPG atau PNG" 
+    accept="image/*"&gt;
+&lt;/l-upload&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/akordeon" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Akordeon &amp; FAQ</span></a>
+        <a href="/komponen/progress" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Progres &amp; Spinner</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

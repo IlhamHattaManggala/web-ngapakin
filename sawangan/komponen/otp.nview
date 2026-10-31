@@ -1,0 +1,138 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen input kode sandi sekali pakai ala <code>&lt;p-inputOtp&gt;</code> di PrimeNG. Mendukung autofokus maju saat pengetikan angka, navigasi mundur dengan backspace, mode rahasia (PIN masking), dan deteksi pengisian lengkap secara otomatis.</p>
+
+    <!-- 1. OTP 4-Digit Standar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kode Verifikasi 4-Digit (SMS / WhatsApp)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <l-otp length="4"></l-otp>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Masukkan 4 digit kode yang kami kirimkan ke nomor ponsel Anda.</span>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input OTP 4 Digit Sederhana --&gt;
+&lt;l-otp length="4"&gt;&lt;/l-otp&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. OTP 6-Digit (Two-Factor Authentication / 2FA) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Autentikasi Dua Faktor 6-Digit (2FA Email)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <l-otp length="6"></l-otp>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Kode keamanan 6 digit dari aplikasi Google Authenticator atau email.</span>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input OTP 6 Digit untuk Verifikasi Akun / 2FA --&gt;
+&lt;l-otp length="6"&gt;&lt;/l-otp&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Masked PIN Mode (Sandi Rahasia) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Mode PIN Tersamarkan (Masked Password Mode)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <l-otp length="6" mask="true"></l-otp>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Angka disamarkan sebagai titik sandi untuk keamanan transaksi perbankan.</span>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PIN Rahasia Tersamarkan (Masked) --&gt;
+&lt;l-otp length="6" mask="true"&gt;&lt;/l-otp&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Interactive Verification Flow -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Alur Verifikasi Interaktif dengan Validasi Otomatis</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; padding: 1.5rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px; text-align: center;">
+                <div style="width: 44px; height: 44px; background: rgba(255,45,32,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: var(--brand);">
+                    <l-icon name="shield" size="22"></l-icon>
+                </div>
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #ffffff;">Konfirmasi Pembayaran</h3>
+                <p style="margin: 0 0 1.25rem 0; font-size: 0.85rem; color: var(--text-muted);">Ketik sembarang 4 digit (misal: 1234) untuk menguji deteksi selesai:</p>
+
+                <div style="display: flex; justify-content: center; margin-bottom: 1.25rem;">
+                    <l-otp id="interactiveOtp" length="4"></l-otp>
+                </div>
+
+                <div id="otpStatusBox" style="font-size: 0.85rem; min-height: 24px; color: var(--text-dim); margin-bottom: 1rem;">
+                    Menunggu masukan 4 digit...
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 0.75rem;">
+                    <l-button id="btnResendOtp" label="Kirim Ulang Kode" severity="ghost" size="sm" icon="refresh-cw"></l-button>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tangkap Event 'complete' Saat Digit Lengkap --&gt;
+&lt;l-otp id="interactiveOtp" length="4"&gt;&lt;/l-otp&gt;
+
+&lt;script&gt;
+document.getElementById('interactiveOtp').addEventListener('complete', (e) =&gt; {
+    console.log('Kode OTP Lengkap:', e.detail.value);
+    // Jalankan verifikasi ke server API
+});
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/kbd" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Kbd (Keyboard Shortcut)</span></a>
+        <a href="/komponen/color-picker" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Pemilih Warna</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const otp = document.getElementById('interactiveOtp');
+    const statusBox = document.getElementById('otpStatusBox');
+    const resendBtn = document.getElementById('btnResendOtp');
+
+    if (otp && statusBox) {
+        otp.addEventListener('complete', (e) => {
+            statusBox.innerHTML = '<span style="color:#10b981;font-weight:600;"><l-icon name="check-circle" size="14"></l-icon> Kode ' + e.detail.value + ' valid! Berhasil diverifikasi.</span>';
+        });
+    }
+
+    if (resendBtn && statusBox) {
+        resendBtn.addEventListener('click', () => {
+            statusBox.innerHTML = '<span style="color:var(--brand);">Kode baru telah dikirimkan ulang!</span>';
+            setTimeout(() => {
+                statusBox.textContent = 'Menunggu masukan 4 digit...';
+            }, 3000);
+        });
+    }
+});
+</script>
+
+@rampung
+

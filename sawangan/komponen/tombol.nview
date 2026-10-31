@@ -1,0 +1,219 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen tombol deklaratif ala PrimeNG menggunakan tag <code>&lt;l-button&gt;</code>. Mendukung varian warna kontekstual (severity), posisi ikon fleksibel, ukuran bertingkat, bentuk kapsul membulat, dan status loading interaktif.</p>
+
+    <!-- 1. Varian Kontekstual (Severity) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Varian Warna Kontekstual (Severities)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Utama (Primary)" severity="primary"></l-button>
+                <l-button label="Sekunder" severity="secondary"></l-button>
+                <l-button label="Sukses" severity="success"></l-button>
+                <l-button label="Informasi" severity="info"></l-button>
+                <l-button label="Peringatan" severity="warning"></l-button>
+                <l-button label="Bahaya (Danger)" severity="danger"></l-button>
+                <l-button label="Garis Luar" severity="outline"></l-button>
+                <l-button label="Ghost" severity="ghost"></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Declarative Buttons --&gt;
+&lt;l-button label="Utama (Primary)" severity="primary"&gt;&lt;/l-button&gt;
+&lt;l-button label="Sekunder" severity="secondary"&gt;&lt;/l-button&gt;
+&lt;l-button label="Sukses" severity="success"&gt;&lt;/l-button&gt;
+&lt;l-button label="Informasi" severity="info"&gt;&lt;/l-button&gt;
+&lt;l-button label="Peringatan" severity="warning"&gt;&lt;/l-button&gt;
+&lt;l-button label="Bahaya (Danger)" severity="danger"&gt;&lt;/l-button&gt;
+&lt;l-button label="Garis Luar" severity="outline"&gt;&lt;/l-button&gt;
+&lt;l-button label="Ghost" severity="ghost"&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Varian Ukuran Tombol -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Varian Ukuran (Sizes: Small, Normal, Large)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Ukuran Kecil" size="sm" severity="primary" icon="check"></l-button>
+                <l-button label="Ukuran Normal" severity="primary" icon="check"></l-button>
+                <l-button label="Ukuran Besar (Large)" size="lg" severity="primary" icon="check"></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol dengan Tingkatan Ukuran --&gt;
+&lt;l-button label="Ukuran Kecil" size="sm" severity="primary"&gt;&lt;/l-button&gt;
+&lt;l-button label="Ukuran Normal" severity="primary"&gt;&lt;/l-button&gt;
+&lt;l-button label="Ukuran Besar" size="lg" severity="primary"&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Tombol Bentuk Kapsul Membulat (Rounded) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Tombol Kapsul Membulat (Rounded Pills)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Eksplorasi Fitur" severity="primary" rounded icon="compass"></l-button>
+                <l-button label="Unduh Berkas" severity="secondary" rounded icon="download"></l-button>
+                <l-button label="Langganan Pro" severity="success" rounded icon="star"></l-button>
+                <l-button label="Batal" severity="outline" rounded></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol dengan Atribut 'rounded' --&gt;
+&lt;l-button label="Eksplorasi Fitur" severity="primary" rounded icon="compass"&gt;&lt;/l-button&gt;
+&lt;l-button label="Unduh Berkas" severity="secondary" rounded icon="download"&gt;&lt;/l-button&gt;
+&lt;l-button label="Langganan Pro" severity="success" rounded icon="star"&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Tombol Ikon & Posisi Ikon -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Fleksibilitas Ikon (Kiri, Kanan & Ikon Saja)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Ikon di Kiri" icon="arrow-left" severity="secondary"></l-button>
+                <l-button label="Lanjutkan" icon="arrow-right" icon-pos="right" severity="primary"></l-button>
+                <l-button icon="bookmark" severity="outline" icon-only></l-button>
+                <l-button icon="heart" severity="danger" rounded icon-only></l-button>
+                <l-button icon="share-2" severity="ghost" icon-only></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Ikon di Kiri (Default) --&gt;
+&lt;l-button label="Ikon di Kiri" icon="arrow-left" severity="secondary"&gt;&lt;/l-button&gt;
+
+&lt;!-- Ikon di Kanan (icon-pos="right") --&gt;
+&lt;l-button label="Lanjutkan" icon="arrow-right" icon-pos="right" severity="primary"&gt;&lt;/l-button&gt;
+
+&lt;!-- Tombol Ikon Saja (icon-only) --&gt;
+&lt;l-button icon="bookmark" severity="outline" icon-only&gt;&lt;/l-button&gt;
+&lt;l-button icon="heart" severity="danger" rounded icon-only&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 5. Status Memuat (Loading State) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Status Memuat (Loading Spinner Interaktif)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Memproses Data..." severity="primary" loading></l-button>
+                <l-button label="Mengunggah..." severity="secondary" rounded loading></l-button>
+                <l-button id="btnInteractiveLoading" label="Klik untuk Memuat (2 Detik)" severity="outline" icon="play"></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol Memuat dengan Spinner Bawaan --&gt;
+&lt;l-button label="Memproses Data..." severity="primary" loading&gt;&lt;/l-button&gt;
+
+&lt;!-- Simulasi Toggle Loading dengan JavaScript --&gt;
+&lt;l-button id="btnSimpan" label="Simpan Perubahan" severity="primary"&gt;&lt;/l-button&gt;
+&lt;script&gt;
+btn.addEventListener('click', () =&gt; {
+    btn.setAttribute('loading', '');
+    btn.setAttribute('label', 'Menyimpan...');
+    setTimeout(() =&gt; {
+        btn.removeAttribute('loading');
+        btn.setAttribute('label', 'Berhasil Disimpan!');
+    }, 2000);
+});
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 6. Status Terkunci (Disabled) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Tombol Nonaktif (Disabled State)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-button label="Aksi Terkunci" severity="primary" disabled></l-button>
+                <l-button label="Sekunder Nonaktif" severity="secondary" disabled></l-button>
+                <l-button label="Outline Nonaktif" severity="outline" disabled></l-button>
+                <l-button icon="trash-2" severity="danger" disabled icon-only></l-button>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol Nonaktif --&gt;
+&lt;l-button label="Aksi Terkunci" severity="primary" disabled&gt;&lt;/l-button&gt;
+&lt;l-button label="Sekunder Nonaktif" severity="secondary" disabled&gt;&lt;/l-button&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 7. Grup Tombol Terhubung (Button Group) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Grup Tombol Terhubung (&lt;l-button-group&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <l-button-group>
+                <l-button icon="align-left" severity="secondary" icon-only></l-button>
+                <l-button icon="align-center" severity="secondary" icon-only></l-button>
+                <l-button icon="align-right" severity="secondary" icon-only></l-button>
+                <l-button icon="align-justify" severity="secondary" icon-only></l-button>
+            </l-button-group>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Button Group Deklaratif --&gt;
+&lt;l-button-group&gt;
+    &lt;l-button icon="align-left" severity="secondary" icon-only&gt;&lt;/l-button&gt;
+    &lt;l-button icon="align-center" severity="secondary" icon-only&gt;&lt;/l-button&gt;
+    &lt;l-button icon="align-right" severity="secondary" icon-only&gt;&lt;/l-button&gt;
+    &lt;l-button icon="align-justify" severity="secondary" icon-only&gt;&lt;/l-button&gt;
+&lt;/l-button-group&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/ikon" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Koleksi Ikon</span></a>
+        <a href="/komponen/input" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Formulir &amp; Input</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('btnInteractiveLoading');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            btn.setAttribute('loading', '');
+            btn.setAttribute('label', 'Sedang Memuat...');
+            setTimeout(() => {
+                btn.removeAttribute('loading');
+                btn.setAttribute('label', 'Selesai Dimuat!');
+                setTimeout(() => {
+                    btn.setAttribute('label', 'Klik untuk Memuat (2 Detik)');
+                }, 1500);
+            }, 2000);
+        });
+    }
+});
+</script>
+
+@rampung

@@ -1,0 +1,244 @@
+# HomeController - Portal Dokumentasi Resmi Larapak
+
+gawe index(req, res)
+    balekna baca_bab("changelog", res)
+rampung
+
+gawe bab(req, res)
+    slug = req.params["slug"]
+    balekna baca_bab(slug, res)
+rampung
+
+gawe baca_bab(slug, res)
+    judule = "Catatan Rilis (Changelog)"
+    subjudul = "Pembaruan dan rilis fitur terbaru pada ekosistem Larapak."
+    
+    nek slug == "instalasi" ya
+        judule = "Instalasi & Memulai Cepat"
+        subjudul = "Panduan memasang Larapak melalui biner mandiri .exe, pip, atau Docker."
+    rampung
+
+    nek slug == "struktur" ya
+        judule = "Struktur Direktori Proyek"
+        subjudul = "Memahami fungsi folder dialek Ngapak: jeroan, dalan, lumbung, sawangan, dan njobo."
+    rampung
+
+    nek slug == "konfigurasi" ya
+        judule = "Konfigurasi Lingkungan (.env)"
+        subjudul = "Pengaturan variabel aplikasi, mode debug, zona waktu, dan koneksi database."
+    rampung
+
+    nek slug == "sintaksis" ya
+        judule = "Sintaksis Bahasa NgapakIn"
+        subjudul = "Panduan sintaksis dasar: variabel, fungsi gawe, nek-ya, dan perulangan baleni."
+    rampung
+
+    nek slug == "routing" ya
+        judule = "Routing & Penanganan URL"
+        subjudul = "Mengatur rute HTTP dinamis, method spoofing, dan pendaftaran rute web/API."
+    rampung
+
+    nek slug == "controller" ya
+        judule = "Controller & Penanganan Request"
+        subjudul = "Membuat controller aksi, membaca parameter HTTP, dan menghasilkan response."
+    rampung
+
+    nek slug == "middleware" ya
+        judule = "Middleware & Proteksi CSRF"
+        subjudul = "Pencegat request HTTP, validasi token keamanan CSRF, dan pembatasan laju (throttling)."
+    rampung
+
+    nek slug == "template" ya
+        judule = "Sistem Template Sawangan (.nview)"
+        subjudul = "Pewarisan layout, section, interpolasi nilai, dan directive template blade-like."
+    rampung
+
+    nek slug == "migrasi" ya
+        judule = "Migrasi Skema Database"
+        subjudul = "Manajemen versi skema database, rollback, status migrasi, dan multi-database driver."
+    rampung
+
+    nek slug == "database" ya
+        judule = "Database & Model ORM"
+        subjudul = "Fluent Query Builder, model relasi, dan eager loading anti N+1."
+    rampung
+
+    nek slug == "rikat-css" ya
+        judule = "Frontend Rikat CSS Engine"
+        subjudul = "Framework CSS utility-first JIT berkinerja tinggi tanpa ketergantungan Node.js/npm."
+    rampung
+
+    nek slug == "rikat-ui" ya
+        judule = "Frontend Rikat UI Komponen"
+        subjudul = "Mesin web components reaktif dengan two-way data binding dan komponen enterprise."
+    rampung
+
+    nek slug == "docker" ya
+        judule = "Deployment & Docker Container"
+        subjudul = "Menjalankan aplikasi Larapak di VPS produksi menggunakan Docker Compose dan Gunicorn."
+    rampung
+
+    nek slug == "cli" ya
+        judule = "Referensi Perintah Larapak CLI"
+        subjudul = "Daftar lengkap perintah baris perintah ngapakin untuk mempercepat pengembangan."
+    rampung
+
+    view_path = "dok/" + slug
+    konteks = ["title": judule, "slug": slug, "badge": "Oktober 2026 / v1.1.0", "subjudul": subjudul]
+    balekna res.view(view_path, konteks)
+rampung
+
+gawe komponen_semua(req, res)
+    balekna baca_komponen("semua", res)
+rampung
+
+gawe komponen_detail(req, res)
+    slug = req.params["slug"]
+    balekna baca_komponen(slug, res)
+rampung
+
+gawe baca_komponen(slug, res)
+    judule = "Katalog Komponen UI (UI Kit)"
+    subjudul = "Pustaka 34 kategori komponen antarmuka modern siap pakai berbasis Rikat CSS dan Rikat UI."
+    
+    nek slug == "tombol" ya
+        judule = "Komponen Tombol (Buttons)"
+        subjudul = "Varian tombol aksi utama, sekunder, outline, bahaya, ghost, ikon, dan status loading."
+    rampung
+    nek slug == "input" ya
+        judule = "Komponen Formulir & Input"
+        subjudul = "Elemen input teks, pencarian berikon, input password, floating label, dan textarea."
+    rampung
+    nek slug == "dropdown" ya
+        judule = "Komponen Dropdown & Pilihan"
+        subjudul = "Menu dropdown melayang dengan item ikon, divider, dan select kustom."
+    rampung
+    nek slug == "pilihan" ya
+        judule = "Komponen Checkbox, Radio & Switch"
+        subjudul = "Elemen pemilih modern: checkbox kustom, grup radio button, dan toggle switch."
+    rampung
+    nek slug == "kartu" ya
+        judule = "Komponen Kartu & Panel"
+        subjudul = "Container kartu metrik KPI, profil pengguna, dan kartu konten terstruktur."
+    rampung
+    nek slug == "badge" ya
+        judule = "Komponen Badge & Status"
+        subjudul = "Penanda status ringkas dengan indikator dot aktif, pil warna, dan counter notifikasi."
+    rampung
+    nek slug == "alert" ya
+        judule = "Komponen Alert & Notifikasi"
+        subjudul = "Kotak pesan umpan balik sukses, perhatian, peringatan bahaya, dan floating banner."
+    rampung
+    nek slug == "modal" ya
+        judule = "Komponen Modal & Dialog"
+        subjudul = "Jendela dialog pop-up interaktif, konfirmasi aksi, dan web component Rikat UI."
+    rampung
+    nek slug == "tabel" ya
+        judule = "Komponen Tabel Data"
+        subjudul = "Tampilan data tabular bersih dengan sorting kolom, baris zebra, dan tombol aksi."
+    rampung
+    nek slug == "navigasi" ya
+        judule = "Komponen Navigasi, Tab & Breadcrumb"
+        subjudul = "Tab switcher, jejak navigasi breadcrumb, dan pagination halaman terstruktur."
+    rampung
+    nek slug == "avatar" ya
+        judule = "Komponen Avatar & Pengguna"
+        subjudul = "Foto profil pengguna, inisial nama, indikator online/offline, dan avatar group bertumpuk."
+    rampung
+    nek slug == "akordeon" ya
+        judule = "Komponen Akordeon & FAQ"
+        subjudul = "Panel lipat interaktif untuk daftar pertanyaan umum dan konten ekspansif."
+    rampung
+    nek slug == "progress" ya
+        judule = "Komponen Progres, Spinner & Skeleton"
+        subjudul = "Bilah progres persentase, stepper multi-langkah, spinner putar, dan skeleton loader."
+    rampung
+    nek slug == "tooltip" ya
+        judule = "Komponen Tooltip & Popover"
+        subjudul = "Petunjuk mengambang saat hover kursor mouse ke elemen atau ikon antarmuka."
+    rampung
+    nek slug == "statistik" ya
+        judule = "Komponen Statistik & Metrik (KPI)"
+        subjudul = "Panel dasbor metrik bisnis dengan indikator tren naik/turun dan kartu performa."
+    rampung
+    nek slug == "ikon" ya
+        judule = "Koleksi Ikon Web Component (<l-icon>)"
+        subjudul = "60+ ikon SVG modern Feather/Lucide siap pakai cukup dengan tag kustom <l-icon name='...' size='16'></l-icon>."
+    rampung
+    nek slug == "breadcrumb" ya
+        judule = "Komponen Breadcrumb Navigasi"
+        subjudul = "Penunjuk posisi halaman dalam hierarki situs dengan separator dan ikon kontekstual."
+    rampung
+    nek slug == "pagination" ya
+        judule = "Komponen Paginasi Data"
+        subjudul = "Kontrol pembagian data multi-halaman dengan tombol lompat, status aktif, dan rentang item."
+    rampung
+    nek slug == "toast" ya
+        judule = "Komponen Toast & Notifikasi Pop-up"
+        subjudul = "Notifikasi mengambang reaktif instan di pojok layar dengan dismiss otomatis."
+    rampung
+    nek slug == "drawer" ya
+        judule = "Komponen Drawer & Offcanvas Panel"
+        subjudul = "Panel navigasi atau detail samping yang meluncur masuk (slide-over) dari tepi layar."
+    rampung
+    nek slug == "unggah" ya
+        judule = "Komponen Upload Berkas (Drag & Drop)"
+        subjudul = "Area unggah berkas interaktif dengan drag-and-drop, daftar file, dan status upload."
+    rampung
+    nek slug == "stepper" ya
+        judule = "Komponen Stepper Alur Multi-Langkah"
+        subjudul = "Indikator progres form wizard bertahap untuk formulir panjang atau alur checkout."
+    rampung
+    nek slug == "timeline" ya
+        judule = "Komponen Timeline Aktivitas"
+        subjudul = "Urutan riwayat log aktivitas, jejak audit, dan timeline kejadian waktu kronologis."
+    rampung
+    nek slug == "empty-state" ya
+        judule = "Komponen Tampilan Data Kosong (Zero State)"
+        subjudul = "Placeholder ilustratif dan tombol panggilan aksi ramah pengguna saat data belum tersedia."
+    rampung
+    nek slug == "slider" ya
+        judule = "Komponen Slider Rentang Nilai"
+        subjudul = "Kontrol geser interaktif untuk pemilihan angka, rentang nilai, step interval, dan binding reaktif."
+    rampung
+    nek slug == "rating" ya
+        judule = "Komponen Rating Bintang Interaktif"
+        subjudul = "Penilaian bintang interaktif dengan hover visual, mode baca-saja, dan dukungan ikon fleksibel."
+    rampung
+    nek slug == "segmented" ya
+        judule = "Komponen Segmented Control"
+        subjudul = "Pilihan opsi eksklusif horizontal ala tombol pil untuk filter tampilan, periode waktu, atau tema."
+    rampung
+    nek slug == "divider" ya
+        judule = "Komponen Divider Pemisah Konten"
+        subjudul = "Garis pemisah visual horizontal dan vertikal dengan dukungan teks tengah, ikon, dan garis putus-putus."
+    rampung
+    nek slug == "chip" ya
+        judule = "Komponen Chip & Tag Interaktif"
+        subjudul = "Elemen tag kompak untuk kategori, filter pilihan, informasi pengguna, dan tombol hapus dismissible."
+    rampung
+    nek slug == "kbd" ya
+        judule = "Komponen Kbd (Keyboard Shortcut)"
+        subjudul = "Penanda tombol pintasan keyboard semantik untuk panduan pintas tombol di seluruh aplikasi."
+    rampung
+    nek slug == "otp" ya
+        judule = "Komponen Input OTP / PIN Verifikasi"
+        subjudul = "Bidang input kode verifikasi multi-digit dengan autofokus cerdas dan navigasi keyboard mulus."
+    rampung
+    nek slug == "color-picker" ya
+        judule = "Komponen Pemilih Warna (Color Picker)"
+        subjudul = "Pemilih palet warna swatches dan input warna heksadesimal dengan preview visual langsung."
+    rampung
+    nek slug == "tree" ya
+        judule = "Komponen Tree (Struktur Berkas Hierarki)"
+        subjudul = "Navigasi struktur folder dan data bertingkat (nested) dengan ekspansi lipat dan ikon berkas."
+    rampung
+    nek slug == "skeleton" ya
+        judule = "Komponen Skeleton Loading (Placeholder Shimmer)"
+        subjudul = "Kerangka efek shimmer untuk transisi pemuatan data yang anggun pada kartu, tabel, dan avatar."
+    rampung
+
+    view_path = "komponen/" + slug
+    konteks = ["title": judule, "slug": slug, "badge": "UI Kit / Rikat", "subjudul": subjudul]
+    balekna res.view(view_path, konteks)
+rampung

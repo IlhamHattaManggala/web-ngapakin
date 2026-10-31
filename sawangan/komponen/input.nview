@@ -1,0 +1,138 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen input formulir ala <code>&lt;p-input&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-input&gt;</code>. Mendukung label terintegrasi, ikon di dalam kolom, awalan/akhiran addon (prefix/suffix), fitur clearable sekali klik, dan variasi tipe data.</p>
+
+    <!-- 1. Input Deklaratif Berikon & Label -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Input Teks Deklaratif & Ikon Terintegrasi</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 1.25rem;">
+                <l-input label="Nama Lengkap Pengguna" placeholder="Masukkan nama lengkap Anda..."></l-input>
+                <l-input label="Alamat Surat Elektronik (Email)" type="email" placeholder="nama@domain.id" icon="mail"></l-input>
+                <l-input label="Pencarian Dokumentasi" placeholder="Cari fungsi, controller, atau komponen..." icon="search"></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input Teks dengan Label Otomatis --&gt;
+&lt;l-input label="Nama Lengkap" placeholder="Masukkan nama Anda..."&gt;&lt;/l-input&gt;
+
+&lt;!-- Input Berikon Surat --&gt;
+&lt;l-input label="Alamat Email" type="email" placeholder="nama@domain.id" icon="mail"&gt;&lt;/l-input&gt;
+
+&lt;!-- Input Pencarian Berikon Kaca Pembesar --&gt;
+&lt;l-input label="Pencarian Dokumentasi" placeholder="Cari..." icon="search"&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Prefix & Suffix Addon -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Addon Awalan & Akhiran (Prefix / Suffix)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 1.25rem;">
+                <l-input label="Subdomain Proyek" prefix="https://" suffix=".ngpk.dev" placeholder="nama-aplikasi"></l-input>
+                <l-input label="Harga Langganan" prefix="Rp" suffix="/bulan" placeholder="150.000"></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input dengan Prefix Protokol dan Suffix Domain --&gt;
+&lt;l-input label="Subdomain Proyek" prefix="https://" suffix=".ngpk.dev" placeholder="nama-aplikasi"&gt;&lt;/l-input&gt;
+
+&lt;!-- Input Mata Uang --&gt;
+&lt;l-input label="Harga Langganan" prefix="Rp" suffix="/bulan" placeholder="150.000"&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Clearable Input (Tombol Hapus Sekali Klik) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Input Dapat Dihapus Sekali Klik (Clearable)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 1.25rem;">
+                <l-input label="Filter Kata Kunci" placeholder="Ketik lalu klik tanda silang untuk mereset..." value="Komponen PrimeNG" clearable></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input Clearable dengan Tombol Reset Cepat --&gt;
+&lt;l-input label="Filter Kata Kunci" placeholder="Ketik kata kunci..." value="Komponen PrimeNG" clearable&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Password Input dengan Toggle Tampilkan -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Input Kata Sandi dengan Tombol Lihat (toggle-mask)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px;">
+                <l-input type="password" label="Kata Sandi Akun" value="NgapakinSecure2026!" toggle-mask></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Input Password dengan toggle-mask --&gt;
+&lt;l-input type="password" label="Kata Sandi Akun" value="NgapakinSecure2026!" toggle-mask&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 5. Multiline Textarea dengan Karakter Counter -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kolom Catatan Multibaris (&lt;l-textarea&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px;">
+                <l-textarea label="Catatan Tambahan untuk Tim" placeholder="Tuliskan catatan teknis..." rows="3" char-limit="200"></l-textarea>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Textarea Deklaratif dengan Batas Karakter --&gt;
+&lt;l-textarea label="Catatan Tambahan" placeholder="Tuliskan catatan..." rows="3" char-limit="200"&gt;&lt;/l-textarea&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 6. Status Nonaktif & Validasi Kesalahan -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Status Terkunci & Validasi Kesalahan (invalid)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 1.25rem;">
+                <l-input label="ID Mesin Server (Hanya Baca)" value="SRV-NGPK-BMS-09" disabled></l-input>
+                <l-input label="Nomor Port Server" value="99999" invalid error-message="Port tidak valid! Masukkan angka antara 1024 dan 65535."></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input Terkunci --&gt;
+&lt;l-input label="ID Mesin" value="SRV-09" disabled&gt;&lt;/l-input&gt;
+
+&lt;!-- Input Galat Validasi Deklaratif --&gt;
+&lt;l-input label="Nomor Port Server" value="99999" invalid error-message="Port tidak valid! Masukkan angka antara 1024 dan 65535."&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/tombol" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tombol (Buttons)</span></a>
+        <a href="/komponen/dropdown" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Dropdown &amp; Pilihan</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

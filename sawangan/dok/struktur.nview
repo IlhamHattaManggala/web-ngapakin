@@ -1,0 +1,102 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Struktur Direktori Dialek Ngapak</h2>
+    <p>Ketika Anda membuat proyek menggunakan opsi <code>--bahasa=ngapak</code>, Larapak menyusun arsitektur direktori aplikasi dalam istilah bahasa Banyumasan yang khas, terstruktur, dan bersih dari sampah engine:</p>
+
+    <pre><code>nama-proyek/
+├── dalan/               # Rute Web & API (Routes)
+│   ├── web.ngpk         # Rute aplikasi web browser
+│   └── api.ngpk         # Rute endpoint RESTful JSON
+├── jeroan/              # Inti Aplikasi (App logic)
+│   ├── Pangatur/        # Controller aksi & logika bisnis
+│   ├── Wujud/           # Model Database & relasi ORM
+│   ├── Pencegat/        # Middleware HTTP request & filter
+│   └── Gawean/          # Asynchronous Background Queue Jobs
+├── lumbung/             # Database & Penyimpanan (Storage)
+│   ├── migrasi/         # File skema migrasi tabel
+│   ├── bibit/           # Database seeder / data awal
+│   └── simpenan/        # Upload file dan log internal
+├── sawangan/            # Tampilan Template View (Views)
+│   ├── layout.nview     # Master layout aplikasi
+│   └── index.nview      # Halaman template spesifik
+├── njobo/               # Aset Publik Statis (Public root)
+│   ├── css/rikat.css    # Bundle CSS hasil kompilasi JIT
+│   ├── js/rikat.js      # Library reaktif Rikat UI
+│   └── index.html       # Entrypoint jika diperlukan
+├── .env                 # Konfigurasi environment lokal
+├── .env.example         # Template konfigurasi tim
+├── docker-compose.yml   # Konfigurasi container Docker
+└── README.md            # Dokumentasi proyek Anda</code></pre>
+
+    <h2>Tabel Perbandingan Direktori</h2>
+    <p>Berikut adalah padanan direktori dialek Ngapak dengan arsitektur standar MVC:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dialek Ngapak</th>
+                <th>Standar MVC</th>
+                <th>Fungsi &amp; Kegunaan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>dalan/</code></td>
+                <td><code>routes/</code></td>
+                <td>Mendefinisikan pemetaan URL HTTP ke fungsi controller.</td>
+            </tr>
+            <tr>
+                <td><code>jeroan/Pangatur/</code></td>
+                <td><code>app/Controllers/</code></td>
+                <td>Menangani request, mengolah data, dan merender tampilan.</td>
+            </tr>
+            <tr>
+                <td><code>jeroan/Wujud/</code></td>
+                <td><code>app/Models/</code></td>
+                <td>Representasi tabel database dengan query builder aktif.</td>
+            </tr>
+            <tr>
+                <td><code>jeroan/Pencegat/</code></td>
+                <td><code>app/Middleware/</code></td>
+                <td>Menyaring request sebelum masuk ke controller (auth, throttle).</td>
+            </tr>
+            <tr>
+                <td><code>sawangan/</code></td>
+                <td><code>resources/views/</code></td>
+                <td>File template Blade-like (<code>.nview</code>) untuk halaman HTML.</td>
+            </tr>
+            <tr>
+                <td><code>njobo/</code></td>
+                <td><code>public/</code></td>
+                <td>Folder statis yang dapat diakses langsung oleh peramban pengguna.</td>
+            </tr>
+            <tr>
+                <td><code>lumbung/migrasi/</code></td>
+                <td><code>database/migrations/</code></td>
+                <td>Definisi struktur tabel database untuk versioning skema.</td>
+            </tr>
+            <tr>
+                <td><code>lumbung/bibit/</code></td>
+                <td><code>database/seeders/</code></td>
+                <td>Berkas seeder untuk pengisian data uji coba awal database.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="bottom-nav">
+        <a href="/dok/instalasi" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Instalasi &amp; Memulai Cepat</span></a>
+        <a href="/dok/konfigurasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Konfigurasi Lingkungan (.env)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

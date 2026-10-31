@@ -1,0 +1,170 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen penanda status ringkas ala <code>&lt;p-badge&gt;</code> di PrimeNG menggunakan tag <code>&lt;l-badge&gt;</code>. Mendukung indikator titik status (dot), lencana berbentuk pil membulat (pill), ukuran bertingkat, dan overlay counter notifikasi di atas tombol/ikon.</p>
+
+    <!-- 1. Varian Kontekstual (Severity) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Varian Warna Kontekstual (Severities)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-badge value="Ngapakin V1.1" severity="primary"></l-badge>
+                <l-badge value="Stabil / Live" severity="success"></l-badge>
+                <l-badge value="Dalam Pembaruan" severity="warning"></l-badge>
+                <l-badge value="Kritis / Bahaya" severity="danger"></l-badge>
+                <l-badge value="Informasi Rilis" severity="info"></l-badge>
+                <l-badge value="Arsip Lama" severity="secondary"></l-badge>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- PrimeNG-Style Declarative Badges --&gt;
+&lt;l-badge value="Ngapakin V1.1" severity="primary"&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Stabil / Live" severity="success"&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Dalam Pembaruan" severity="warning"&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Kritis / Bahaya" severity="danger"&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Informasi Rilis" severity="info"&gt;&lt;/l-badge&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Indikator Dot Status -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Indikator Dot Status Server & Pengguna</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center;">
+                <l-badge value="Server Aktif" severity="success" dot></l-badge>
+                <l-badge value="Pemeliharaan Sistem" severity="warning" dot></l-badge>
+                <l-badge value="Koneksi Terputus" severity="danger" dot></l-badge>
+                <l-badge value="Sinkronisasi Data" severity="primary" dot></l-badge>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Badge dengan Atribut Dot --&gt;
+&lt;l-badge value="Server Aktif" severity="success" dot&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Pemeliharaan Sistem" severity="warning" dot&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Koneksi Terputus" severity="danger" dot&gt;&lt;/l-badge&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Badge Kapsul Membulat (Pill) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Badge Kapsul Membulat (Pill Badges)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-badge value="Dokumentasi" severity="primary" pill></l-badge>
+                <l-badge value="Tervalidasi" severity="success" pill></l-badge>
+                <l-badge value="Review Tertunda" severity="warning" pill></l-badge>
+                <l-badge value="Segera Hadir" severity="info" pill></l-badge>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Badge Kapsul dengan Atribut Pill --&gt;
+&lt;l-badge value="Dokumentasi" severity="primary" pill&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Tervalidasi" severity="success" pill&gt;&lt;/l-badge&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Overlay Counter Notifikasi pada Tombol & Ikon -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Overlay Counter Notifikasi (Notification Bubbles)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <!-- Tombol dengan Badge Counter -->
+                <div style="position: relative; display: inline-block;">
+                    <l-button label="Pesan Masuk" severity="secondary" icon="mail"></l-button>
+                    <span style="position: absolute; top: -6px; right: -6px; background: #ff2d20; color: #ffffff; border-radius: 9999px; padding: 2px 6px; font-size: 0.7rem; font-weight: 700; box-shadow: 0 0 0 2px var(--bg-card); line-height: 1;">8</span>
+                </div>
+
+                <!-- Ikon Lonceng Notifikasi -->
+                <div style="position: relative; display: inline-flex; padding: 8px; background: var(--bg-hover); border-radius: 8px; cursor: pointer;">
+                    <l-icon name="bell" size="20"></l-icon>
+                    <span style="position: absolute; top: -4px; right: -4px; background: #ef4444; color: #ffffff; border-radius: 9999px; padding: 2px 5px; font-size: 0.65rem; font-weight: 700; box-shadow: 0 0 0 2px var(--bg-card); line-height: 1;">99+</span>
+                </div>
+
+                <!-- Ikon Keranjang Belanja -->
+                <div style="position: relative; display: inline-flex; padding: 8px; background: var(--bg-hover); border-radius: 8px; cursor: pointer;">
+                    <l-icon name="shopping-bag" size="20"></l-icon>
+                    <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 0 2px var(--bg-card);"></span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Counter Notifikasi di Atas Tombol --&gt;
+&lt;div style="position: relative; display: inline-block;"&gt;
+    &lt;l-button label="Pesan Masuk" severity="secondary" icon="mail"&gt;&lt;/l-button&gt;
+    &lt;span class="c-badge-counter"&gt;8&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Ikon Lonceng dengan Counter 99+ --&gt;
+&lt;div style="position: relative;"&gt;
+    &lt;l-icon name="bell"&gt;&lt;/l-icon&gt;
+    &lt;span class="c-badge-counter"&gt;99+&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 5. Tag Status Riwayat Transaksi -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Penerapan Status pada Riwayat Transaksi</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0.85rem; background: var(--bg-hover); border-radius: 6px;">
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #f4f4f5;">#INV-2026-001 (Langganan Pro)</div>
+                        <div style="font-size: 0.75rem; color: var(--text-dim);">31 Okt 2026, 12:45 WIB</div>
+                    </div>
+                    <l-badge value="Berhasil Dibayar" severity="success" pill></l-badge>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0.85rem; background: var(--bg-hover); border-radius: 6px;">
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #f4f4f5;">#INV-2026-002 (Domain Kustom)</div>
+                        <div style="font-size: 0.75rem; color: var(--text-dim);">31 Okt 2026, 11:20 WIB</div>
+                    </div>
+                    <l-badge value="Menunggu Transfer" severity="warning" pill></l-badge>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0.85rem; background: var(--bg-hover); border-radius: 6px;">
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #f4f4f5;">#INV-2026-003 (Sertifikat SSL)</div>
+                        <div style="font-size: 0.75rem; color: var(--text-dim);">30 Okt 2026, 18:00 WIB</div>
+                    </div>
+                    <l-badge value="Kadaluarsa" severity="danger" pill></l-badge>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Lencana Status Riwayat Transaksi --&gt;
+&lt;l-badge value="Berhasil Dibayar" severity="success" pill&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Menunggu Transfer" severity="warning" pill&gt;&lt;/l-badge&gt;
+&lt;l-badge value="Kadaluarsa" severity="danger" pill&gt;&lt;/l-badge&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/kartu" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Kartu &amp; Panel</span></a>
+        <a href="/komponen/alert" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Alert &amp; Notifikasi</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

@@ -1,0 +1,55 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Framework CSS Utility-First JIT Asli</h2>
+    <p>Rikat CSS adalah compiler CSS utility-first terintegrasi langsung di dalam Larapak. Anda <strong>tidak membutuhkan Node.js, npm, webpack, maupun postcss</strong> untuk mendapatkan kecepatan dan fleksibilitas utility class!</p>
+
+    <h2>Kompilasi Cepat JIT</h2>
+    <p>Engine Rikat CSS memindai seluruh file template <code>sawangan/**/*.nview</code> dan mengekstrak kelas-kelas yang Anda gunakan ke dalam bundle CSS bersih di <code>njobo/css/rikat.css</code>:</p>
+
+    <pre><code># Kompilasi CSS satu kali untuk produksi (Dialek Ngapak)
+ngapakin rikat:rakit
+# Atau alias standar: ngapakin css:build
+
+# Mode watcher otomatis saat Anda mengedit file template
+ngapakin rikat:pantau
+# Atau alias standar: ngapakin css:watch</code></pre>
+
+    <div class="callout">
+        <strong>Peningkatan Resolusi Jalur di v1.1.0:</strong> Perintah kompilasi CSS secara cerdas membaca dialek bahasa proyek yang aktif: otomatis membaca template di <code>sawangan/</code> dan menghasilkan berkas di <code>njobo/css/rikat.css</code> pada dialek Ngapak, atau <code>resources/views/</code> dan <code>public/css/rikat.css</code> pada dialek standar.
+    </div>
+
+    <h2>Dukungan Utilitas Lengkap</h2>
+    <ul>
+        <li><strong>Skala Spacing 4px</strong>: <code>p-4</code>, <code>m-2</code>, <code>px-6</code>, <code>py-3</code>, <code>gap-4</code>, <code>space-y-2</code>.</li>
+        <li><strong>Sistem Layout Grid &amp; Flexbox</strong>: <code>flex</code>, <code>grid</code>, <code>grid-cols-12</code>, <code>col-span-6</code>, <code>items-center</code>, <code>justify-between</code>.</li>
+        <li><strong>Varian Responsif</strong>: <code>sm:p-6</code>, <code>md:grid-cols-2</code>, <code>lg:max-w-4xl</code>.</li>
+        <li><strong>Varian State Interaktif</strong>: <code>hover:bg-red-600</code>, <code>focus:ring-2</code>, <code>active:scale-95</code>.</li>
+        <li><strong>Nilai Arbitrer Dinamis</strong>: <code>w-[320px]</code>, <code>top-[72px]</code>, <code>bg-[#ff2d20]</code>.</li>
+    </ul>
+
+    <h2>Contoh Penggunaan di Template</h2>
+    <pre><code>&lt;div class="max-w-md mx-auto bg-[#18181b] p-6 rounded-lg border border-[#27272a] shadow-lg"&gt;
+    &lt;h3 class="text-xl font-bold text-white mb-2"&gt;Kartu Produk&lt;/h3&gt;
+    &lt;p class="text-gray-400 text-sm mb-4"&gt;Dibuat dengan efisiensi tinggi tanpa dependensi npm.&lt;/p&gt;
+    &lt;button class="bg-[#ff2d20] hover:bg-[#e02418] text-white px-4 py-2 rounded text-sm font-semibold transition"&gt;
+        Beli Sekarang
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/database" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Database &amp; Model ORM</span></a>
+        <a href="/dok/rikat-ui" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Rikat UI Reaktif</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

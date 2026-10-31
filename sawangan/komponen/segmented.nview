@@ -1,0 +1,109 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen pemilih opsi linier eksklusif ala <code>&lt;p-selectButton&gt;</code> di PrimeNG atau Segmented Control di iOS/macOS. Ideal untuk beralih mode tampilan, filter periode waktu, dan toggle status tanpa dropdown berlebih.</p>
+
+    <!-- 1. Segmented Sederhana Periode Waktu -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Pilihan Periode Waktu (Filter Laporan)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <l-segmented options='["Hari Ini", "7 Hari Terakhir", "Bulan Ini", "Tahun Ini"]' value="Bulan Ini"></l-segmented>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Segmented Control Array Teks Sederhana --&gt;
+&lt;l-segmented options='["Hari Ini", "7 Hari Terakhir", "Bulan Ini", "Tahun Ini"]' value="Bulan Ini"&gt;&lt;/l-segmented&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Segmented Mode Tampilan Berikon -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Mode Tampilan Berikon (View Switcher)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Layout Katalog Produk:</div>
+                    <l-segmented options='[{"label":"Tabel Data","value":"table","icon":"table"},{"label":"Kotak Grid","value":"grid","icon":"grid"},{"label":"Daftar Baris","value":"list","icon":"list"}]' value="grid"></l-segmented>
+                </div>
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Tema Antarmuka:</div>
+                    <l-segmented options='[{"label":"Terang","value":"light","icon":"sun"},{"label":"Gelap","value":"dark","icon":"moon"},{"label":"Sistem","value":"system","icon":"monitor"}]' value="dark"></l-segmented>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Segmented dengan Objek Label &amp; Ikon --&gt;
+&lt;l-segmented options='[{"label":"Tabel Data","value":"table","icon":"table"},{"label":"Kotak Grid","value":"grid","icon":"grid"},{"label":"Daftar Baris","value":"list","icon":"list"}]' value="grid"&gt;&lt;/l-segmented&gt;
+
+&lt;!-- Toggle Tema --&gt;
+&lt;l-segmented options='[{"label":"Terang","value":"light","icon":"sun"},{"label":"Gelap","value":"dark","icon":"moon"},{"label":"Sistem","value":"system","icon":"monitor"}]' value="dark"&gt;&lt;/l-segmented&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Segmented Interaktif Terhubung Tampilan -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Demonstrasi Interaktif Reaktif</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 520px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span style="font-size: 0.9rem; font-weight: 600; color: #ffffff;">Tipe Akun Pengguna</span>
+                    <span id="selectedSegmentBadge" class="c-badge c-badge-primary">Developer</span>
+                </div>
+                <l-segmented id="interactiveSegment" options='["Starter", "Developer", "Enterprise"]' value="Developer"></l-segmented>
+                <div id="segmentDesc" style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; padding: 0.75rem; background: var(--bg-page); border-radius: 6px;">
+                    Akses penuh untuk pembuatan aplikasi skala menengah dengan fitur Rikat CSS JIT dan Web Components tanpa batas.
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Segmented Interaktif dengan Tangkapan Event --&gt;
+&lt;l-segmented id="interactiveSegment" options='["Starter", "Developer", "Enterprise"]' value="Developer"&gt;&lt;/l-segmented&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/rating" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Rating Bintang</span></a>
+        <a href="/komponen/divider" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Divider Pemisah</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const seg = document.getElementById('interactiveSegment');
+    const badge = document.getElementById('selectedSegmentBadge');
+    const desc = document.getElementById('segmentDesc');
+    const data = {
+        'Starter': 'Paket gratis untuk eksplorasi dan pembuatan prototipe antarmuka dasar.',
+        'Developer': 'Akses penuh untuk pembuatan aplikasi skala menengah dengan fitur Rikat CSS JIT dan Web Components tanpa batas.',
+        'Enterprise': 'Performa tinggi, dukungan arsitektur multi-vendor, dan prioritas pemeliharaan teknis.'
+    };
+    if (seg && badge && desc) {
+        seg.addEventListener('change', (e) => {
+            const v = e.detail.value;
+            badge.textContent = v;
+            desc.textContent = data[v] || '';
+        });
+    }
+});
+</script>
+
+@rampung
+

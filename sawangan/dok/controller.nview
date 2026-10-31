@@ -1,0 +1,76 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Struktur Controller</h2>
+    <p>Controller bertugas menerima permintaan HTTP dari pengguna, memproses data bisnis bersama model, dan mengembalikan hasil ke peramban berupa tampilan HTML atau data JSON.</p>
+
+    <p>File controller ditempatkan di <code>jeroan/Pangatur/</code> dengan ekstensi <code>.ngpk</code>. Anda dapat membuat controller baru dengan perintah dialek Ngapak:</p>
+    <pre><code># Dialek Ngapak (Rekomendasi)
+ngapakin gawe:pangatur ProdukController
+
+# Atau menggunakan alias standar
+ngapakin make:controller ProdukController</code></pre>
+
+    <h2>Contoh Lengkap Controller</h2>
+    <pre><code># jeroan/Pangatur/ProdukController.ngpk
+
+gawe index(req, res)
+    # Mengambil seluruh data produk dari database
+    daftar_produk = db.tabel("produk").pilih().jupuk()
+    
+    # Mengirimkan data ke view template
+    konteks = ["title": "Katalog Produk", "produk": daftar_produk]
+    balekna res.view("produk.index", konteks)
+rampung
+
+gawe simpan(req, res)
+    # Membaca data body request formulir
+    nama = req.body["nama"]
+    harga = req.body["harga"]
+
+    # Simpan ke database
+    db.tabel("produk").lebokna(["nama": nama, "harga": harga])
+
+    # Redirect ke halaman utama
+    balekna res.redirect("/produk")
+rampung
+
+gawe api_list(req, res)
+    # Mengembalikan response JSON untuk REST API
+    data = db.tabel("produk").pilih().jupuk()
+    balekna res.json(["status": "sukses", "data": data])
+rampung</code></pre>
+
+    <h2>Objek Request (<code>req</code>)</h2>
+    <p>Setiap aksi controller menerima parameter <code>req</code> yang menyediakan akses ke seluruh data permintaan:</p>
+    <ul>
+        <li><code>req.params</code>: Dictionary parameter URL dinamis (contoh: <code>req.params["slug"]</code>).</li>
+        <li><code>req.query</code>: Parameter query string (contoh: <code>req.query["cari"]</code> pada <code>/produk?cari=kaos</code>).</li>
+        <li><code>req.body</code>: Data payload formulir (POST/PUT) atau parsed JSON body.</li>
+        <li><code>req.headers</code>: Header HTTP dari klien (contoh: <code>req.headers["authorization"]</code>).</li>
+    </ul>
+
+    <h2>Objek Response (<code>res</code>)</h2>
+    <ul>
+        <li><code>res.view(view_name, context)</code>: Merender template tampilan di <code>sawangan/</code>.</li>
+        <li><code>res.json(data, status=200)</code>: Mengirim data terformat JSON.</li>
+        <li><code>res.redirect(url, status=302)</code>: Mengalihkan pengguna ke URL lain.</li>
+        <li><code>res.cookie(nama, nilai)</code>: Mengatur HTTP cookie klien.</li>
+    </ul>
+
+    <div class="bottom-nav">
+        <a href="/dok/routing" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Routing &amp; Penanganan URL</span></a>
+        <a href="/dok/middleware" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Middleware &amp; CSRF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

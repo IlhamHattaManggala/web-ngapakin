@@ -1,0 +1,79 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Pengantar Bahasa NgapakIn</h2>
+    <p>NgapakIn adalah bahasa pemrograman berbasis bytecode VM yang dirancang khusus dengan kosakata dialek Banyumasan. Bahasa ini mendukung pemrograman prosedural, fungsional, dan berorientasi objek (OOP).</p>
+
+    <h2>1. Variabel &amp; Tipe Data</h2>
+    <p>Penetapan variabel dilakukan secara langsung tanpa keyword khusus:</p>
+    <pre><code>jeneng = "Slamet"          # Teks (String)
+umur = 25                  # Angka Bulat (Integer)
+bobot = 68.5               # Angka Pecahan (Float)
+aktif = bener              # Nilai Boolean (bener / salah)
+kosongan = kosong          # Nilai Kosong (null / None)
+
+# Tipe data List (Koleksi Berurutan)
+hobi = ["mancing", "ngoding", "mangan tempe"]
+
+# Tipe data Map / Dictionary (Kunci-Nilai)
+pengguna = ["nama": "Slamet", "kota": "Purwokerto", "status": "aktif"]</code></pre>
+
+    <h2>2. Fungsi (<code>gawe</code> &amp; <code>balekna</code>)</h2>
+    <p>Fungsi didefinisikan menggunakan kata kunci <code>gawe</code> dan diakhiri dengan <code>rampung</code>. Nilai balik dikirimkan via <code>balekna</code>:</p>
+    
+    <pre><code>gawe tambah(a, b)
+    hasil = a + b
+    balekna hasil
+rampung
+
+gawe sapa(jeneng)
+    tulis "Halo, " + jeneng + "! Sugeng rawuh."
+rampung
+
+# Memanggil fungsi
+total = tambah(10, 20)
+sapa("Ilham")</code></pre>
+
+    <h2>3. Percabangan Kondisional (<code>nek</code>, <code>ya</code>, <code>liyane</code>)</h2>
+    <p>Logika percabangan mengevaluasi kondisi boolean:</p>
+
+    <pre><code>nilai = 85
+
+nek nilai >= 90 ya
+    status = "Sangat Baik"
+liyane nek nilai >= 75 ya
+    status = "Baik"
+liyane
+    status = "Cukup"
+rampung</code></pre>
+
+    <h2>4. Perulangan (<code>baleni</code>)</h2>
+    <p>Larapak menyediakan dua bentuk perulangan: iterasi koleksi (foreach) dan iterasi rentang angka (range):</p>
+
+    <pre><code># Perulangan rentang angka (saka ... nganti ...)
+baleni i saka 1 nganti 5
+    tulis "Hitungan nomer: " + i
+rampung
+
+# Perulangan isi koleksi (neng ...)
+daftar_kota = ["Purwokerto", "Banyumas", "Cilacap", "Purbalingga"]
+baleni kota neng daftar_kota
+    tulis "Kutha: " + kota
+rampung</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/konfigurasi" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Konfigurasi Lingkungan (.env)</span></a>
+        <a href="/dok/routing" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Routing &amp; Penanganan URL</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

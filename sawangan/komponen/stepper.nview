@@ -1,0 +1,44 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Penunjuk tahapan wizard deklaratif ala <code>&lt;p-steps&gt;</code> di PrimeNG dengan status otomatis <code>completed</code>, <code>active</code>, dan <code>pending</code>.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Stepper Multi-Langkah Deklaratif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <l-stepper>
+        <l-step label="Pendaftaran Akun" status="completed"></l-step>
+        <l-step label="Profil Bisnis" status="active"></l-step>
+        <l-step label="Verifikasi Data" status="pending"></l-step>
+        <l-step label="Selesai" status="pending"></l-step>
+    </l-stepper>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Declarative Stepper Wizard --&gt;
+&lt;l-stepper&gt;
+    &lt;l-step label="Pendaftaran Akun" status="completed"&gt;&lt;/l-step&gt;
+    &lt;l-step label="Profil Bisnis" status="active"&gt;&lt;/l-step&gt;
+    &lt;l-step label="Verifikasi Data" status="pending"&gt;&lt;/l-step&gt;
+    &lt;l-step label="Selesai" status="pending"&gt;&lt;/l-step&gt;
+&lt;/l-stepper&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/navigasi" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Tab & Segmen</span></a>
+        <a href="/komponen/timeline" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Timeline Aktivitas</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

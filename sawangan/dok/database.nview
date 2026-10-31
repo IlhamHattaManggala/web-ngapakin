@@ -1,0 +1,97 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Fluent Query Builder</h2>
+    <p>Larapak menyediakan antarmuka Query Builder yang ekspresif, aman dari serangan SQL Injection dengan parameterized query, dan mudah dibaca:</p>
+
+    <pre><code># Mengambil semua baris dari tabel pengguna
+semua_pengguna = db.tabel("pengguna").pilih().jupuk()
+
+# Query dengan filter kondisi (WHERE)
+aktif = db.tabel("pengguna") \
+    .pilih(["id", "nama", "email"]) \
+    .ngendi("status", "=", "aktif") \
+    .ngendi("umur", ">=", 18) \
+    .urutna("nama", "ASC") \
+    .watesi(10) \
+    .jupuk()
+
+# Mengambil baris pertama saja
+siji = db.tabel("pengguna").ngendi("email", "=", "slamet@ngapak.org").siji()</code></pre>
+
+    <h2>Operasi CRUD (Create, Read, Update, Delete)</h2>
+
+    <h3>Menambah Data Baru (Insert)</h3>
+    <pre><code>id_anyar = db.tabel("pengguna").lebokna([
+    "nama": "Bambang",
+    "email": "bambang@banyumas.go.id",
+    "status": "aktif"
+])</code></pre>
+
+    <h3>Memperbarui Data (Update)</h3>
+    <pre><code>db.tabel("pengguna") \
+    .ngendi("id", "=", 5) \
+    .anyari(["status": "nonaktif", "nama": "Bambang S."])</code></pre>
+
+    <h3>Menghapus Data (Delete)</h3>
+    <pre><code>db.tabel("pengguna").ngendi("id", "=", 5).busak()</code></pre>
+
+    <h2>Model ORM &amp; Eager Loading (Anti N+1)</h2>
+    <p>File model ORM ditempatkan di <code>jeroan/Wujud/</code>. Buat model baru melalui perintah CLI:</p>
+    <pre><code># Dialek Ngapak
+ngapakin gawe:wujud Produk
+
+# Alias standar
+ngapakin make:model Produk</code></pre>
+
+    <p>Untuk menghindari masalah klasik performa <strong>N+1 Query</strong> saat menampilkan data berelasi, gunakan eager loading dengan metode <code>karo()</code>:</p>
+
+    <pre><code># Mengambil postingan beserta seluruh komentar dan data penulis dalam satu batch query optimal
+artikel = Postingan.karo(["penulis", "komentar"]).ngendi("status", "=", "publikasi").jupuk()</code></pre>
+
+    <h2>Database Seeder (Pengisian Data Awal)</h2>
+    <p>Larapak menyediakan sistem Seeder untuk mengisi data awal (seperti akun administrator, kategori default, atau data dummy pengujian) secara otomatis.</p>
+
+    <h3>1. Membuat Berkas Seeder</h3>
+    <pre><code># Dialek Ngapak Asli
+ngapakin gawe:bibit ProdukSeeder
+
+# Alias standar
+ngapakin make:seeder ProdukSeeder</code></pre>
+
+    <p>File seeder disimpan di <code>lumbung/bibit/ProdukSeeder.ngpk</code>:</p>
+    <pre><code># Database Seeder ProdukSeeder untuk Larapak
+gawe tandang()
+    db.tabel("produk").lebokna([
+        "nama": "Kopi Banyumas Asli",
+        "harga": 25000,
+        "status": "tersedia"
+    ])
+    tulis("Seeder ProdukSeeder selesai dijalankan.")
+rampung</code></pre>
+
+    <h3>2. Menjalankan Seeder</h3>
+    <pre><code># Menjalankan seeder langsung
+ngapakin bibiti
+# Atau: ngapakin db:seed
+
+# Menjalankan seeder bersamaan dengan fresh migration
+ngapakin migrasi:anyar --seed
+# Atau: ngapakin migrate:fresh --seed</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Migrasi Skema Database</span></a>
+        <a href="/dok/rikat-css" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Rikat CSS Engine (JIT)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

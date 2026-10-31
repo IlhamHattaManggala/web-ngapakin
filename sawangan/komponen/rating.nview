@@ -1,0 +1,134 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen umpan balik penilaian pengguna ala <code>&lt;p-rating&gt;</code> di PrimeNG. Memungkinkan input bintang interaktif dengan respon hover visual, mode baca-saja (read-only) untuk ulasan produk, dan penyesuaian jumlah skala bintang.</p>
+
+    <!-- 1. Rating Standar 5 Bintang -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Rating 5 Bintang Interaktif</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <l-rating value="3"></l-rating>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">(Klik bintang untuk memilih nilai)</span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Rating Interaktif Nilai Awal 3 Bintang --&gt;
+&lt;l-rating value="3"&gt;&lt;/l-rating&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Skala Rating 10 Bintang -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Skala Penilaian Detail (10 Bintang)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Kepuasan Pelanggan (Net Promoter Score)</div>
+                <l-rating value="8" stars="10"></l-rating>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Skala 10 Bintang untuk Evaluasi Mendalam --&gt;
+&lt;l-rating value="8" stars="10"&gt;&lt;/l-rating&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Rating Baca-Saja (Read-Only Product Review) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Mode Baca-Saja (Ringkasan Ulasan Produk)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <l-rating value="5" readonly></l-rating>
+                    <span style="font-weight: 700; color: #ffffff; font-size: 0.95rem;">5.0</span>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">(3.420 ulasan terverifikasi)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <l-rating value="4" readonly></l-rating>
+                    <span style="font-weight: 700; color: #ffffff; font-size: 0.95rem;">4.2</span>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">(890 ulasan pembeli)</span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Rating Read-Only (Tidak Dapat Diubah Klik) --&gt;
+&lt;div style="display: flex; align-items: center; gap: 0.75rem;"&gt;
+    &lt;l-rating value="5" readonly&gt;&lt;/l-rating&gt;
+    &lt;span style="font-weight: 700;"&gt;5.0&lt;/span&gt;
+    &lt;span class="text-muted"&gt;(3.420 ulasan)&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Interactive Live Rating Card -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kartu Umpan Balik Interaktif</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="width: 100%; max-width: 480px; padding: 1.25rem; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 8px;">
+                <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #ffffff;">Bagaimana pengalaman Anda memakai Ngapakin Framework?</h4>
+                <p style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted);">Umpan balik Anda sangat berharga untuk pengembangan rilis berikutnya.</p>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <l-rating id="feedbackRating" value="5"></l-rating>
+                    <span id="feedbackText" class="c-badge c-badge-success">Sangat Puas (5 Bintang)</span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Formulir Rating Interaktif --&gt;
+&lt;l-rating id="feedbackRating" value="5"&gt;&lt;/l-rating&gt;
+&lt;span id="feedbackText" class="c-badge c-badge-success"&gt;Sangat Puas (5 Bintang)&lt;/span&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/slider" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Slider Rentang</span></a>
+        <a href="/komponen/segmented" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Segmented Control</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const r = document.getElementById('feedbackRating');
+    const txt = document.getElementById('feedbackText');
+    const labels = {
+        1: { text: 'Sangat Kecewa (1)', sev: 'c-badge-danger' },
+        2: { text: 'Kurang Puas (2)', sev: 'c-badge-danger' },
+        3: { text: 'Cukup Baik (3)', sev: 'c-badge-warning' },
+        4: { text: 'Puas (4)', sev: 'c-badge-primary' },
+        5: { text: 'Sangat Puas (5)', sev: 'c-badge-success' }
+    };
+    if (r && txt) {
+        r.addEventListener('change', (e) => {
+            const v = e.detail.value;
+            const item = labels[v] || { text: v + ' Bintang', sev: 'c-badge-primary' };
+            txt.className = 'c-badge ' + item.sev;
+            txt.textContent = item.text;
+        });
+    }
+});
+</script>
+
+@rampung
+

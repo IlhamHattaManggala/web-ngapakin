@@ -1,0 +1,364 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <p>Gunakan puluhan ikon SVG modern berformat ringan tanpa repot menempelkan kode SVG panjang. Cukup tuliskan <code>&lt;l-icon name='...'&gt;&lt;/l-icon&gt;</code>.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Pencarian & Galeri Ikon Interaktif (Klik kartu untuk salin tag)</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem;">
+        <l-input id="iconFilterInput" icon="search" placeholder="Ketik nama ikon (cth: search, user, trash)..." style="width: 100%; max-width: 380px;"></l-input>
+        <span style="font-size: 0.8rem; color: var(--text-dim);"><span id="iconTotalCount">67</span> ikon siap pakai</span>
+    </div>
+    <div class="icon-grid" id="iconGridContainer">
+        
+    <div class="icon-card" data-icon="search" title="Klik untuk salin tag <l-icon name='search'>">
+        <l-icon name="search" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">search</span>
+    </div>
+    <div class="icon-card" data-icon="copy" title="Klik untuk salin tag <l-icon name='copy'>">
+        <l-icon name="copy" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">copy</span>
+    </div>
+    <div class="icon-card" data-icon="check" title="Klik untuk salin tag <l-icon name='check'>">
+        <l-icon name="check" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">check</span>
+    </div>
+    <div class="icon-card" data-icon="check-circle" title="Klik untuk salin tag <l-icon name='check-circle'>">
+        <l-icon name="check-circle" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">check-circle</span>
+    </div>
+    <div class="icon-card" data-icon="x" title="Klik untuk salin tag <l-icon name='x'>">
+        <l-icon name="x" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">x</span>
+    </div>
+    <div class="icon-card" data-icon="x-circle" title="Klik untuk salin tag <l-icon name='x-circle'>">
+        <l-icon name="x-circle" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">x-circle</span>
+    </div>
+    <div class="icon-card" data-icon="arrow-right" title="Klik untuk salin tag <l-icon name='arrow-right'>">
+        <l-icon name="arrow-right" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">arrow-right</span>
+    </div>
+    <div class="icon-card" data-icon="arrow-left" title="Klik untuk salin tag <l-icon name='arrow-left'>">
+        <l-icon name="arrow-left" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">arrow-left</span>
+    </div>
+    <div class="icon-card" data-icon="arrow-up" title="Klik untuk salin tag <l-icon name='arrow-up'>">
+        <l-icon name="arrow-up" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">arrow-up</span>
+    </div>
+    <div class="icon-card" data-icon="arrow-down" title="Klik untuk salin tag <l-icon name='arrow-down'>">
+        <l-icon name="arrow-down" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">arrow-down</span>
+    </div>
+    <div class="icon-card" data-icon="chevron-down" title="Klik untuk salin tag <l-icon name='chevron-down'>">
+        <l-icon name="chevron-down" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">chevron-down</span>
+    </div>
+    <div class="icon-card" data-icon="chevron-up" title="Klik untuk salin tag <l-icon name='chevron-up'>">
+        <l-icon name="chevron-up" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">chevron-up</span>
+    </div>
+    <div class="icon-card" data-icon="chevron-right" title="Klik untuk salin tag <l-icon name='chevron-right'>">
+        <l-icon name="chevron-right" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">chevron-right</span>
+    </div>
+    <div class="icon-card" data-icon="chevron-left" title="Klik untuk salin tag <l-icon name='chevron-left'>">
+        <l-icon name="chevron-left" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">chevron-left</span>
+    </div>
+    <div class="icon-card" data-icon="user" title="Klik untuk salin tag <l-icon name='user'>">
+        <l-icon name="user" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">user</span>
+    </div>
+    <div class="icon-card" data-icon="users" title="Klik untuk salin tag <l-icon name='users'>">
+        <l-icon name="users" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">users</span>
+    </div>
+    <div class="icon-card" data-icon="user-plus" title="Klik untuk salin tag <l-icon name='user-plus'>">
+        <l-icon name="user-plus" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">user-plus</span>
+    </div>
+    <div class="icon-card" data-icon="trash" title="Klik untuk salin tag <l-icon name='trash'>">
+        <l-icon name="trash" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">trash</span>
+    </div>
+    <div class="icon-card" data-icon="bell" title="Klik untuk salin tag <l-icon name='bell'>">
+        <l-icon name="bell" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">bell</span>
+    </div>
+    <div class="icon-card" data-icon="settings" title="Klik untuk salin tag <l-icon name='settings'>">
+        <l-icon name="settings" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">settings</span>
+    </div>
+    <div class="icon-card" data-icon="plus" title="Klik untuk salin tag <l-icon name='plus'>">
+        <l-icon name="plus" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">plus</span>
+    </div>
+    <div class="icon-card" data-icon="minus" title="Klik untuk salin tag <l-icon name='minus'>">
+        <l-icon name="minus" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">minus</span>
+    </div>
+    <div class="icon-card" data-icon="download" title="Klik untuk salin tag <l-icon name='download'>">
+        <l-icon name="download" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">download</span>
+    </div>
+    <div class="icon-card" data-icon="upload" title="Klik untuk salin tag <l-icon name='upload'>">
+        <l-icon name="upload" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">upload</span>
+    </div>
+    <div class="icon-card" data-icon="external-link" title="Klik untuk salin tag <l-icon name='external-link'>">
+        <l-icon name="external-link" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">external-link</span>
+    </div>
+    <div class="icon-card" data-icon="eye" title="Klik untuk salin tag <l-icon name='eye'>">
+        <l-icon name="eye" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">eye</span>
+    </div>
+    <div class="icon-card" data-icon="eye-off" title="Klik untuk salin tag <l-icon name='eye-off'>">
+        <l-icon name="eye-off" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">eye-off</span>
+    </div>
+    <div class="icon-card" data-icon="lock" title="Klik untuk salin tag <l-icon name='lock'>">
+        <l-icon name="lock" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">lock</span>
+    </div>
+    <div class="icon-card" data-icon="unlock" title="Klik untuk salin tag <l-icon name='unlock'>">
+        <l-icon name="unlock" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">unlock</span>
+    </div>
+    <div class="icon-card" data-icon="mail" title="Klik untuk salin tag <l-icon name='mail'>">
+        <l-icon name="mail" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">mail</span>
+    </div>
+    <div class="icon-card" data-icon="phone" title="Klik untuk salin tag <l-icon name='phone'>">
+        <l-icon name="phone" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">phone</span>
+    </div>
+    <div class="icon-card" data-icon="calendar" title="Klik untuk salin tag <l-icon name='calendar'>">
+        <l-icon name="calendar" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">calendar</span>
+    </div>
+    <div class="icon-card" data-icon="filter" title="Klik untuk salin tag <l-icon name='filter'>">
+        <l-icon name="filter" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">filter</span>
+    </div>
+    <div class="icon-card" data-icon="refresh" title="Klik untuk salin tag <l-icon name='refresh'>">
+        <l-icon name="refresh" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">refresh</span>
+    </div>
+    <div class="icon-card" data-icon="star" title="Klik untuk salin tag <l-icon name='star'>">
+        <l-icon name="star" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">star</span>
+    </div>
+    <div class="icon-card" data-icon="heart" title="Klik untuk salin tag <l-icon name='heart'>">
+        <l-icon name="heart" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">heart</span>
+    </div>
+    <div class="icon-card" data-icon="shield" title="Klik untuk salin tag <l-icon name='shield'>">
+        <l-icon name="shield" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">shield</span>
+    </div>
+    <div class="icon-card" data-icon="alert-triangle" title="Klik untuk salin tag <l-icon name='alert-triangle'>">
+        <l-icon name="alert-triangle" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">alert-triangle</span>
+    </div>
+    <div class="icon-card" data-icon="info" title="Klik untuk salin tag <l-icon name='info'>">
+        <l-icon name="info" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">info</span>
+    </div>
+    <div class="icon-card" data-icon="help-circle" title="Klik untuk salin tag <l-icon name='help-circle'>">
+        <l-icon name="help-circle" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">help-circle</span>
+    </div>
+    <div class="icon-card" data-icon="folder" title="Klik untuk salin tag <l-icon name='folder'>">
+        <l-icon name="folder" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">folder</span>
+    </div>
+    <div class="icon-card" data-icon="file" title="Klik untuk salin tag <l-icon name='file'>">
+        <l-icon name="file" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">file</span>
+    </div>
+    <div class="icon-card" data-icon="code" title="Klik untuk salin tag <l-icon name='code'>">
+        <l-icon name="code" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">code</span>
+    </div>
+    <div class="icon-card" data-icon="terminal" title="Klik untuk salin tag <l-icon name='terminal'>">
+        <l-icon name="terminal" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">terminal</span>
+    </div>
+    <div class="icon-card" data-icon="database" title="Klik untuk salin tag <l-icon name='database'>">
+        <l-icon name="database" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">database</span>
+    </div>
+    <div class="icon-card" data-icon="server" title="Klik untuk salin tag <l-icon name='server'>">
+        <l-icon name="server" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">server</span>
+    </div>
+    <div class="icon-card" data-icon="zap" title="Klik untuk salin tag <l-icon name='zap'>">
+        <l-icon name="zap" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">zap</span>
+    </div>
+    <div class="icon-card" data-icon="clock" title="Klik untuk salin tag <l-icon name='clock'>">
+        <l-icon name="clock" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">clock</span>
+    </div>
+    <div class="icon-card" data-icon="tag" title="Klik untuk salin tag <l-icon name='tag'>">
+        <l-icon name="tag" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">tag</span>
+    </div>
+    <div class="icon-card" data-icon="bookmark" title="Klik untuk salin tag <l-icon name='bookmark'>">
+        <l-icon name="bookmark" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">bookmark</span>
+    </div>
+    <div class="icon-card" data-icon="sun" title="Klik untuk salin tag <l-icon name='sun'>">
+        <l-icon name="sun" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">sun</span>
+    </div>
+    <div class="icon-card" data-icon="moon" title="Klik untuk salin tag <l-icon name='moon'>">
+        <l-icon name="moon" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">moon</span>
+    </div>
+    <div class="icon-card" data-icon="github" title="Klik untuk salin tag <l-icon name='github'>">
+        <l-icon name="github" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">github</span>
+    </div>
+    <div class="icon-card" data-icon="share" title="Klik untuk salin tag <l-icon name='share'>">
+        <l-icon name="share" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">share</span>
+    </div>
+    <div class="icon-card" data-icon="link" title="Klik untuk salin tag <l-icon name='link'>">
+        <l-icon name="link" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">link</span>
+    </div>
+    <div class="icon-card" data-icon="layout" title="Klik untuk salin tag <l-icon name='layout'>">
+        <l-icon name="layout" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">layout</span>
+    </div>
+    <div class="icon-card" data-icon="grid" title="Klik untuk salin tag <l-icon name='grid'>">
+        <l-icon name="grid" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">grid</span>
+    </div>
+    <div class="icon-card" data-icon="list" title="Klik untuk salin tag <l-icon name='list'>">
+        <l-icon name="list" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">list</span>
+    </div>
+    <div class="icon-card" data-icon="sliders" title="Klik untuk salin tag <l-icon name='sliders'>">
+        <l-icon name="sliders" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">sliders</span>
+    </div>
+    <div class="icon-card" data-icon="inbox" title="Klik untuk salin tag <l-icon name='inbox'>">
+        <l-icon name="inbox" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">inbox</span>
+    </div>
+    <div class="icon-card" data-icon="message-square" title="Klik untuk salin tag <l-icon name='message-square'>">
+        <l-icon name="message-square" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">message-square</span>
+    </div>
+    <div class="icon-card" data-icon="send" title="Klik untuk salin tag <l-icon name='send'>">
+        <l-icon name="send" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">send</span>
+    </div>
+    <div class="icon-card" data-icon="activity" title="Klik untuk salin tag <l-icon name='activity'>">
+        <l-icon name="activity" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">activity</span>
+    </div>
+    <div class="icon-card" data-icon="layers" title="Klik untuk salin tag <l-icon name='layers'>">
+        <l-icon name="layers" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">layers</span>
+    </div>
+    <div class="icon-card" data-icon="pie-chart" title="Klik untuk salin tag <l-icon name='pie-chart'>">
+        <l-icon name="pie-chart" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">pie-chart</span>
+    </div>
+    <div class="icon-card" data-icon="bar-chart-2" title="Klik untuk salin tag <l-icon name='bar-chart-2'>">
+        <l-icon name="bar-chart-2" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">bar-chart-2</span>
+    </div>
+    <div class="icon-card" data-icon="box" title="Klik untuk salin tag <l-icon name='box'>">
+        <l-icon name="box" size="22" color="#ffffff"></l-icon>
+        <span class="icon-name">box</span>
+    </div>
+    </div>
+    <div id="iconCopiedToast" style="display:none; position:fixed; bottom:2rem; right:2rem; background:#10b981; color:#ffffff; padding:0.6rem 1.25rem; border-radius:8px; font-weight:600; font-size:0.85rem; box-shadow:0 8px 24px rgba(0,0,0,0.5); z-index:9999;">
+        Tag ikon tersalin ke clipboard!
+    </div>
+    <script>
+        const input = document.getElementById('iconFilterInput');
+        const grid = document.getElementById('iconGridContainer');
+        const toast = document.getElementById('iconCopiedToast');
+        if (input && grid) {
+            input.addEventListener('input', (e) => {
+                const q = ((e.detail && e.detail.value !== undefined) ? e.detail.value : (e.target.value || '')).toLowerCase().trim();
+                const cards = grid.querySelectorAll('.icon-card');
+                let count = 0;
+                cards.forEach(c => {
+                    const name = c.getAttribute('data-icon');
+                    if (!q || name.includes(q)) {
+                        c.style.display = 'flex';
+                        count++;
+                    } else {
+                        c.style.display = 'none';
+                    }
+                });
+                const countEl = document.getElementById('iconTotalCount');
+                if (countEl) countEl.innerText = count;
+            });
+        }
+        if (grid) {
+            grid.addEventListener('click', (e) => {
+                const card = e.target.closest('.icon-card');
+                if (!card) return;
+                const name = card.getAttribute('data-icon');
+                const tag = `<l-icon name="${name}" size="16"></l-icon>`;
+                navigator.clipboard.writeText(tag).then(() => {
+                    if (toast) {
+                        toast.style.display = 'block';
+                        toast.innerText = `Tersalin: ${tag}`;
+                        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+                    }
+                });
+            });
+        }
+    </script>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- Cara Menggunakan Web Component Ikon Rikat --&gt;
+&lt;!-- 1. Ikon Standar (Ukuran default 16px) --&gt;
+&lt;l-icon name="search"&gt;&lt;/l-icon&gt;
+&lt;l-icon name="user"&gt;&lt;/l-icon&gt;
+&lt;l-icon name="trash"&gt;&lt;/l-icon&gt;
+&lt;l-icon name="bell"&gt;&lt;/l-icon&gt;
+
+&lt;!-- 2. Kustomisasi Ukuran &amp; Warna --&gt;
+&lt;l-icon name="star" size="20" color="#f59e0b"&gt;&lt;/l-icon&gt;
+&lt;l-icon name="heart" size="24" color="#ef4444"&gt;&lt;/l-icon&gt;
+&lt;l-icon name="shield" size="20" color="#10b981"&gt;&lt;/l-icon&gt;
+
+&lt;!-- 3. Di Dalam Tombol &amp; Input --&gt;
+&lt;button class="c-btn c-btn-primary"&gt;
+    &lt;l-icon name="download" size="15"&gt;&lt;/l-icon&gt;
+    &lt;span&gt;Unduh Berkas&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Kembali ke Galeri</span></a>
+        <a href="/komponen/tombol" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tombol</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

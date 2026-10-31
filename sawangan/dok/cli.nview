@@ -1,0 +1,177 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Referensi Perintah Baris Perintah (Larapak CLI)</h2>
+    <p>CLI <code>ngapakin</code> mendukung dua dialek perintah: <strong>Perintah Dialek Ngapak Asli</strong> untuk pengalaman pengembangan otentik khas Banyumasan, dan <strong>Perintah Standar (Laravel Artisan-Style)</strong> sebagai alias kompatibilitas.</p>
+
+    <div class="callout">
+        <strong>Fleksibilitas Penuh:</strong> Anda bebas menggunakan perintah dialek Ngapak (contoh: <code>ngapakin gawe:pangatur</code>) atau perintah standar (contoh: <code>ngapakin make:controller</code>). Keduanya menghasilkan keluaran yang sama persis!
+    </div>
+
+    <h2>1. Manajemen Proyek &amp; Server</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Dialek Ngapak (Utama)</th>
+                <th>Alias Standar</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>ngapakin anyar &lt;nama&gt;</code></td>
+                <td><code>ngapakin new &lt;nama&gt;</code></td>
+                <td>Membuat kerangka proyek MVC baru (dukung opsi <code>--bahasa=ngapak</code>).</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin ladeni [port]</code></td>
+                <td><code>ngapakin serve [port]</code></td>
+                <td>Menjalankan server web development lokal (default port: 8000).</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin dalan:daptar</code></td>
+                <td><code>ngapakin route:list</code></td>
+                <td>Menampilkan daftar seluruh pemetaan rute HTTP dan middleware.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin tulung</code></td>
+                <td><code>ngapakin --help</code></td>
+                <td>Menampilkan daftar bantuan dan panduan perintah CLI.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Pembuatan Komponen (Scaffolding / Generator)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Dialek Ngapak (Utama)</th>
+                <th>Alias Standar</th>
+                <th>Keterangan &amp; Lokasi Berkas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>ngapakin gawe:pangatur &lt;Nama&gt;</code></td>
+                <td><code>ngapakin make:controller</code></td>
+                <td>Membuat controller baru di <code>jeroan/Pangatur/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin gawe:wujud &lt;Nama&gt;</code></td>
+                <td><code>ngapakin make:model</code></td>
+                <td>Membuat model ORM baru di <code>jeroan/Wujud/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin gawe:migrasi &lt;nama&gt;</code></td>
+                <td><code>ngapakin make:migration</code></td>
+                <td>Membuat skema migrasi tabel baru di <code>lumbung/migrasi/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin gawe:pencegat &lt;Nama&gt;</code></td>
+                <td><code>ngapakin make:middleware</code></td>
+                <td>Membuat filter middleware HTTP di <code>jeroan/Pencegat/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin gawe:gawean &lt;Nama&gt;</code></td>
+                <td><code>ngapakin make:job</code></td>
+                <td>Membuat background queue job di <code>jeroan/Gawean/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin gawe:bibit &lt;Nama&gt;</code></td>
+                <td><code>ngapakin make:seeder</code></td>
+                <td>Membuat database seeder data awal di <code>lumbung/bibit/</code>.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Database &amp; Skema Migrasi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Dialek Ngapak (Utama)</th>
+                <th>Alias Standar</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>ngapakin migrasi</code></td>
+                <td><code>ngapakin migrate</code></td>
+                <td>Mengeksekusi seluruh migrasi database yang belum berjalan.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin migrasi:status</code></td>
+                <td><code>ngapakin migrate:status</code></td>
+                <td>Melihat status tabel riwayat migrasi dan nomor batch.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin migrasi:anyar [--seed]</code></td>
+                <td><code>ngapakin migrate:fresh</code></td>
+                <td>Membersihkan seluruh tabel dan menjalankan kembali migrasi dari awal.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin mudhun</code></td>
+                <td><code>ngapakin rollback</code></td>
+                <td>Membatalkan (rollback) batch migrasi database terakhir.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin bibiti</code></td>
+                <td><code>ngapakin db:seed</code></td>
+                <td>Menjalankan database seeder untuk mengisi data uji coba awal.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Antrean, Cache &amp; Frontend Engine</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Dialek Ngapak (Utama)</th>
+                <th>Alias Standar</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>ngapakin gawean:tandang</code></td>
+                <td><code>ngapakin queue:work</code></td>
+                <td>Menjalankan worker pemrosesan background queue.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin resik:cache</code></td>
+                <td><code>ngapakin cache:clear</code></td>
+                <td>Membersihkan file dan memori cache internal aplikasi.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin rikat:rakit</code></td>
+                <td><code>ngapakin css:build</code></td>
+                <td>Kompilasi JIT file CSS utility ke <code>njobo/css/rikat.css</code>.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin rikat:pantau</code></td>
+                <td><code>ngapakin css:watch</code></td>
+                <td>Watcher file template <code>.nview</code> dan kompilasi CSS otomatis.</td>
+            </tr>
+            <tr>
+                <td><code>ngapakin coba</code></td>
+                <td><code>ngapakin test</code></td>
+                <td>Menjalankan seluruh unit test framework Larapak.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="bottom-nav">
+        <a href="/dok/docker" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Deployment &amp; Docker</span></a>
+        <a href="/dok/changelog" class="btn-page-nav btn-page-nav-next"><span>Kembali ke Awal: Catatan Rilis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

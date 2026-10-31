@@ -1,0 +1,88 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Manajemen Migrasi Database</h2>
+    <p>Migrasi adalah kontrol versi untuk struktur database Anda. Melalui migrasi, tim pengembang dapat memodifikasi skema tabel secara aman, konsisten, dan mudah dilacak.</p>
+
+    <p>File skema migrasi disimpan di dalam folder <code>lumbung/migrasi/</code>.</p>
+
+    <h2>1. Membuat File Migrasi Baru</h2>
+    <p>Gunakan perintah CLI untuk menghasilkan cetak biru migrasi baru:</p>
+    <pre><code># Dialek Ngapak (Rekomendasi)
+ngapakin gawe:migrasi gawe_tabel_produk
+
+# Atau menggunakan alias standar
+ngapakin make:migration gawe_tabel_produk</code></pre>
+
+    <p>Perintah ini akan membuat file migrasi terstempel waktu, misalnya <code>lumbung/migrasi/2026_10_31_000001_gawe_tabel_produk.ngpk</code>:</p>
+
+    <pre><code># lumbung/migrasi/2026_10_31_000001_gawe_tabel_produk.ngpk
+
+gawe munggah(skema)
+    skema.gawe("produk", gawe(tabel)
+        tabel.id()
+        tabel.teks("nama", 150)
+        tabel.angka("harga")
+        tabel.teks("deskripsi").bisa_kosong()
+        tabel.waktu()
+    rampung)
+rampung
+
+gawe mudhun(skema)
+    skema.bubar("produk")
+rampung</code></pre>
+
+    <h2>2. Menjalankan Perintah Migrasi</h2>
+    
+    <h3>Menjalankan Seluruh Migrasi Tertunda</h3>
+    <pre><code># Dialek Ngapak Asli
+ngapakin migrasi
+# Atau: ngapakin munggah
+
+# Alias standar
+ngapakin migrate</code></pre>
+
+    <h3>Memeriksa Status Migrasi</h3>
+    <p>Lihat status eksekusi seluruh migrasi dalam format tabel ringkas:</p>
+    <pre><code># Dialek Ngapak
+ngapakin migrasi:status
+
+# Alias standar
+ngapakin migrate:status</code></pre>
+
+    <h3>Mengulang Database Bersih (Fresh Reset) &amp; Seeding</h3>
+    <p>Menghapus seluruh tabel dan menjalankan kembali migrasi dari awal (opsional menyertakan <code>--seed</code> untuk langsung mengisi data awal):</p>
+    <pre><code># Dialek Ngapak Asli
+ngapakin migrasi:anyar
+ngapakin migrasi:anyar --seed
+
+# Alias standar
+ngapakin migrate:fresh
+ngapakin migrate:fresh --seed</code></pre>
+
+    <h3>Membatalkan (Rollback) Migrasi Terakhir</h3>
+    <pre><code># Dialek Ngapak Asli
+ngapakin mudhun
+
+# Alias standar
+ngapakin rollback</code></pre>
+
+    <h2>Dukungan Multi-Database Driver</h2>
+    <p>Sistem migrasi Larapak secara cerdas menerjemahkan tipe kolom ke dialek database yang aktif pada <code>DB_DRIVER</code> (SQLite, MySQL, PostgreSQL, atau MSSQL) tanpa perlu mengubah kode migrasi Anda.</p>
+
+    <div class="bottom-nav">
+        <a href="/dok/template" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Sistem Template Sawangan</span></a>
+        <a href="/dok/database" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Database &amp; Model ORM</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

@@ -1,0 +1,137 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen pintasan keyboard semantik <code>&lt;l-kbd&gt;</code> dengan gaya taktil modern ala Linear, GitHub, dan Raycast. Berfungsi memberikan panduan tombol pintas keyboard di dalam antarmuka aplikasi, input pencarian, menu, dan dialog.</p>
+
+    <!-- 1. Tombol Tunggal Dasar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Tombol Keyboard Tunggal (Single Keys)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <l-kbd>Ctrl</l-kbd>
+                <l-kbd>Alt</l-kbd>
+                <l-kbd>Shift</l-kbd>
+                <l-kbd>Enter</l-kbd>
+                <l-kbd>Esc</l-kbd>
+                <l-kbd>Tab</l-kbd>
+                <l-kbd>Space</l-kbd>
+                <l-kbd>⌘ Command</l-kbd>
+                <l-kbd>⌥ Option</l-kbd>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol-Tombol Keyboard Mandiri --&gt;
+&lt;l-kbd&gt;Ctrl&lt;/l-kbd&gt;
+&lt;l-kbd&gt;Alt&lt;/l-kbd&gt;
+&lt;l-kbd&gt;Shift&lt;/l-kbd&gt;
+&lt;l-kbd&gt;Enter&lt;/l-kbd&gt;
+&lt;l-kbd&gt;Esc&lt;/l-kbd&gt;
+&lt;l-kbd&gt;⌘ Command&lt;/l-kbd&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Kombinasi Pintasan Populer -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Kombinasi Pintasan Populer (Shortcuts)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; max-width: 440px; padding: 0.5rem 0.75rem; background: var(--bg-hover); border-radius: 6px;">
+                    <span style="font-size: 0.85rem; color: #f4f4f5;">Buka Pencarian Global (Command Bar)</span>
+                    <span style="display: flex; align-items: center; gap: 0.25rem;">
+                        <l-kbd>Ctrl</l-kbd> <span>+</span> <l-kbd>K</l-kbd>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; max-width: 440px; padding: 0.5rem 0.75rem; background: var(--bg-hover); border-radius: 6px;">
+                    <span style="font-size: 0.85rem; color: #f4f4f5;">Pindah Cepat Berkas (Quick Open)</span>
+                    <span style="display: flex; align-items: center; gap: 0.25rem;">
+                        <l-kbd>⌘</l-kbd> <span>+</span> <l-kbd>P</l-kbd>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; max-width: 440px; padding: 0.5rem 0.75rem; background: var(--bg-hover); border-radius: 6px;">
+                    <span style="font-size: 0.85rem; color: #f4f4f5;">Simpan Dokumen Aktif</span>
+                    <span style="display: flex; align-items: center; gap: 0.25rem;">
+                        <l-kbd>Ctrl</l-kbd> <span>+</span> <l-kbd>S</l-kbd>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; max-width: 440px; padding: 0.5rem 0.75rem; background: var(--bg-hover); border-radius: 6px;">
+                    <span style="font-size: 0.85rem; color: #f4f4f5;">Baris Baru pada Formulir</span>
+                    <span style="display: flex; align-items: center; gap: 0.25rem;">
+                        <l-kbd>Shift</l-kbd> <span>+</span> <l-kbd>Enter</l-kbd>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Kombinasi Pintasan Keyboard --&gt;
+&lt;span&gt;&lt;l-kbd&gt;Ctrl&lt;/l-kbd&gt; + &lt;l-kbd&gt;K&lt;/l-kbd&gt;&lt;/span&gt;
+&lt;span&gt;&lt;l-kbd&gt;⌘&lt;/l-kbd&gt; + &lt;l-kbd&gt;P&lt;/l-kbd&gt;&lt;/span&gt;
+&lt;span&gt;&lt;l-kbd&gt;Shift&lt;/l-kbd&gt; + &lt;l-kbd&gt;Enter&lt;/l-kbd&gt;&lt;/span&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. In-Input Search Adornment -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Pintasan di Dalam Kotak Pencarian (&lt;l-input suffix="..."&gt;)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="max-width: 460px; width: 100%;">
+                <l-input icon="search" placeholder="Cari dokumentasi atau komponen..." suffix="Ctrl + K"></l-input>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Input Pencarian dengan Pintasan Keyboard --&gt;
+&lt;l-input icon="search" placeholder="Cari dokumentasi..." suffix="Ctrl + K"&gt;&lt;/l-input&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 4. Tombol Arah Navigasi (Arrow Keys) -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Navigasi Tombol Panah (Arrow Keys Grid)</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: fit-content;">
+                <l-kbd>↑</l-kbd>
+                <div style="display: flex; gap: 0.35rem;">
+                    <l-kbd>←</l-kbd>
+                    <l-kbd>↓</l-kbd>
+                    <l-kbd>→</l-kbd>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Tombol Navigasi Arah Panah --&gt;
+&lt;l-kbd&gt;↑&lt;/l-kbd&gt;
+&lt;div&gt;
+    &lt;l-kbd&gt;←&lt;/l-kbd&gt;
+    &lt;l-kbd&gt;↓&lt;/l-kbd&gt;
+    &lt;l-kbd&gt;→&lt;/l-kbd&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/chip" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Chip &amp; Tag</span></a>
+        <a href="/komponen/otp" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Input OTP / PIN</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung
+

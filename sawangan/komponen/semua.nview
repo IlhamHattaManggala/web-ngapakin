@@ -1,0 +1,443 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">34 Komponen Deklaratif / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Pustaka lengkap <strong>34 komponen antarmuka deklaratif ala PrimeNG</strong> berbasis <strong>Rikat UI Web Components</strong> (<code>&lt;l-...&gt;</code>). Anda tidak perlu lagi menulis tumpukan tag <code>&lt;div&gt;</code> mentah yang berulang, cukup gunakan tag kustom ekspresif seperti <code>&lt;l-button&gt;</code>, <code>&lt;l-card&gt;</code>, <code>&lt;l-dialog&gt;</code>, <code>&lt;l-table&gt;</code>, <code>&lt;l-input&gt;</code>, <code>&lt;l-badge&gt;</code>, dan <code>&lt;l-icon&gt;</code>.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin: 2.5rem 0;">
+        
+        <!-- 1. Ikon -->
+        <a href="/komponen/ikon" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Koleksi Ikon</h3>
+                <span class="c-badge c-badge-primary">60+ Ikon</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Web Component ikon modern instan cukup dengan &lt;l-icon name="..."&gt;.</p>
+            <div style="display: flex; gap: 0.75rem; align-items: center; color: var(--text-dim);">
+                <l-icon name="search" size="18" color="var(--primary)"></l-icon>
+                <l-icon name="user" size="18" color="#60a5fa"></l-icon>
+                <l-icon name="bell" size="18" color="#fbbf24"></l-icon>
+                <l-icon name="check-circle" size="18" color="#34d399"></l-icon>
+                <l-icon name="settings" size="18"></l-icon>
+            </div>
+        </a>
+
+        <!-- 2. Tombol -->
+        <a href="/komponen/tombol" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Tombol (Buttons)</h3>
+                <span class="c-badge c-badge-primary">5 Varian</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Tombol aksi utama, sekunder, outline, bahaya, dan ikon interaktif.</p>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span class="c-btn c-btn-primary" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;"><l-icon name="arrow-right" size="13"></l-icon> Primary</span>
+                <span class="c-btn c-btn-secondary" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;">Secondary</span>
+            </div>
+        </a>
+
+        <!-- 3. Formulir & Input -->
+        <a href="/komponen/input" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Formulir &amp; Input</h3>
+                <span class="c-badge c-badge-info">Input UI</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Elemen input teks, pencarian berikon, dropdown select, dan switch.</p>
+            <div style="position: relative;">
+                <l-icon name="search" size="14" color="var(--text-dim)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);"></l-icon>
+                <input type="text" class="c-input" placeholder="Cari data..." style="width: 100%; font-size: 0.8rem; padding: 0.35rem 0.65rem 0.35rem 2rem;" readonly>
+            </div>
+        </a>
+
+        <!-- 4. Dropdown -->
+        <a href="/komponen/dropdown" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Dropdown &amp; Pilihan</h3>
+                <span class="c-badge c-badge-primary">Select UI</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Varian dropdown menu aksi mengambang dan select kustom elegan.</p>
+            <span class="c-btn c-btn-outline" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;">Menu Aksi <l-icon name="chevron-down" size="12"></l-icon></span>
+        </a>
+
+        <!-- 5. Checkbox & Switch -->
+        <a href="/komponen/pilihan" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Checkbox &amp; Switch</h3>
+                <span class="c-badge c-badge-success">Toggle</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Kontrol pilihan boolean dan toggle switch animasi murni CSS.</p>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <label class="c-switch"><input type="checkbox" checked disabled><span class="c-switch-slider"></span></label>
+                <span style="font-size: 0.8rem; color: #ffffff; font-weight: 500;">Aktif</span>
+            </div>
+        </a>
+
+        <!-- 6. Kartu & Panel -->
+        <a href="/komponen/kartu" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Kartu &amp; Panel</h3>
+                <span class="c-badge c-badge-warning">Cards</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Container data terstruktur, ringkasan analitik, dan profil pengguna.</p>
+            <div style="background-color: #1a1a1f; padding: 0.65rem; border-radius: 6px; border: 1px solid #27272a;">
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Total Pengguna</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">24,850</div>
+            </div>
+        </a>
+
+        <!-- 7. Badge & Status -->
+        <a href="/komponen/badge" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Badge &amp; Status</h3>
+                <span class="c-badge c-badge-success">Pills</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Indikator status ringkas dengan skema warna kontekstual.</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="c-badge c-badge-success"><span class="c-badge-dot"></span> Aktif</span>
+                <span class="c-badge c-badge-danger"><span class="c-badge-dot"></span> Gagal</span>
+            </div>
+        </a>
+
+        <!-- 8. Alert & Notifikasi -->
+        <a href="/komponen/alert" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Alert &amp; Notifikasi</h3>
+                <span class="c-badge c-badge-danger">Peringatan</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Kotak banner umpan balik status sukses, perhatian, dan bahaya.</p>
+            <div class="c-alert c-alert-success" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">
+                <l-icon name="check-circle" size="14"></l-icon> Data berhasil disimpan!
+            </div>
+        </a>
+
+        <!-- 9. Modal & Dialog -->
+        <a href="/komponen/modal" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Modal &amp; Dialog</h3>
+                <span class="c-badge c-badge-primary">Web Component</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Dialog konfirmasi pop-up interaktif reaktif bawaan Rikat UI.</p>
+            <span class="c-btn c-btn-outline" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;">Buka Dialog <l-icon name="arrow-right" size="12"></l-icon></span>
+        </a>
+
+        <!-- 10. Toast Notifikasi -->
+        <a href="/komponen/toast" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Toast &amp; Pop-up</h3>
+                <span class="c-badge c-badge-success">Snackbar</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Pemberitahuan mengambang ringan di sudut layar dengan dismiss otomatis.</p>
+            <div style="background-color: #1a1a20; border: 1px solid #2e2e38; border-radius: 6px; padding: 0.4rem 0.65rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: #ffffff;">
+                <l-icon name="check-circle" size="14" color="#34d399"></l-icon> Tersimpan otomatis
+            </div>
+        </a>
+
+        <!-- 11. Drawer & Offcanvas -->
+        <a href="/komponen/drawer" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Drawer &amp; Offcanvas</h3>
+                <span class="c-badge c-badge-warning">Slide-over</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Panel samping geser yang meluncur masuk untuk formulir detail atau filter.</p>
+            <span class="c-btn c-btn-secondary" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;">Lihat Panel Drawer</span>
+        </a>
+
+        <!-- 12. Tabel Data -->
+        <a href="/komponen/tabel" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Tabel Data</h3>
+                <span class="c-badge c-badge-info">Data Grid</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Tampilan tabular bersih dengan sorting kolom, baris zebra, &amp; tombol aksi.</p>
+            <span class="c-btn c-btn-secondary" style="height: 32px; font-size: 0.75rem; padding: 0 0.75rem;">Lihat Tabel Data</span>
+        </a>
+
+        <!-- 13. Paginasi -->
+        <a href="/komponen/pagination" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Paginasi Data</h3>
+                <span class="c-badge c-badge-primary">Paging</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Navigasi pembagian data tabel multi-halaman dengan rentang item.</p>
+            <div style="display: flex; gap: 0.25rem;">
+                <span class="c-page-item active" style="min-width: 26px; height: 26px; font-size: 0.7rem;">1</span>
+                <span class="c-page-item" style="min-width: 26px; height: 26px; font-size: 0.7rem;">2</span>
+                <span class="c-page-item" style="min-width: 26px; height: 26px; font-size: 0.7rem;">3</span>
+            </div>
+        </a>
+
+        <!-- 14. Breadcrumb -->
+        <a href="/komponen/breadcrumb" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Breadcrumb</h3>
+                <span class="c-badge c-badge-info">Hierarchy</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Penunjuk posisi hirarki navigasi situs dengan separator kustom.</p>
+            <div class="c-breadcrumb" style="font-size: 0.75rem;">
+                <span>Home</span>
+                <span class="c-breadcrumb-separator">/</span>
+                <span class="active">Komponen</span>
+            </div>
+        </a>
+
+        <!-- 15. Navigasi & Tab -->
+        <a href="/komponen/navigasi" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Navigasi &amp; Tab</h3>
+                <span class="c-badge c-badge-warning">Tabs</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Tab bar segmental, breadcrumb hirarkis, dan pagination rapi.</p>
+            <div class="c-tabs" style="border: none; padding: 0; margin: 0;">
+                <span class="c-tab active" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Umum</span>
+                <span class="c-tab" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Keamanan</span>
+            </div>
+        </a>
+
+        <!-- 16. Stepper -->
+        <a href="/komponen/stepper" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Stepper Multi-Step</h3>
+                <span class="c-badge c-badge-success">Wizard</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Penunjuk tahapan progres wizard bertahap untuk formulir panjang.</p>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+                <div class="c-step-bubble completed" style="width: 22px; height: 22px; font-size: 0.65rem;"><l-icon name="check" size="11"></l-icon></div>
+                <div class="c-step-line completed" style="width: 20px;"></div>
+                <div class="c-step-bubble active" style="width: 22px; height: 22px; font-size: 0.65rem;">2</div>
+            </div>
+        </a>
+
+        <!-- 17. Timeline -->
+        <a href="/komponen/timeline" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Timeline Aktivitas</h3>
+                <span class="c-badge c-badge-primary">Audit Log</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Visualisasi urutan kejadian waktu, jejak audit, dan log status pesanan.</p>
+            <div style="font-size: 0.75rem; color: #ffffff; border-left: 2px solid var(--primary); padding-left: 0.5rem;">
+                <div>Build v1.1.0 Berhasil</div>
+                <div style="color: var(--text-dim); font-size: 0.65rem;">10:45 WIB</div>
+            </div>
+        </a>
+
+        <!-- 18. Avatar & Profil -->
+        <a href="/komponen/avatar" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Avatar &amp; Pengguna</h3>
+                <span class="c-badge c-badge-info">User UI</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Identitas avatar profil, badge online, dan avatar stacked group.</p>
+            <div class="c-avatar-group">
+                <div class="c-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background-color: #27272a; border-color: #121214;">LP</div>
+                <div class="c-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background-color: var(--primary); border-color: #121214;">NG</div>
+                <div class="c-avatar" style="width: 28px; height: 28px; font-size: 0.7rem; background-color: #3b82f6; border-color: #121214;">+5</div>
+            </div>
+        </a>
+
+        <!-- 19. Akordeon -->
+        <a href="/komponen/akordeon" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Akordeon &amp; FAQ</h3>
+                <span class="c-badge c-badge-primary">Collapse</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Panel lipat expandable untuk dokumentasi dan FAQ padat isi.</p>
+            <div style="border: 1px solid #27272a; border-radius: 6px; padding: 0.4rem 0.65rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #ffffff;">
+                <span>Pertanyaan Umum?</span>
+                <l-icon name="chevron-down" size="13" color="var(--text-dim)"></l-icon>
+            </div>
+        </a>
+
+        <!-- 20. Upload Berkas -->
+        <a href="/komponen/unggah" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Upload Berkas</h3>
+                <span class="c-badge c-badge-warning">Dropzone</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Zona penjatuhan berkas interaktif dengan drag-and-drop &amp; status file.</p>
+            <div style="border: 1px dashed #33333a; border-radius: 6px; padding: 0.5rem; text-align: center; font-size: 0.75rem; color: var(--text-muted);">
+                <l-icon name="upload" size="16" color="var(--primary)"></l-icon> Tarik berkas ke sini
+            </div>
+        </a>
+
+        <!-- 21. Progress & Spinner -->
+        <a href="/komponen/progress" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Progres &amp; Spinner</h3>
+                <span class="c-badge c-badge-warning">Loading</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Progress bar bertahap, skeleton shimmer, dan spinner interaktif.</p>
+            <div class="c-progress-track">
+                <div class="c-progress-bar" style="width: 65%;"></div>
+            </div>
+        </a>
+
+        <!-- 22. Tooltip -->
+        <a href="/komponen/tooltip" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Tooltip &amp; Popover</h3>
+                <span class="c-badge c-badge-info">Hint</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Petunjuk mengambang kontekstual yang rapi dan informatif.</p>
+            <span style="font-size: 0.75rem; background-color: #27272a; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #3f3f46; color: #ffffff;">Pintas: Ctrl+K</span>
+        </a>
+
+        <!-- 23. Statistik -->
+        <a href="/komponen/statistik" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Statistik &amp; KPI</h3>
+                <span class="c-badge c-badge-success">Dashboard</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Widget metrik KPI, tren analitik, dan status performa server.</p>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 1.25rem; font-weight: 800; color: #ffffff;">854,210</span>
+                <span class="c-badge c-badge-success" style="font-size: 0.65rem;">&uarr; 24.5%</span>
+            </div>
+        </a>
+
+        <!-- 24. Empty State -->
+        <a href="/komponen/empty-state" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Data Kosong (Empty)</h3>
+                <span class="c-badge c-badge-danger">Zero State</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Placeholder ilustratif dan tombol aksi ramah saat data belum tersedia.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="inbox" size="14"></l-icon> Belum ada berkas
+            </div>
+        </a>
+
+        <!-- 25. Slider -->
+        <a href="/komponen/slider" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Slider Rentang</h3>
+                <span class="c-badge c-badge-primary">&lt;l-slider&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Kontrol geser interaktif untuk pemilihan angka, rentang nilai, step interval, dan binding.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="sliders" size="14"></l-icon> Volume &amp; Nilai Rentang
+            </div>
+        </a>
+
+        <!-- 26. Rating -->
+        <a href="/komponen/rating" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Rating Bintang</h3>
+                <span class="c-badge c-badge-warning">&lt;l-rating&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Umpan balik penilaian pengguna interaktif, hover visual, dan mode ulasan baca-saja.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="star" size="14"></l-icon> 5 &amp; 10 Skala Bintang
+            </div>
+        </a>
+
+        <!-- 27. Segmented -->
+        <a href="/komponen/segmented" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Segmented Control</h3>
+                <span class="c-badge c-badge-info">&lt;l-segmented&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Pilihan opsi linier horizontal untuk filter periode waktu, view switcher, atau tema.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="grid" size="14"></l-icon> View &amp; Mode Switcher
+            </div>
+        </a>
+
+        <!-- 28. Divider -->
+        <a href="/komponen/divider" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Divider Pemisah</h3>
+                <span class="c-badge c-badge-secondary">&lt;l-divider&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Garis pemisah horizontal dan vertikal beranotasi teks tengah, ikon, atau dashed.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="minus" size="14"></l-icon> Pemisah Konten &amp; Toolbar
+            </div>
+        </a>
+
+        <!-- 29. Chip & Tag -->
+        <a href="/komponen/chip" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Chip &amp; Tag</h3>
+                <span class="c-badge c-badge-success">&lt;l-chip&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Tag kompak kategori entitas, avatar pengguna, dan token kata kunci yang dapat dihapus.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="tag" size="14"></l-icon> Tag Dismissible
+            </div>
+        </a>
+
+        <!-- 30. Kbd Shortcut -->
+        <a href="/komponen/kbd" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Kbd (Pintasan)</h3>
+                <span class="c-badge c-badge-primary">&lt;l-kbd&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Tombol keyboard taktil semantik untuk panduan kombinasi tombol cepat antarmuka.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="command" size="14"></l-icon> Ctrl+K, Shift+Enter
+            </div>
+        </a>
+
+        <!-- 31. OTP & PIN -->
+        <a href="/komponen/otp" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Input OTP / PIN</h3>
+                <span class="c-badge c-badge-warning">&lt;l-otp&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Kotak verifikasi 4 dan 6 digit angka dengan autofokus maju-mundur dan mode sandi.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="key" size="14"></l-icon> Verifikasi 2FA &amp; SMS
+            </div>
+        </a>
+
+        <!-- 32. Color Picker -->
+        <a href="/komponen/color-picker" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Pemilih Warna</h3>
+                <span class="c-badge c-badge-danger">&lt;l-color-picker&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Palet warna aksen swatches kurasi dan input kode hex dengan live preview elemen.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="droplet" size="14"></l-icon> Kustomisasi Desain &amp; Hex
+            </div>
+        </a>
+
+        <!-- 33. Tree -->
+        <a href="/komponen/tree" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Tree Direktori</h3>
+                <span class="c-badge c-badge-info">&lt;l-tree&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Navigasi pohon direktori hierarkis bertingkat dengan animasi expand/collapse halus.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="folder" size="14"></l-icon> Struktur Berkas &amp; Folder
+            </div>
+        </a>
+
+        <!-- 34. Skeleton Shimmer -->
+        <a href="/komponen/skeleton" class="c-card" style="text-decoration: none; color: inherit; display: block;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Skeleton Loader</h3>
+                <span class="c-badge c-badge-secondary">&lt;l-skeleton&gt;</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Kerangka efek animasi shimmer untuk transisi pemuatan data teks, kartu, dan avatar.</p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-dim);">
+                <l-icon name="loader" size="14"></l-icon> Transisi Anggun Pemuatan
+            </div>
+        </a>
+
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/rikat-ui" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Rikat UI Komponen</span></a>
+        <a href="/komponen/ikon" class="btn-page-nav btn-page-nav-next"><span>Mulai: Koleksi Ikon</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

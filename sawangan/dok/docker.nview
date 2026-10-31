@@ -1,0 +1,70 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Dukungan Docker Bawaan</h2>
+    <p>Setiap proyek Larapak yang dibuat dengan <code>ngapakin new &lt;nama&gt;</code> secara otomatis menyertakan konfigurasi <code>docker-compose.yml</code> yang siap digunakan untuk pengujian lokal maupun server VPS produksi.</p>
+
+    <h2>Struktur <code>docker-compose.yml</code></h2>
+    <pre><code>services:
+  web:
+    image: ilhamhatta/larapak:1.1.0
+    container_name: web_larapak
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=salah
+      - APP_PORT=8000
+      - DB_DRIVER=sqlite
+    volumes:
+      - ./:/var/www/html
+    command: ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "framework.wsgi:application"]</code></pre>
+
+    <h2>Menjalankan Container</h2>
+    <p>Cukup jalankan satu perintah berikut di direktori proyek Anda:</p>
+    
+    <pre><code># Menjalankan di latar belakang (detached mode)
+docker compose up -d
+
+# Memeriksa log aktivitas container
+docker compose logs -f web
+
+# Menghentikan layanan container
+docker compose down</code></pre>
+
+    <h2>Menjalankan Perintah CLI di Dalam Docker</h2>
+    <p>Anda dapat mengeksekusi seluruh perintah CLI <code>ngapakin</code> langsung di dalam lingkungan container yang sedang berjalan:</p>
+
+    <pre><code># Menjalankan migrasi database
+docker compose exec web ngapakin migrasi
+# Atau: docker compose exec web ngapakin migrate
+
+# Menjalankan database seeder
+docker compose exec web ngapakin bibiti
+# Atau: docker compose exec web ngapakin db:seed
+
+# Menampilkan daftar rute aplikasi
+docker compose exec web ngapakin dalan:daptar
+# Atau: docker compose exec web ngapakin route:list</code></pre>
+
+    <div class="callout">
+        <strong>Produksi Berkinerja Tinggi:</strong> Konfigurasi Gunicorn dengan 4 worker threads pada image resmi mampu menangani ribuan concurrent request per detik dengan konsumsi RAM yang sangat efisien (&lt; 65 MB).
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/rikat-ui" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Rikat UI Reaktif</span></a>
+        <a href="/dok/cli" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Referensi Larapak CLI</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

@@ -1,0 +1,51 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Urutan kejadian kronologis deklaratif ala <code>&lt;p-timeline&gt;</code> di PrimeNG untuk riwayat audit dan log aktivitas.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Timeline Aktivitas Deklaratif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="width: 100%;">
+    <l-timeline>
+        <l-timeline-event title="Penyebaran Versi 1.1.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)">
+            Build container Docker selesai dalam 42 detik. Semua pengujian rute unit test lulus.
+        </l-timeline-event>
+        <l-timeline-event title="Migrasi Skema Database" time="Kemarin, 16:30 WIB" color="#3b82f6">
+            Menambahkan tabel transaksi pengguna dan indeks pencarian teks penuh.
+        </l-timeline-event>
+        <l-timeline-event title="Inisialisasi Repositori Larapak" time="28 Oktober 2026" color="#10b981">
+            Struktur modular MVC dialek Ngapak dibuat pertama kali.
+        </l-timeline-event>
+    </l-timeline>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Declarative Timeline --&gt;
+&lt;l-timeline&gt;
+    &lt;l-timeline-event title="Rilis v1.1.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)"&gt;
+        Build container Docker selesai dalam 42 detik.
+    &lt;/l-timeline-event&gt;
+    &lt;l-timeline-event title="Migrasi Database" time="Kemarin, 16:30 WIB" color="#3b82f6"&gt;
+        Tabel transaksi pengguna berhasil ditambahkan.
+    &lt;/l-timeline-event&gt;
+&lt;/l-timeline&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/stepper" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Stepper Multi-Langkah</span></a>
+        <a href="/komponen/avatar" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Avatar & Pengguna</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

@@ -1,0 +1,55 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Larapak Framework v1.1.0 (Terbaru)</h2>
+    <p>Rilis v1.1.0 menghadirkan dukungan penuh <strong>Perintah CLI Dialek Ngapak Asli (Dual-Support)</strong>, generator Database Seeder baru, serta perbaikan sistem nesting pada Template Engine Sawangan.</p>
+    
+    <h3>Fitur Utama Versi 1.1.0</h3>
+    <ul>
+        <li><strong>Perintah CLI Dialek Ngapak Asli (Dual-Support)</strong>: Mendukung perintah generator seperti <code>ngapakin gawe:pangatur</code>, <code>gawe:wujud</code>, <code>gawe:migrasi</code>, <code>gawe:pencegat</code>, <code>gawe:gawean</code>, dan <code>gawe:bibit</code>, serta perintah eksekusi seperti <code>ladeni</code>, <code>dalan:daptar</code>, <code>migrasi</code>, <code>bibiti</code>, dan <code>rikat:rakit</code> dengan tetap 100% kompatibel dengan gaya standar Laravel Artisan.</li>
+        <li><strong>Generator Database Seeder (<code>make:seeder</code> &amp; <code>gawe:bibit</code>)</strong>: Otomatisasi pembuatan berkas template seeder di direktori bibit aktif.</li>
+        <li><strong>Perbaikan Nested Directives Template</strong>: Kalkulasi kedalaman blok pada <code>@section</code> kini mengevaluasi directive bersarang (seperti <code>@nek</code>, <code>@baleni</code>, <code>@error</code>) secara akurat tanpa menutup layout prematur.</li>
+        <li><strong>Resolusi Jalur Kompilasi Rikat CSS Dinamis</strong>: JIT compiler mendeteksi folder template dan public assets sesuai struktur bahasa proyek yang aktif.</li>
+    </ul>
+
+    <h2>Larapak Framework v1.0.9</h2>
+    <p>Pembaruan besar v1.0.9 menghadirkan kemudahan instalasi tingkat tinggi tanpa ketergantungan runtime eksternal dan dukungan penuh container Docker modern.</p>
+    
+    <h3>Fitur Utama Versi 1.0.9</h3>
+    <ul>
+        <li><strong>Standalone Windows Binary (<code>ngapakin.exe</code>)</strong>: File biner mandiri 12.4 MB yang mengemas seluruh interpreter, VM bytecode, MVC framework, dan Rikat CSS engine. Pengguna Windows dapat langsung membuat dan menjalankan proyek tanpa menginstal Python terlebih dahulu.</li>
+        <li><strong>Dukungan Docker &amp; Docker Compose Resmi</strong>: Image resmi <code>ilhamhatta/larapak:latest</code> dengan konfigurasi container multi-tujuan (web server, migrasi, dan worker).</li>
+        <li><strong>Scaffolding Otomatis <code>docker-compose.yml</code></strong>: Setiap kali membuat proyek baru melalui perintah <code>ngapakin new &lt;nama&gt;</code>, file konfigurasi Docker Compose otomatis disertakan.</li>
+        <li><strong>Perbaikan Evaluasi Directive Template</strong>: Perbaikan pada nested directive <code>@section</code> dan ekspresi perulangan template blade-like <code>.nview</code>.</li>
+    </ul>
+
+    <h2>Larapak Framework v1.0.8</h2>
+    <p>Menghadirkan ekosistem in-house frontend engine asli tanpa ketergantungan Node.js, npm, maupun jaringan CDN pihak ketiga:</p>
+    <ul>
+        <li><strong>Rikat CSS</strong>: Framework CSS Utility-First JIT native berbasis Python (skala 4px, grid 12-kolom, breakpoint responsif <code>sm:</code>, <code>md:</code>, <code>lg:</code>, varian state <code>hover:</code>, dan arbitrary parser <code>w-[320px]</code>).</li>
+        <li><strong>Rikat UI</strong>: Mesin web component reaktif 14.7 KB dengan sintaksis deklaratif <code>[(model)]</code>, <code>[disabled]</code>, <code>(click)</code>, dan komponen siap pakai enterprise seperti <code>&lt;l-table&gt;</code> dan <code>&lt;l-dialog&gt;</code>.</li>
+    </ul>
+
+    <h2>Larapak Framework v1.0.7</h2>
+    <ul>
+        <li><strong>Developer Error Debugger (Ignition-style)</strong>: Tampilan visual pelacak kesalahan interaktif dengan potongan baris kode sumber saat mode <code>APP_DEBUG=bener</code>.</li>
+        <li><strong>Larapak Route &amp; API Studio (<code>/api-studio</code>)</strong>: Dashboard visual route discovery, dokumentasi OpenAPI 3.0 otomatis, view sandbox, dan interactive playground API dengan auto-injection token CSRF.</li>
+        <li><strong>Dukungan Multi-Database</strong>: Driver terintegrasi untuk SQLite (WAL mode), MySQL, PostgreSQL, dan Microsoft SQL Server (MSSQL).</li>
+    </ul>
+
+    <div class="bottom-nav">
+        <span></span>
+        <a href="/dok/instalasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Instalasi &amp; Memulai Cepat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

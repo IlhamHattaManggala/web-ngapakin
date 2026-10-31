@@ -1,0 +1,52 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Jendela dialog modal interaktif deklaratif ala <code>&lt;p-dialog&gt;</code> di PrimeNG dengan two-way binding <code>[(visible)]</code>, backdrop blur, dan animasi transisi halus.</p>
+
+    <div class="component-card">
+    <div class="component-header">
+        <span class="component-title">Dialog Modal Reaktif Interaktif</span>
+        <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+    </div>
+    <div class="component-canvas component-canvas-stacked">
+        <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; width: 100%;">
+    <l-button label="Buka Dialog Konfirmasi" icon="trash" severity="danger" onclick="Rikat.set('hapusDialog', true)"></l-button>
+
+    <l-dialog [(visible)]="hapusDialog" header="Konfirmasi Penghapusan">
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1.25rem 0;">
+            Apakah Anda yakin ingin menghapus data akun ini secara permanen? Seluruh berkas dan riwayat terkait akan dibersihkan dari server.
+        </p>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+            <l-button label="Batal" severity="ghost" onclick="Rikat.set('hapusDialog', false)"></l-button>
+            <l-button label="Ya, Hapus Data" icon="trash" severity="danger" onclick="Rikat.set('hapusDialog', false); Rikat.toast('Dihapus', 'Data berhasil dihapus dari sistem.', 'danger');"></l-button>
+        </div>
+    </l-dialog>
+</div>
+    </div>
+    <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Declarative Dialog (&lt;l-dialog&gt;) --&gt;
+&lt;l-button label="Buka Dialog" severity="danger" (click)="Rikat.set('hapusDialog', true)"&gt;&lt;/l-button&gt;
+
+&lt;l-dialog [(visible)]="hapusDialog" header="Konfirmasi Penghapusan"&gt;
+    &lt;p class="text-sm text-muted"&gt;Apakah Anda yakin ingin menghapus data ini secara permanen?&lt;/p&gt;
+    &lt;div class="flex justify-end gap-2 mt-4"&gt;
+        &lt;l-button label="Batal" severity="ghost" (click)="Rikat.set('hapusDialog', false)"&gt;&lt;/l-button&gt;
+        &lt;l-button label="Ya, Hapus" icon="trash" severity="danger"&gt;&lt;/l-button&gt;
+    &lt;/div&gt;
+&lt;/l-dialog&gt;</code></pre>
+</div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/alert" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Alert & Notifikasi</span></a>
+        <a href="/komponen/toast" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Toast Notifikasi</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+@rampung

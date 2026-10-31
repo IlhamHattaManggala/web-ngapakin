@@ -1,0 +1,130 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">Rikat Declarative / PrimeNG-Style</span>
+</div>
+
+<div class="prose">
+    <p>Komponen pemilih palet warna ala <code>&lt;p-colorPicker&gt;</code> di PrimeNG. Menyediakan palet warna kurasi siap pakai, input nilai heksadesimal, dan pemilih warna visual untuk kustomisasi tema, branding, dan desain UI.</p>
+
+    <!-- 1. Color Picker Standar -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Pemilih Warna Swatches & Heksadesimal</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Pilih warna utama merek (Brand Accent):</div>
+                <l-color-picker value="#ff2d20"></l-color-picker>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Color Picker dengan Nilai Hex Awal --&gt;
+&lt;l-color-picker value="#ff2d20"&gt;&lt;/l-color-picker&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 2. Palet Warna Preset Terkurasi -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Palet Warna Desain Standar Ngapakin</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="font-size: 0.85rem; color: var(--text-muted);">10 Palet Warna Kontras Tinggi untuk Desain Modern:</div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-hover); padding: 0.35rem 0.6rem; border-radius: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 3px; background: #ff2d20;"></span>
+                        <span style="font-size: 0.8rem; font-family: monospace;">#ff2d20</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-hover); padding: 0.35rem 0.6rem; border-radius: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 3px; background: #3b82f6;"></span>
+                        <span style="font-size: 0.8rem; font-family: monospace;">#3b82f6</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-hover); padding: 0.35rem 0.6rem; border-radius: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 3px; background: #10b981;"></span>
+                        <span style="font-size: 0.8rem; font-family: monospace;">#10b981</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-hover); padding: 0.35rem 0.6rem; border-radius: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 3px; background: #8b5cf6;"></span>
+                        <span style="font-size: 0.8rem; font-family: monospace;">#8b5cf6</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-hover); padding: 0.35rem 0.6rem; border-radius: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 3px; background: #f59e0b;"></span>
+                        <span style="font-size: 0.8rem; font-family: monospace;">#f59e0b</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Swatch Palet Warna Desain --&gt;
+&lt;span style="background: #ff2d20;"&gt;&lt;/span&gt; &lt;!-- Merah Ngapak --&gt;
+&lt;span style="background: #3b82f6;"&gt;&lt;/span&gt; &lt;!-- Biru Indigo --&gt;
+&lt;span style="background: #10b981;"&gt;&lt;/span&gt; &lt;!-- Hijau Zamrud --&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- 3. Interactive Theme Live Preview -->
+    <div class="component-card">
+        <div class="component-header">
+            <span class="component-title">Preview Kustomisasi Tema Langsung</span>
+            <button type="button" class="btn-copy-code"><l-icon name="copy" size="13"></l-icon> <span>Salin</span></button>
+        </div>
+        <div class="component-canvas">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start;">
+                <div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Pilih Warna Aksen:</div>
+                    <l-color-picker id="themeColorPicker" value="#3b82f6"></l-color-picker>
+                </div>
+                <div id="previewCard" style="padding: 1.25rem; background: var(--bg-hover); border-left: 4px solid #3b82f6; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <h4 style="margin: 0; font-size: 0.95rem; color: #ffffff;">Pratinjau Komponen</h4>
+                        <span id="previewTag" style="background: #3b82f6; color: #ffffff; padding: 2px 8px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">Aktif</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Perubahan warna pada color picker di samping kiri langsung diterapkan secara dinamis.</p>
+                </div>
+            </div>
+        </div>
+        <div class="component-code">
+            <pre><code>&lt;!-- Color Picker Terhubung ke Pratinjau DOM --&gt;
+&lt;l-color-picker id="themeColorPicker" value="#3b82f6"&gt;&lt;/l-color-picker&gt;
+
+&lt;script&gt;
+document.getElementById('themeColorPicker').addEventListener('change', (e) =&gt; {
+    const hex = e.detail.value;
+    document.getElementById('previewCard').style.borderLeftColor = hex;
+    document.getElementById('previewTag').style.backgroundColor = hex;
+});
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/komponen/otp" class="btn-page-nav btn-page-nav-prev"><l-icon name="arrow-left" size="15"></l-icon><span>Sebelumnya: Input OTP / PIN</span></a>
+        <a href="/komponen/tree" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Tree Berkas Hierarki</span><l-icon name="arrow-right" size="15"></l-icon></a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cp = document.getElementById('themeColorPicker');
+    const card = document.getElementById('previewCard');
+    const tag = document.getElementById('previewTag');
+    if (cp && card && tag) {
+        cp.addEventListener('change', (e) => {
+            const hex = e.detail.value;
+            card.style.borderLeftColor = hex;
+            tag.style.backgroundColor = hex;
+        });
+    }
+});
+</script>
+
+@rampung
+
