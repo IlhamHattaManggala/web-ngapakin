@@ -12,21 +12,17 @@ services:
       - APP_PORT=8000
       - DB_CONNECTION=sqlite
       - DB_DATABASE=database.sqlite
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.larapak.rule=Host(`larapak.my.id`) || Host(`www.larapak.my.id`)"
+      - "traefik.http.routers.larapak.entrypoints=websecure"
+      - "traefik.http.routers.larapak.tls=true"
+      - "traefik.http.routers.larapak.tls.certresolver=letsencrypt"
+      - "traefik.http.services.larapak.loadbalancer.server.port=8000"
 
+networks:
   proxy:
-    image: caddy:alpine
-    container_name: web-ngapakin-caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - caddy_data:/data
-      - caddy_config:/config
-    command: caddy reverse-proxy --from larapak.my.id --to app:8000
-    depends_on:
-      - app
-
-volumes:
-  caddy_data:
-  caddy_config:
+    external: true
