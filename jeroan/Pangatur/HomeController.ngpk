@@ -84,7 +84,11 @@ gawe baca_bab(slug, res)
     rampung
 
     view_path = "dok/" + slug
-    konteks = ["title": judule, "slug": slug, "badge": "Oktober 2026 / v1.1.0", "subjudul": subjudul]
+    cur_url = "/dok/" + slug
+    nek slug == "changelog" ya
+        cur_url = "/"
+    rampung
+    konteks = ["title": judule, "slug": slug, "badge": "Oktober 2026 / v1.1.0", "subjudul": subjudul, "description": subjudul, "current_url": cur_url]
     balekna res.view(view_path, konteks)
 rampung
 
@@ -239,6 +243,38 @@ gawe baca_komponen(slug, res)
     rampung
 
     view_path = "komponen/" + slug
-    konteks = ["title": judule, "slug": slug, "badge": "UI Kit / Rikat", "subjudul": subjudul]
+    cur_url = "/komponen/" + slug
+    nek slug == "semua" ya
+        cur_url = "/komponen"
+    rampung
+    konteks = ["title": judule, "slug": slug, "badge": "UI Kit / Rikat", "subjudul": subjudul, "description": subjudul, "current_url": cur_url]
     balekna res.view(view_path, konteks)
+rampung
+
+gawe sitemap(req, res)
+    base_url = "https://larapak.my.id"
+    today = "2026-11-02"
+    
+    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+    xml = xml + "  <url>\n    <loc>" + base_url + "/</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
+    
+    doks = ["changelog", "instalasi", "struktur", "konfigurasi", "sintaksis", "routing", "controller", "middleware", "template", "migrasi", "database", "rikat-css", "rikat-ui", "docker", "cli"]
+    baleni slug neng doks
+        xml = xml + "  <url>\n    <loc>" + base_url + "/dok/" + slug + "</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n"
+    rampung
+    
+    xml = xml + "  <url>\n    <loc>" + base_url + "/komponen</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
+    
+    kompons = ["tombol", "input", "dropdown", "pilihan", "kartu", "badge", "alert", "modal", "tabel", "navigasi", "avatar", "akordeon", "progress", "tooltip", "statistik", "ikon", "breadcrumb", "pagination", "toast", "drawer", "unggah", "stepper", "timeline", "empty-state", "slider", "rating", "segmented", "chip", "divider", "kbd", "color-picker", "otp", "tree", "skeleton"]
+    baleni slug neng kompons
+        xml = xml + "  <url>\n    <loc>" + base_url + "/komponen/" + slug + "</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n"
+    rampung
+    
+    xml = xml + "</urlset>"
+    balekna res.xml(xml)
+rampung
+
+gawe robots(req, res)
+    txt = "User-agent: *\nAllow: /\nDisallow: /api-studio\nDisallow: /api-studio/\nDisallow: /api/studio\nDisallow: /api/studio/\n\nSitemap: https://larapak.my.id/sitemap.xml\n"
+    balekna res.text(txt)
 rampung

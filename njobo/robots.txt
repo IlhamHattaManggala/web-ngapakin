@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api-studio
+Disallow: /api-studio/
+Disallow: /api/studio
+Disallow: /api/studio/
+
+Sitemap: https://larapak.my.id/sitemap.xml
+

@@ -4,11 +4,64 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Dokumentasi Resmi Larapak</title>
+
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="Larapak, Larapak Web Framework, NgapakIn, Framework Python Indonesia, MVC, Rikat UI, Rikat CSS, Dokumentasi Larapak">
+    <meta name="author" content="Ilham Hatta Manggala">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://larapak.my.id{{ current_url }}">
+
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn / Discord -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Larapak Web Framework">
+    <meta property="og:url" content="https://larapak.my.id{{ current_url }}">
+    <meta property="og:title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="https://larapak.my.id/images/logo.png">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@larapak">
+    <meta name="twitter:creator" content="@IlhamHatta">
+    <meta name="twitter:title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="https://larapak.my.id/images/logo.png">
+
+    <!-- Brand Favicons -->
     <link rel="icon" type="image/png" href="/images/logo.png">
     <link rel="alternate icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/rikat.css?v=1.2.1">
-    <link rel="stylesheet" href="/css/docs.css?v=1.2.1">
-    <script src="/js/rikat.js?v=1.2.1"></script>
+
+    <!-- JSON-LD Structured Data (Schema.org TechArticle) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "{{ title }}",
+        "description": "{{ description }}",
+        "url": "https://larapak.my.id{{ current_url }}",
+        "author": {
+            "@type": "Person",
+            "name": "Ilham Hatta Manggala"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Larapak",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://larapak.my.id/images/logo.png"
+            }
+        },
+        "inLanguage": "id-ID"
+    }
+    </script>
+
+    <!-- Stylesheets & Scripts -->
+    <link rel="stylesheet" href="/css/rikat.css?v=1.2.2">
+    <link rel="stylesheet" href="/css/docs.css?v=1.2.2">
+    <script src="/js/rikat.js?v=1.2.2"></script>
 </head>
 <body>
 
@@ -377,6 +430,39 @@
             setTimeout(restoreScroll, 60);
             setTimeout(restoreScroll, 200);
             document.addEventListener('rikat-tree-ready', restoreScroll);
+        }
+
+        // Peningkatan Tipografi & Struktur Tombol Navigasi Halaman (Next / Prev)
+        const formatPageNavButtons = () => {
+            document.querySelectorAll('.btn-page-nav').forEach(btn => {
+                // Bungkus ikon dalam badge jika belum dibungkus
+                const icon = btn.querySelector('svg, l-icon');
+                if (icon && !icon.closest('.btn-page-nav-icon')) {
+                    const iconWrapper = document.createElement('div');
+                    iconWrapper.className = 'btn-page-nav-icon';
+                    icon.parentNode.insertBefore(iconWrapper, icon);
+                    iconWrapper.appendChild(icon);
+                }
+
+                // Format teks label arah & judul dokumen dengan hierarki tipografi
+                const span = btn.querySelector(':scope > span');
+                if (span && !span.classList.contains('nav-label-wrapper')) {
+                    const rawText = span.textContent.trim();
+                    const colonIdx = rawText.indexOf(':');
+                    if (colonIdx !== -1) {
+                        const directionLabel = rawText.substring(0, colonIdx).trim();
+                        const pageTitle = rawText.substring(colonIdx + 1).trim();
+                        span.className = 'nav-label-wrapper';
+                        span.innerHTML = `<span class="nav-direction-label">${directionLabel}</span><span class="nav-page-title">${pageTitle}</span>`;
+                    }
+                }
+            });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', formatPageNavButtons);
+        } else {
+            formatPageNavButtons();
         }
     </script>
 </body>
