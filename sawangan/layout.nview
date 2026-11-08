@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Dokumentasi Resmi Larapak</title>
+    <title>{{ title }} - Dokumentasi Resmi LarapakGo</title>
 
     <!-- Primary SEO Meta Tags -->
-    <meta name="title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta name="title" content="{{ title }} - Dokumentasi Resmi LarapakGo">
     <meta name="description" content="{{ description }}">
-    <meta name="keywords" content="Larapak, Larapak Web Framework, NgapakIn, Framework Python Indonesia, MVC, Rikat UI, Rikat CSS, Dokumentasi Larapak">
+    <meta name="keywords" content="LarapakGo, Larapak, Larapak Web Framework, NgapakIn, Framework Go Indonesia, MVC, Rikat UI, Rikat CSS, Dokumentasi LarapakGo">
     <meta name="author" content="Ilham Hatta Manggala">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://larapak.my.id{{ current_url }}">
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn / Discord -->
     <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Larapak Web Framework">
+    <meta property="og:site_name" content="LarapakGo Framework">
     <meta property="og:url" content="https://larapak.my.id{{ current_url }}">
-    <meta property="og:title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta property="og:title" content="{{ title }} - Dokumentasi Resmi LarapakGo">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:image" content="https://larapak.my.id/images/logo.png">
     <meta property="og:locale" content="id_ID">
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@larapak">
     <meta name="twitter:creator" content="@IlhamHatta">
-    <meta name="twitter:title" content="{{ title }} - Dokumentasi Resmi Larapak">
+    <meta name="twitter:title" content="{{ title }} - Dokumentasi Resmi LarapakGo">
     <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:image" content="https://larapak.my.id/images/logo.png">
 
@@ -48,7 +48,7 @@
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Larapak",
+            "name": "LarapakGo",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://larapak.my.id/images/logo.png"
@@ -77,13 +77,13 @@
             </button>
             <a href="/" class="brand-container">
                 <img src="/images/logo.png" alt="Larapak" class="brand-logo">
-                <span class="brand-title">Larapak</span>
+                <span class="brand-title">LarapakGo</span>
             </a>
         </div>
 
         <div class="search-box-wrapper">
             <l-icon name="search" size="16" class="search-icon"></l-icon>
-            <input type="text" class="search-box" placeholder="Cari dokumentasi Larapak..." id="searchDocs" autocomplete="off" spellcheck="false">
+            <input type="text" class="search-box" placeholder="Cari dokumentasi LarapakGo..." id="searchDocs" autocomplete="off" spellcheck="false">
             <span class="search-shortcut">Ctrl K</span>
         </div>
 
@@ -97,18 +97,18 @@
             </button>
 
             <span class="version-badge">
-                Version 1.2.1
+                Version 1.0.0 (Go)
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </span>
-            <a href="https://github.com/IlhamHattaManggala/ngapakin" target="_blank" rel="noopener noreferrer" class="nav-link" title="Repositori GitHub Resmi Larapak">
+            <a href="https://github.com/IlhamHattaManggala/LarapakGo" target="_blank" rel="noopener noreferrer" class="nav-link" title="Repositori GitHub Resmi LarapakGo">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
                 </svg>
                 <span class="nav-text">GitHub</span>
             </a>
-            <a href="/api-studio" class="nav-btn-studio" title="Buka Larapak Route Studio">
+            <a href="/_studio" class="nav-btn-studio" title="Buka LarapakGo Route Studio">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="4 17 10 11 4 5"></polyline>
                     <line x1="12" y1="19" x2="20" y2="19"></line>
@@ -236,7 +236,7 @@
                 <!-- 6. Deployment & Alat -->
                 <l-tree-node label="Deployment & Alat" icon="terminal">
                     <l-tree-node label="Deployment & Docker" icon="server" href="/dok/docker"></l-tree-node>
-                    <l-tree-node label="Route & API Studio" icon="zap" href="/api-studio"></l-tree-node>
+                    <l-tree-node label="Route & API Studio" icon="zap" href="/_studio"></l-tree-node>
                     <l-tree-node label="Referensi Larapak CLI" icon="terminal" href="/dok/cli"></l-tree-node>
                 </l-tree-node>
             </l-tree>

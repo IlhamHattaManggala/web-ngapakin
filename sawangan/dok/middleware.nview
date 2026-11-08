@@ -15,10 +15,10 @@
     <h2>Membuat Middleware Baru</h2>
     <p>Gunakan perintah generator CLI untuk membuat berkas filter middleware baru di folder <code>jeroan/Pencegat/</code>:</p>
     <pre><code># Dialek Ngapak Asli
-ngapakin gawe:pencegat VerifikasiUsia
+larapak gawe:pencegat VerifikasiUsia
 
 # Atau menggunakan alias standar
-ngapakin make:middleware VerifikasiUsia</code></pre>
+larapak make:middleware VerifikasiUsia</code></pre>
 
     <p>Struktur berkas middleware baru (<code>jeroan/Pencegat/VerifikasiUsia.ngpk</code>):</p>
     <pre><code># Pencegat HTTP VerifikasiUsia
@@ -52,6 +52,19 @@ rampung</code></pre>
     <pre><code># dalan/api.ngpk
 rute.post("/api/login", "AuthController@login").lewat(["throttle:5,1"])</code></pre>
     <p>Format <code>throttle:max_attempts,decay_minutes</code> membatasi klien maksimal 5 percobaan dalam kurun waktu 1 menit. Jika terlampaui, sistem otomatis mengembalikan status HTTP <code>429 Too Many Requests</code>.</p>
+
+    <h2>Mode Pemeliharaan (Maintenance Mode)</h2>
+    <p>LarapakGo menyediakan pencegat mode perbaikan sistem bawaan. Saat mode ini aktif, seluruh pengunjung diarahkan ke tampilan <code>503 Service Unavailable</code> ramah pengguna:</p>
+
+    <pre><code># Mengaktifkan mode pemeliharaan (Dialek Ngapak)
+larapak dandan --pesan="Sistem nembe didandani, sedela maning rampung"
+
+# Atau dengan token bypass rahasia untuk tim developer:
+larapak dandan --rahasia=ngapak2026
+
+# Menormalkan kembali sistem setelah pemeliharaan selesai:
+larapak mari
+# Atau alias: larapak up</code></pre>
 
     <div class="bottom-nav">
         <a href="/dok/controller" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Controller &amp; Request</span></a>

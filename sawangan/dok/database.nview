@@ -10,82 +10,103 @@
 
 <div class="prose">
     <h2>Fluent Query Builder</h2>
-    <p>Larapak menyediakan antarmuka Query Builder yang ekspresif, aman dari serangan SQL Injection dengan parameterized query, dan mudah dibaca:</p>
+    <p>LarapakGo menyediakan Query Builder ekspresif berbasis 100% Go Standard Library yang aman dari SQL Injection melalui prepared statements dan parameter binding otomatis.</p>
 
     <pre><code># Mengambil semua baris dari tabel pengguna
-semua_pengguna = db.tabel("pengguna").pilih().jupuk()
+semua_pengguna = db.tabel("users").pilih().jupuk()
 
-# Query dengan filter kondisi (WHERE)
-aktif = db.tabel("pengguna") \
-    .pilih(["id", "nama", "email"]) \
-    .ngendi("status", "=", "aktif") \
-    .ngendi("umur", ">=", 18) \
-    .urutna("nama", "ASC") \
-    .watesi(10) \
+# Query dengan filter kondisi (WHERE) dan pengurutan
+aktif = db.tabel("users")
+    .pilih("id", "name", "email")
+    .neng("status", "=", "aktif")
+    .neng("age", ">=", 18)
+    .urut("created_at", "DESC")
+    .wates(10)
     .jupuk()
 
 # Mengambil baris pertama saja
-siji = db.tabel("pengguna").ngendi("email", "=", "slamet@ngapak.org").siji()</code></pre>
+user = db.tabel("users").neng("email", "=", "slamet@ngapak.org").siji()
+
+# Menghitung jumlah baris data
+total_user = db.tabel("users").cacah()
+
+# Paginasi data otomatis
+halaman = db.tabel("users").kaca(1, 15)</code></pre>
 
     <h2>Operasi CRUD (Create, Read, Update, Delete)</h2>
 
     <h3>Menambah Data Baru (Insert)</h3>
-    <pre><code>id_anyar = db.tabel("pengguna").lebokna([
-    "nama": "Bambang",
+    <pre><code>id_anyar = db.tabel("users").tambah({
+    "name": "Bambang",
     "email": "bambang@banyumas.go.id",
     "status": "aktif"
-])</code></pre>
+})</code></pre>
 
     <h3>Memperbarui Data (Update)</h3>
-    <pre><code>db.tabel("pengguna") \
-    .ngendi("id", "=", 5) \
-    .anyari(["status": "nonaktif", "nama": "Bambang S."])</code></pre>
+    <pre><code>db.tabel("users")
+    .neng("id", 5)
+    .owahi({"status": "nonaktif", "name": "Bambang S."})</code></pre>
 
     <h3>Menghapus Data (Delete)</h3>
-    <pre><code>db.tabel("pengguna").ngendi("id", "=", 5).busak()</code></pre>
+    <pre><code>db.tabel("users").neng("id", 5).busak()</code></pre>
 
-    <h2>Model ORM &amp; Eager Loading (Anti N+1)</h2>
-    <p>File model ORM ditempatkan di <code>jeroan/Wujud/</code>. Buat model baru melalui perintah CLI:</p>
-    <pre><code># Dialek Ngapak
-ngapakin gawe:wujud Produk
+    <h2>Soft Deletes (Penghapusan Lembut)</h2>
+    <p>Fitur Soft Deletes menandai rekaman sebagai terhapus dengan mengisi kolom <code>deleted_at</code> tanpa membuang baris data secara fisik dari database:</p>
 
-# Alias standar
-ngapakin make:model Produk</code></pre>
+    <pre><code># 1. Mengaktifkan soft deletes pada query (hanya data aktif / deleted_at IS NULL)
+produks = db.tabel("produks").mbusak_alus().neng("kategori", "elektronik").jupuk()
 
-    <p>Untuk menghindari masalah klasik performa <strong>N+1 Query</strong> saat menampilkan data berelasi, gunakan eager loading dengan metode <code>karo()</code>:</p>
+# 2. Mengambil semua data termasuk yang sudah dihapus (with trashed)
+kabeh_data = db.tabel("produks").mbusak_alus().karo_dibusek().jupuk()
 
-    <pre><code># Mengambil postingan beserta seluruh komentar dan data penulis dalam satu batch query optimal
-artikel = Postingan.karo(["penulis", "komentar"]).ngendi("status", "=", "publikasi").jupuk()</code></pre>
+# 3. Hanya mengambil data yang berstatus dihapus lembut (only trashed)
+sampah = db.tabel("produks").mbusak_alus().mung_dibusek().jupuk()
 
-    <h2>Database Seeder (Pengisian Data Awal)</h2>
-    <p>Larapak menyediakan sistem Seeder untuk mengisi data awal (seperti akun administrator, kategori default, atau data dummy pengujian) secara otomatis.</p>
+# 4. Memulihkan rekaman yang terhapus (restore)
+db.tabel("produks").neng("id", 10).balekna()
 
-    <h3>1. Membuat Berkas Seeder</h3>
-    <pre><code># Dialek Ngapak Asli
-ngapakin gawe:bibit ProdukSeeder
+# 5. Menghapus fisik secara permanen dari tabel (force delete)
+db.tabel("produks").neng("id", 10).busak_permanen()</code></pre>
 
-# Alias standar
-ngapakin make:seeder ProdukSeeder</code></pre>
+    <h2>Relasi Antar-Model (Relationships)</h2>
+    <p>LarapakGo mendukung relasi langsung antar-tabel dengan sintaks chaining ergonomis pada record:</p>
 
-    <p>File seeder disimpan di <code>lumbung/bibit/ProdukSeeder.ngpk</code>:</p>
-    <pre><code># Database Seeder ProdukSeeder untuk Larapak
-gawe tandang()
-    db.tabel("produk").lebokna([
-        "nama": "Kopi Banyumas Asli",
-        "harga": 25000,
+    <pre><code>user = db.tabel("users").neng("id", 1).siji()
+
+# Relasi Satu ke Banyak (has_many / duwe_akeh)
+artikels = user.duwe_akeh("artikels").neng("status", "publikasi").jupuk()
+
+# Relasi Banyak ke Satu (belongs_to / melu)
+artikel = db.tabel("artikels").neng("id", 5).siji()
+author = artikel.melu("users").siji()
+
+# Relasi Satu ke Satu (has_one / duwe_siji)
+profil = user.duwe_siji("user_profiles").siji()</code></pre>
+
+    <h2>Model Factory &amp; Faker Data Generator</h2>
+    <p>LarapakGo menyertakan pembuat data tiruan (faker) bawaan 100% Go Native via objek global <code>pabrik</code> dan <code>factory</code>:</p>
+
+    <pre><code># Mengambil data palsu acak
+nama_wong = pabrik.jeneng()
+email_wong = pabrik.email("Slamet Riyadi")
+no_hp = pabrik.hp()
+alamat_omah = pabrik.alamat()
+kutha = pabrik.kutha()
+angka_acak = pabrik.angka(10, 100)
+harga_produk = pabrik.rega(10000, 500000)
+uuid_unik = pabrik.uuid()
+
+# Membuat 20 baris data dummy ke database secara instan
+pabrik.gawe("produks", 20, gawe(i)
+    balekna {
+        "nama": "Produk " + pabrik.teks(2),
+        "harga": pabrik.rega(5000, 100000),
         "status": "tersedia"
-    ])
-    tulis("Seeder ProdukSeeder selesai dijalankan.")
-rampung</code></pre>
+    }
+rampung)</code></pre>
 
-    <h3>2. Menjalankan Seeder</h3>
-    <pre><code># Menjalankan seeder langsung
-ngapakin bibiti
-# Atau: ngapakin db:seed
-
-# Menjalankan seeder bersamaan dengan fresh migration
-ngapakin migrasi:anyar --seed
-# Atau: ngapakin migrate:fresh --seed</code></pre>
+    <h2>Database Query Logger &amp; SQL Profiler</h2>
+    <p>Setiap query SQL yang dieksekusi aplikasi otomatis dicatat dan diukur durasinya oleh in-memory profiler. Buka dashboard interaktif Route Studio di <code>/_studio</code> untuk meninjau tab <strong>SQL Profiler</strong> lengkap dengan waktu eksekusi dalam milidetik dan peringatan slow query.</p>
 
     <div class="bottom-nav">
         <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Migrasi Skema Database</span></a>
@@ -94,4 +115,3 @@ ngapakin migrasi:anyar --seed
 </div>
 
 @rampung
-

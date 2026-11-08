@@ -55,10 +55,10 @@ rampung</code></pre>
     <p>Anda dapat melihat daftar seluruh pemetaan rute HTTP, method, aksi controller, dan middleware yang aktif langsung di terminal:</p>
 
     <pre><code># Dialek Ngapak Asli
-ngapakin dalan:daptar
+larapak dalan:daptar
 
 # Atau menggunakan alias standar
-ngapakin route:list</code></pre>
+larapak route:list</code></pre>
 
     <p>Contoh keluaran di terminal:</p>
     <pre><code>Method   | Path                           | Action                         | Middleware          
@@ -68,8 +68,16 @@ GET      | /dok/{slug}                    | HomeController@bab             | Non
 POST     | /api/produk                    | ProdukController@simpan        | csrf                
 GET      | /api-studio                    | StudioController@index         | None</code></pre>
 
+    <h2>Response Caching Terintegrasi</h2>
+    <p>LarapakGo menyertakan middleware cache in-memory bawaan untuk mempercepat respons rute publik atau API secara drastis tanpa panggilan database berulang:</p>
+    <pre><code># Cache respons rute selama 60 detik (Dialek Ngapak)
+rute.get("/api/kurs", "KursController@index").simpen(60)
+
+# Alias standar
+rute.get("/api/kurs", "KursController@index").cache(60)</code></pre>
+
     <div class="callout">
-        <strong>Eksplorasi Rute Interaktif:</strong> Buka <a href="/api-studio">Larapak Route &amp; API Studio (<code>/api-studio</code>)</a> untuk melihat seluruh daftar rute aplikasi, parameter, dan melakukan simulasi request secara langsung!
+        <strong>Eksplorasi Rute Interaktif (Route &amp; API Studio):</strong> LarapakGo menyertakan UI Studio bawaan. Akses <a href="/_studio">Route Studio (<code>/_studio</code>)</a> atau <a href="/api-studio">API Studio (<code>/api-studio</code>)</a> untuk menguji rute, memvalidasi parameter, dan melakukan simulasi request HTTP langsung di peramban tanpa Postman!
     </div>
 
     <div class="bottom-nav">

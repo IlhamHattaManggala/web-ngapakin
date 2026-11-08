@@ -1,6 +1,7 @@
 services:
   app:
-    image: ilhamhatta/larapak:latest
+    build: .
+    image: ilhamhatta/larapak-go:latest
     container_name: web-ngapakin-app
     restart: unless-stopped
     volumes:
@@ -8,7 +9,6 @@ services:
     environment:
       - APP_ENV=production
       - APP_DEBUG=salah
-      - APP_STUDIO=bener
       - APP_PORT=8000
       - DB_CONNECTION=sqlite
       - DB_DATABASE=database.sqlite

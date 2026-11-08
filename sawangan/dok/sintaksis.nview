@@ -10,7 +10,7 @@
 
 <div class="prose">
     <h2>Pengantar Bahasa NgapakIn</h2>
-    <p>NgapakIn adalah bahasa pemrograman berbasis bytecode VM yang dirancang khusus dengan kosakata dialek Banyumasan. Bahasa ini mendukung pemrograman prosedural, fungsional, dan berorientasi objek (OOP).</p>
+    <p>NgapakIn adalah bahasa pemrograman ekspresif dengan sintaksis dialek Banyumasan yang dieksekusi secara native melalui mesin runtime Go berkecepatan tinggi di LarapakGo. Bahasa ini mendukung pemrograman prosedural, fungsional, dan berorientasi objek (OOP).</p>
 
     <h2>1. Variabel &amp; Tipe Data</h2>
     <p>Penetapan variabel dilakukan secara langsung tanpa keyword khusus:</p>

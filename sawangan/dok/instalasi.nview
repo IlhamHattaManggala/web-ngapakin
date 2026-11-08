@@ -10,52 +10,66 @@
 
 <div class="prose">
     <h2>Pilihan Metode Instalasi</h2>
-    <p>Larapak menyediakan beberapa metode instalasi fleksibel yang disesuaikan dengan lingkungan pengembangan Anda.</p>
+    <p>LarapakGo hadir dengan arsitektur <strong>100% Go Standard Library (Zero External Dependencies &amp; Zero Python Runtime)</strong>. Seluruh fungsionalitas CLI framework, mesin interpreter NgapakIn, template engine Sawangan, web server berkinerja tinggi, dan database ORM terkemas dalam satu biner mandiri yang sangat cepat.</p>
 
-    <h3>Metode 1: Standalone Windows Binary (Tanpa Butuh Python)</h3>
-    <p>Bagi pengguna sistem operasi Windows yang menginginkan kemudahan tanpa perlu menginstal Python, unduh langsung file biner mandiri resmi dari GitHub Releases:</p>
+    <h3>Metode 1: Pemasang Resmi Windows (Installer .exe)</h3>
+    <p>Bagi pengguna sistem operasi Windows, cara tercepat dan termudah adalah menggunakan Windows Setup Installer resmi yang otomatis mendaftarkan binary ke variabel sistem <code>PATH</code>:</p>
     
     <p>
-        <a href="https://github.com/IlhamHattaManggala/ngapakin/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.05rem;">
-            &DownArrowBar; Unduh ngapakin.exe (Rilis Resmi v1.1.0 - 12.6 MB)
+        <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/LarapakGo-Setup-v1.0.0.exe" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.05rem;">
+            &DownArrowBar; Unduh LarapakGo-Setup-v1.0.0.exe (Windows 64-bit Installer)
         </a>
     </p>
     
-    <p>Setelah mengunduh, letakkan <code>ngapakin.exe</code> di folder yang Anda inginkan (atau tambahkan ke variabel sistem <code>PATH</code>), lalu buka terminal PowerShell atau Command Prompt:</p>
+    <p>Jalankan file setup tersebut, ikuti panduan wizard instalasi, dan buka terminal baru (PowerShell / Command Prompt):</p>
     
-    <pre><code># 1. Membuat proyek baru (mendukung dialek Ngapak atau standar)
-ngapakin.exe anyar toko-online --bahasa=ngapak
-# Atau alias standar: ngapakin.exe new toko-online --bahasa=ngapak
+    <pre><code># 1. Periksa ketersediaan perintah LarapakGo
+larapak version
 
-# 2. Masuk ke direktori proyek
+# 2. Membuat proyek baru (mendukung dialek Ngapak, Indonesia, atau English)
+larapak anyar toko-online --bahasa=ngapak
+# Atau alias standar:
+larapak new toko-online --bahasa=english
+
+# 3. Masuk ke direktori proyek
 cd toko-online
 
-# 3. Jalankan server lokal
-ngapakin.exe ladeni 8000
-# Atau alias standar: ngapakin.exe serve 8000</code></pre>
+# 4. Jalankan server lokal (dilengkapi auto hot-reload & browser refresh)
+larapak ladeni 8000
+# Atau alias standar:
+larapak serve 8000</code></pre>
 
-    <h3>Metode 2: Menggunakan pip (Ekosistem Python)</h3>
-    <p>Bagi pengembang yang sudah memiliki Python 3.8+ di komputernya, pasang Larapak langsung melalui registry resmi PyPI:</p>
+    <h3>Metode 2: Skrip Instalasi Otomatis Linux &amp; macOS</h3>
+    <p>Untuk pengguna Linux (Ubuntu, Debian, Fedora, Arch) maupun macOS (Apple Silicon / Intel), jalankan satu baris perintah berikut di terminal:</p>
     
-    <pre><code>pip install ngapakin</code></pre>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/IlhamHattaManggala/LarapakGo/main/install.sh | bash</code></pre>
 
-    <p>Setelah instalasi selesai, perintah global <code>ngapakin</code> langsung tersedia secara sistem:</p>
-    <pre><code>ngapakin new portal-berita --bahasa=ngapak
-cd portal-berita
-ngapakin serve 8000</code></pre>
+    <p>Skrip installer otomatis mendeteksi arsitektur sistem operasi Anda, mengunduh binary mandiri <code>larapak</code> ke <code>/usr/local/bin/larapak</code>, dan membuat symlink global <code>ngapakin</code>.</p>
 
-    <h3>Metode 3: Menggunakan Docker &amp; Docker Compose</h3>
-    <p>Untuk server Linux VPS atau developer yang menggunakan container terisolasi, jalankan proyek langsung dengan Docker Compose:</p>
+    <h3>Metode 3: Unduh Biner Mandiri Portabel (Portable Binaries)</h3>
+    <p>Anda juga dapat mengunduh berkas biner mandiri langsung dari repositori resmi GitHub tanpa instalasi tambahan:</p>
+    <ul>
+        <li><strong>Windows (AMD64):</strong> <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-windows-amd64.exe">larapak-v1.0.0-windows-amd64.exe</a></li>
+        <li><strong>Linux (AMD64):</strong> <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-linux-amd64">larapak-v1.0.0-linux-amd64</a></li>
+        <li><strong>macOS (ARM64 / Apple Silicon):</strong> <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-darwin-arm64">larapak-v1.0.0-darwin-arm64</a></li>
+    </ul>
+
+    <h3>Metode 4: Dukungan Editor Visual Studio Code</h3>
+    <p>Pasang ekstensi resmi <strong>Larapak VS Code Extension</strong> untuk pengalaman penulisan kode terbaik dengan pewarnaan sintaksis TextMate untuk berkas <code>.ngpk</code> dan template <code>.nview</code>, auto-completion, dan tema ikon berkas resmi:</p>
+
+    <pre><code>code --install-extension dist/larapak-vscode-1.0.0.vsix</code></pre>
+
+    <h3>Metode 5: Menjalankan dengan Docker</h3>
+    <p>Setiap proyek LarapakGo menyertakan konfigurasi container modern yang dapat dijalankan secara instan:</p>
     
-    <pre><code># Unduh citra container resmi dari Docker Hub
-docker pull ilhamhatta/larapak:1.1.0
-docker pull ilhamhatta/larapak:latest
+    <pre><code># Membangun dan menjalankan seluruh container web
+docker compose up -d --build
 
-# Jalankan seluruh container web dan background service
-docker compose up -d</code></pre>
+# Menampilkan log server
+docker compose logs -f app</code></pre>
 
     <div class="callout">
-        <strong>Tips Cepat:</strong> Setelah server berjalan, buka peramban web di alamat <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> untuk melihat aplikasi aktif.
+        <strong>Tips Cepat:</strong> Setelah server berjalan, buka peramban web di alamat <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> untuk melihat aplikasi aktif, dan buka <a href="http://localhost:8000/_studio" target="_blank">http://localhost:8000/_studio</a> untuk membuka Route &amp; API Studio interaktif.
     </div>
 
     <div class="bottom-nav">
@@ -65,4 +79,3 @@ docker compose up -d</code></pre>
 </div>
 
 @rampung
-

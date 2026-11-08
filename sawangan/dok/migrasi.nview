@@ -17,10 +17,10 @@
     <h2>1. Membuat File Migrasi Baru</h2>
     <p>Gunakan perintah CLI untuk menghasilkan cetak biru migrasi baru:</p>
     <pre><code># Dialek Ngapak (Rekomendasi)
-ngapakin gawe:migrasi gawe_tabel_produk
+larapak gawe:migrasi gawe_tabel_produk
 
 # Atau menggunakan alias standar
-ngapakin make:migration gawe_tabel_produk</code></pre>
+larapak make:migration gawe_tabel_produk</code></pre>
 
     <p>Perintah ini akan membuat file migrasi terstempel waktu, misalnya <code>lumbung/migrasi/2026_10_31_000001_gawe_tabel_produk.ngpk</code>:</p>
 
@@ -44,36 +44,36 @@ rampung</code></pre>
     
     <h3>Menjalankan Seluruh Migrasi Tertunda</h3>
     <pre><code># Dialek Ngapak Asli
-ngapakin migrasi
-# Atau: ngapakin munggah
+larapak migrasi
+# Atau: larapak munggah
 
 # Alias standar
-ngapakin migrate</code></pre>
+larapak migrate</code></pre>
 
     <h3>Memeriksa Status Migrasi</h3>
     <p>Lihat status eksekusi seluruh migrasi dalam format tabel ringkas:</p>
     <pre><code># Dialek Ngapak
-ngapakin migrasi:status
+larapak migrasi:status
 
 # Alias standar
-ngapakin migrate:status</code></pre>
+larapak migrate:status</code></pre>
 
     <h3>Mengulang Database Bersih (Fresh Reset) &amp; Seeding</h3>
     <p>Menghapus seluruh tabel dan menjalankan kembali migrasi dari awal (opsional menyertakan <code>--seed</code> untuk langsung mengisi data awal):</p>
     <pre><code># Dialek Ngapak Asli
-ngapakin migrasi:anyar
-ngapakin migrasi:anyar --seed
+larapak migrasi:anyar
+larapak migrasi:anyar --seed
 
 # Alias standar
-ngapakin migrate:fresh
-ngapakin migrate:fresh --seed</code></pre>
+larapak migrate:fresh
+larapak migrate:fresh --seed</code></pre>
 
     <h3>Membatalkan (Rollback) Migrasi Terakhir</h3>
     <pre><code># Dialek Ngapak Asli
-ngapakin mudhun
+larapak mudhun
 
-# Alias standar
-ngapakin rollback</code></pre>
+# Atau alias standar
+larapak rollback</code></pre>
 
     <h2>Dukungan Multi-Database Driver</h2>
     <p>Sistem migrasi Larapak secara cerdas menerjemahkan tipe kolom ke dialek database yang aktif pada <code>DB_DRIVER</code> (SQLite, MySQL, PostgreSQL, atau MSSQL) tanpa perlu mengubah kode migrasi Anda.</p>

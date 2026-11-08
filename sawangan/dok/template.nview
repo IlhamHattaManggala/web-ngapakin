@@ -87,8 +87,23 @@
     <p>Gunakan <code>&#64;include "nama_komponen"</code> untuk memecah antarmuka menjadi komponen modular yang rapi (seperti navbar atau footer):</p>
     <pre><code>&#64;include "komponen/footer"</code></pre>
 
+    <h2>7. Lokalisasi Multi-Bahasa (<code>&#64;basa</code> &amp; <code>trans</code>)</h2>
+    <p>LarapakGo mendukung translasi bahasa terpusat yang membaca file JSON di direktori <code>basa/</code> (seperti <code>basa/id.json</code>, <code>basa/ngpk.json</code>, dan <code>basa/en.json</code>):</p>
+    <pre><code>&lt;!-- Mengatur atau beralih dialek lokal --&gt;
+&#64;basa "id"
+
+&lt;!-- Mengambil translasi berdasarkan kunci --&gt;
+&lt;h1&gt;&#123;&#123; trans("sugeng_rawuh") &#125;&#125;&lt;/h1&gt;
+&lt;p&gt;&#123;&#123; __("deskripsi_situs") &#125;&#125;&lt;/p&gt;</code></pre>
+
+    <h2>8. Directive RikatLive Reaktif (<code>&#64;rikatlive</code>)</h2>
+    <p>Sematkan komponen reaktif server-driven RikatLive langsung ke dalam template Sawangan:</p>
+    <pre><code>&lt;!-- Menyisipkan komponen RikatLive --&gt;
+&#64;rikatlive "PenghitungKlik"
+&lt;!-- Atau alias: &#64;live "PenghitungKlik" --&gt;</code></pre>
+
     <div class="callout">
-        <strong>Peningkatan di v1.1.0:</strong> Sistem Template Sawangan kini mengevaluasi kedalaman directive bersarang (<em>nested directives</em> seperti <code>&#64;nek</code>, <code>&#64;baleni</code>, dan <code>&#64;error</code>) di dalam blok <code>&#64;section</code> secara presisi tanpa memotong penutupan master layout secara prematur.
+        <strong>Performa Ekstrem di LarapakGo:</strong> Mesin template Sawangan di LarapakGo dikompilasi secara native dalam Go standard library. Evaluasi directive bersarang (<em>nested blocks</em>), sanitasi XSS otomatis, dan rendering partial berjalan dalam skala mikrodetik dengan alokasi memori minimal.
     </div>
 
     <div class="bottom-nav">

@@ -14,10 +14,10 @@
 
     <p>File controller ditempatkan di <code>jeroan/Pangatur/</code> dengan ekstensi <code>.ngpk</code>. Anda dapat membuat controller baru dengan perintah dialek Ngapak:</p>
     <pre><code># Dialek Ngapak (Rekomendasi)
-ngapakin gawe:pangatur ProdukController
+larapak gawe:pangatur ProdukController
 
 # Atau menggunakan alias standar
-ngapakin make:controller ProdukController</code></pre>
+larapak make:controller ProdukController</code></pre>
 
     <h2>Contoh Lengkap Controller</h2>
     <pre><code># jeroan/Pangatur/ProdukController.ngpk

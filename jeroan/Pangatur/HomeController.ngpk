@@ -15,7 +15,7 @@ gawe baca_bab(slug, res)
     
     nek slug == "instalasi" ya
         judule = "Instalasi & Memulai Cepat"
-        subjudul = "Panduan memasang Larapak melalui biner mandiri .exe, pip, atau Docker."
+        subjudul = "Panduan memasang LarapakGo melalui installer resmi Windows (.exe), script biner Unix, atau Docker."
     rampung
 
     nek slug == "struktur" ya
@@ -35,7 +35,7 @@ gawe baca_bab(slug, res)
 
     nek slug == "routing" ya
         judule = "Routing & Penanganan URL"
-        subjudul = "Mengatur rute HTTP dinamis, method spoofing, dan pendaftaran rute web/API."
+        subjudul = "Mengatur rute HTTP dinamis, response caching, API resource transformer, dan pendaftaran rute."
     rampung
 
     nek slug == "controller" ya
@@ -50,7 +50,7 @@ gawe baca_bab(slug, res)
 
     nek slug == "template" ya
         judule = "Sistem Template Sawangan (.nview)"
-        subjudul = "Pewarisan layout, section, interpolasi nilai, dan directive template blade-like."
+        subjudul = "Pewarisan layout, section, direktif lokalisasi multi-bahasa, dan komponen RikatLive."
     rampung
 
     nek slug == "migrasi" ya
@@ -59,8 +59,8 @@ gawe baca_bab(slug, res)
     rampung
 
     nek slug == "database" ya
-        judule = "Database & Model ORM"
-        subjudul = "Fluent Query Builder, model relasi, dan eager loading anti N+1."
+        judule = "Database, Model ORM & Soft Deletes"
+        subjudul = "Fluent Query Builder, Soft Deletes, model relasi, model factory, dan SQL Profiler."
     rampung
 
     nek slug == "rikat-css" ya
@@ -75,12 +75,12 @@ gawe baca_bab(slug, res)
 
     nek slug == "docker" ya
         judule = "Deployment & Docker Container"
-        subjudul = "Menjalankan aplikasi Larapak di VPS produksi menggunakan Docker Compose dan Gunicorn."
+        subjudul = "Menjalankan aplikasi LarapakGo di VPS produksi menggunakan Docker Compose dan biner mandiri native."
     rampung
 
     nek slug == "cli" ya
-        judule = "Referensi Perintah Larapak CLI"
-        subjudul = "Daftar lengkap perintah baris perintah ngapakin untuk mempercepat pengembangan."
+        judule = "Referensi Perintah LarapakGo CLI"
+        subjudul = "Daftar lengkap perintah baris perintah larapak untuk mempercepat pengembangan."
     rampung
 
     view_path = "dok/" + slug
@@ -88,7 +88,7 @@ gawe baca_bab(slug, res)
     nek slug == "changelog" ya
         cur_url = "/"
     rampung
-    konteks = ["title": judule, "slug": slug, "badge": "Oktober 2026 / v1.1.0", "subjudul": subjudul, "description": subjudul, "current_url": cur_url]
+    konteks = ["title": judule, "slug": slug, "badge": "November 2026 / v1.0.0 (Go Edition)", "subjudul": subjudul, "description": subjudul, "current_url": cur_url]
     balekna res.view(view_path, konteks)
 rampung
 

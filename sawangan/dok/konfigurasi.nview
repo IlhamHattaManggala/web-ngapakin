@@ -18,24 +18,28 @@ APP_KEY=rahasia-ngapakin-kunci-super-aman-2026
 APP_DEBUG=bener
 APP_URL=http://localhost:8000
 APP_PORT=8000
+APP_LOCALE=ngapak
 
-DB_DRIVER=sqlite
+DB_CONNECTION=sqlite
 DB_NAME=database.sqlite
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_USER=root
-DB_PASS=</code></pre>
+DB_PASS=
+
+CACHE_DRIVER=file
+QUEUE_DRIVER=sync</code></pre>
 
     <h2>Daftar Variabel Kunci</h2>
     
     <h3>1. <code>APP_DEBUG</code></h3>
     <p>Mengontrol mode debugging aplikasi:</p>
     <ul>
-        <li><code>bener</code> atau <code>true</code>: Mengaktifkan interactive Ignition debugger di peramban saat terjadi error tak tertangani. Tampilan debugger memperlihatkan nomor baris, file sumber, dan tumpukan eksekusi (stack trace).</li>
+        <li><code>bener</code> atau <code>true</code>: Mengaktifkan interactive debugger di peramban saat terjadi error tak tertangani. Tampilan debugger memperlihatkan nomor baris, file sumber, dan tumpukan eksekusi (stack trace).</li>
         <li><code>salah</code> atau <code>false</code>: Mode produksi aman. Sistem akan menampilkan halaman error 500 yang bersih dan menyembunyikan detail sensitif server.</li>
     </ul>
 
-    <h3>2. <code>DB_DRIVER</code></h3>
+    <h3>2. <code>DB_CONNECTION</code> / <code>DB_DRIVER</code></h3>
     <p>Menentukan driver database yang digunakan oleh model ORM:</p>
     <ul>
         <li><code>sqlite</code>: Database SQLite mandiri (secara otomatis dikonfigurasi menggunakan WAL Mode untuk performa konkurensi tinggi).</li>
@@ -43,6 +47,12 @@ DB_PASS=</code></pre>
         <li><code>postgres</code>: Database PostgreSQL.</li>
         <li><code>sqlserver</code>: Microsoft SQL Server (MSSQL).</li>
     </ul>
+
+    <h3>3. <code>APP_LOCALE</code></h3>
+    <p>Menentukan bahasa default sistem translasi dan lokalisasi tampilan (<code>ngapak</code>, <code>id</code> untuk Bahasa Indonesia, atau <code>en</code> untuk English).</p>
+
+    <h3>4. <code>CACHE_DRIVER</code> &amp; <code>QUEUE_DRIVER</code></h3>
+    <p>Mengatur penyimpanan cache respons (<code>file</code> atau <code>array</code>) dan eksekutor background antrian tugas (<code>sync</code> atau <code>database</code>).</p>
 
     <div class="callout">
         <strong>Peringatan Keamanan:</strong> Jangan pernah mengunggah file <code>.env</code> yang berisi kata sandi atau kunci enkripsi asli ke publik GitHub atau GitLab. Selalu gunakan <code>.env.example</code> sebagai referensi tim.

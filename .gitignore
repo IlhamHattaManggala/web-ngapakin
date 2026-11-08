@@ -18,6 +18,10 @@ __pycache__/
 Thumbs.db
 desktop.ini
 
+# Binaries
+*.exe
+larapak
+
 # IDEs
 .vscode/
 .idea/

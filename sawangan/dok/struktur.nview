@@ -10,30 +10,37 @@
 
 <div class="prose">
     <h2>Struktur Direktori Dialek Ngapak</h2>
-    <p>Ketika Anda membuat proyek menggunakan opsi <code>--bahasa=ngapak</code>, Larapak menyusun arsitektur direktori aplikasi dalam istilah bahasa Banyumasan yang khas, terstruktur, dan bersih dari sampah engine:</p>
+    <p>Ketika Anda membuat proyek menggunakan perintah <code>larapak new &lt;nama&gt; --bahasa=ngapak</code>, LarapakGo menyusun arsitektur direktori aplikasi dalam istilah bahasa Banyumasan yang khas, terstruktur, dan bersih dari sampah engine:</p>
 
     <pre><code>nama-proyek/
-├── dalan/               # Rute Web & API (Routes)
+├── dalan/               # Rute Web &amp; API (Routes)
 │   ├── web.ngpk         # Rute aplikasi web browser
 │   └── api.ngpk         # Rute endpoint RESTful JSON
 ├── jeroan/              # Inti Aplikasi (App logic)
-│   ├── Pangatur/        # Controller aksi & logika bisnis
-│   ├── Wujud/           # Model Database & relasi ORM
-│   ├── Pencegat/        # Middleware HTTP request & filter
+│   ├── Pangatur/        # Controller aksi &amp; logika bisnis
+│   ├── Wujud/           # Model Database &amp; relasi ORM
+│   ├── Pencegat/        # Middleware HTTP request &amp; filter
+│   ├── Kedadeyan/       # Event Listeners &amp; Dispatcher
 │   └── Gawean/          # Asynchronous Background Queue Jobs
-├── lumbung/             # Database & Penyimpanan (Storage)
+├── lumbung/             # Database &amp; Penyimpanan (Storage)
 │   ├── migrasi/         # File skema migrasi tabel
 │   ├── bibit/           # Database seeder / data awal
+│   ├── pabrik/          # Model Factories untuk data mocking
 │   └── simpenan/        # Upload file dan log internal
+├── basa/                # Terjemahan &amp; Kamus Multi-Bahasa (i18n)
+│   ├── ngpk.json        # Bahasa Ngapak
+│   ├── id.json          # Bahasa Indonesia
+│   └── en.json          # English
 ├── sawangan/            # Tampilan Template View (Views)
 │   ├── layout.nview     # Master layout aplikasi
 │   └── index.nview      # Halaman template spesifik
 ├── njobo/               # Aset Publik Statis (Public root)
 │   ├── css/rikat.css    # Bundle CSS hasil kompilasi JIT
-│   ├── js/rikat.js      # Library reaktif Rikat UI
+│   ├── js/rikat.js      # Library reaktif Rikat UI &amp; RikatLive
 │   └── index.html       # Entrypoint jika diperlukan
 ├── .env                 # Konfigurasi environment lokal
 ├── .env.example         # Template konfigurasi tim
+├── Dockerfile           # Multi-stage container Go Alpine
 ├── docker-compose.yml   # Konfigurasi container Docker
 └── README.md            # Dokumentasi proyek Anda</code></pre>
 

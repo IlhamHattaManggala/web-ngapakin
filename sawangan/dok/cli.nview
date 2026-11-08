@@ -9,11 +9,11 @@
 </div>
 
 <div class="prose">
-    <h2>Referensi Perintah Baris Perintah (Larapak CLI)</h2>
-    <p>CLI <code>ngapakin</code> mendukung dua dialek perintah: <strong>Perintah Dialek Ngapak Asli</strong> untuk pengalaman pengembangan otentik khas Banyumasan, dan <strong>Perintah Standar (Laravel Artisan-Style)</strong> sebagai alias kompatibilitas.</p>
+    <h2>Referensi Perintah Baris Perintah (LarapakGo CLI)</h2>
+    <p>CLI <code>larapak</code> (didukung oleh biner multicall <code>ngapakin</code>) mendukung dua dialek perintah: <strong>Perintah Dialek Ngapak Asli</strong> untuk pengalaman pengembangan otentik khas Banyumasan, dan <strong>Perintah Standar (Laravel Artisan-Style)</strong> sebagai alias kompatibilitas.</p>
 
     <div class="callout">
-        <strong>Fleksibilitas Penuh:</strong> Anda bebas menggunakan perintah dialek Ngapak (contoh: <code>ngapakin gawe:pangatur</code>) atau perintah standar (contoh: <code>ngapakin make:controller</code>). Keduanya menghasilkan keluaran yang sama persis!
+        <strong>Fleksibilitas Penuh:</strong> Anda bebas menggunakan perintah dialek Ngapak (contoh: <code>larapak gawe:pangatur</code>) atau perintah standar (contoh: <code>larapak make:controller</code>). Keduanya menghasilkan keluaran yang sama persis!
     </div>
 
     <h2>1. Manajemen Proyek &amp; Server</h2>
@@ -27,23 +27,43 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>ngapakin anyar &lt;nama&gt;</code></td>
-                <td><code>ngapakin new &lt;nama&gt;</code></td>
-                <td>Membuat kerangka proyek MVC baru (dukung opsi <code>--bahasa=ngapak</code>).</td>
+                <td><code>larapak anyar &lt;nama&gt;</code></td>
+                <td><code>larapak new &lt;nama&gt;</code></td>
+                <td>Membuat kerangka proyek MVC baru (opsi: <code>--bahasa=ngapak|indonesia|english</code>).</td>
             </tr>
             <tr>
-                <td><code>ngapakin ladeni [port]</code></td>
-                <td><code>ngapakin serve [port]</code></td>
-                <td>Menjalankan server web development lokal (default port: 8000).</td>
+                <td><code>larapak ladeni [port]</code></td>
+                <td><code>larapak serve [port]</code></td>
+                <td>Menjalankan server web development lokal dengan auto hot-reload &amp; browser live-refresh otomatis (default: 8080).</td>
             </tr>
             <tr>
-                <td><code>ngapakin dalan:daptar</code></td>
-                <td><code>ngapakin route:list</code></td>
-                <td>Menampilkan daftar seluruh pemetaan rute HTTP dan middleware.</td>
+                <td><code>larapak dalan:daptar</code></td>
+                <td><code>larapak route:list</code></td>
+                <td>Menampilkan daftar seluruh pemetaan rute HTTP, handler, dan middleware.</td>
             </tr>
             <tr>
-                <td><code>ngapakin tulung</code></td>
-                <td><code>ngapakin --help</code></td>
+                <td><code>larapak dandan</code></td>
+                <td><code>larapak down</code></td>
+                <td>Mengaktifkan mode perawatan (opsi: <code>--secret=...</code>, <code>--pesan=...</code>, <code>--retry=...</code>). Mengembalikan HTTP 503.</td>
+            </tr>
+            <tr>
+                <td><code>larapak mari</code></td>
+                <td><code>larapak up</code></td>
+                <td>Menonaktifkan mode perawatan dan mengembalikan aplikasi ke status online.</td>
+            </tr>
+            <tr>
+                <td><code>larapak repl</code></td>
+                <td><code>larapak interaktif</code></td>
+                <td>Membuka terminal interaktif REPL mesin bahasa NgapakIn.</td>
+            </tr>
+            <tr>
+                <td><code>larapak mlakukna &lt;skrip.ngpk&gt;</code></td>
+                <td><code>larapak run &lt;file.ngpk&gt;</code></td>
+                <td>Mengeksekusi berkas skrip bahasa NgapakIn secara mandiri.</td>
+            </tr>
+            <tr>
+                <td><code>larapak tulung</code></td>
+                <td><code>larapak --help</code></td>
                 <td>Menampilkan daftar bantuan dan panduan perintah CLI.</td>
             </tr>
         </tbody>
@@ -60,33 +80,58 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>ngapakin gawe:pangatur &lt;Nama&gt;</code></td>
-                <td><code>ngapakin make:controller</code></td>
-                <td>Membuat controller baru di <code>jeroan/Pangatur/</code>.</td>
+                <td><code>larapak gawe:pangatur &lt;Nama&gt;</code></td>
+                <td><code>larapak make:controller</code></td>
+                <td>Membuat controller baru di <code>jeroan/Pangatur/</code> (atau <code>app/Controllers/</code>).</td>
             </tr>
             <tr>
-                <td><code>ngapakin gawe:wujud &lt;Nama&gt;</code></td>
-                <td><code>ngapakin make:model</code></td>
-                <td>Membuat model ORM baru di <code>jeroan/Wujud/</code>.</td>
+                <td><code>larapak gawe:wujud &lt;Nama&gt;</code></td>
+                <td><code>larapak make:model</code></td>
+                <td>Membuat model ORM baru di <code>jeroan/Wujud/</code> (atau <code>app/Models/</code>).</td>
             </tr>
             <tr>
-                <td><code>ngapakin gawe:migrasi &lt;nama&gt;</code></td>
-                <td><code>ngapakin make:migration</code></td>
-                <td>Membuat skema migrasi tabel baru di <code>lumbung/migrasi/</code>.</td>
+                <td><code>larapak gawe:sumber &lt;Nama&gt;</code></td>
+                <td><code>larapak make:resource</code></td>
+                <td>Scaffolding instan Model, Migrasi, CRUD Controller, dan Views lengkap.</td>
             </tr>
             <tr>
-                <td><code>ngapakin gawe:pencegat &lt;Nama&gt;</code></td>
-                <td><code>ngapakin make:middleware</code></td>
+                <td><code>larapak gawe:sumber-api &lt;Nama&gt;</code></td>
+                <td><code>larapak make:resource-api</code></td>
+                <td>Membuat JSON API Resource Transformer di <code>jeroan/Sumber/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>larapak gawe:pabrik &lt;Nama&gt;</code></td>
+                <td><code>larapak make:factory</code></td>
+                <td>Membuat model factory pembuat fake data di <code>lumbung/pabrik/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>larapak gawe:urip &lt;Nama&gt;</code></td>
+                <td><code>larapak make:live</code></td>
+                <td>Membuat komponen reaktif full-stack RikatLive (.ngpk dan .nview).</td>
+            </tr>
+            <tr>
+                <td><code>larapak gawe:otentikasi</code></td>
+                <td><code>larapak make:auth</code></td>
+                <td>Scaffolding lengkap modul Login, Register, Auth Middleware &amp; Views.</td>
+            </tr>
+            <tr>
+                <td><code>larapak gawe:migrasi &lt;nama&gt;</code></td>
+                <td><code>larapak make:migration</code></td>
+                <td>Membuat skema migrasi tabel baru di <code>lumbung/owahan/</code>.</td>
+            </tr>
+            <tr>
+                <td><code>larapak gawe:pencegat &lt;Nama&gt;</code></td>
+                <td><code>larapak make:middleware</code></td>
                 <td>Membuat filter middleware HTTP di <code>jeroan/Pencegat/</code>.</td>
             </tr>
             <tr>
-                <td><code>ngapakin gawe:gawean &lt;Nama&gt;</code></td>
-                <td><code>ngapakin make:job</code></td>
+                <td><code>larapak gawe:gawean &lt;Nama&gt;</code></td>
+                <td><code>larapak make:job</code></td>
                 <td>Membuat background queue job di <code>jeroan/Gawean/</code>.</td>
             </tr>
             <tr>
-                <td><code>ngapakin gawe:bibit &lt;Nama&gt;</code></td>
-                <td><code>ngapakin make:seeder</code></td>
+                <td><code>larapak gawe:bibit &lt;Nama&gt;</code></td>
+                <td><code>larapak make:seeder</code></td>
                 <td>Membuat database seeder data awal di <code>lumbung/bibit/</code>.</td>
             </tr>
         </tbody>
@@ -103,28 +148,28 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>ngapakin migrasi</code></td>
-                <td><code>ngapakin migrate</code></td>
+                <td><code>larapak migrasi</code></td>
+                <td><code>larapak migrate</code></td>
                 <td>Mengeksekusi seluruh migrasi database yang belum berjalan.</td>
             </tr>
             <tr>
-                <td><code>ngapakin migrasi:status</code></td>
-                <td><code>ngapakin migrate:status</code></td>
+                <td><code>larapak migrasi:status</code></td>
+                <td><code>larapak migrate:status</code></td>
                 <td>Melihat status tabel riwayat migrasi dan nomor batch.</td>
             </tr>
             <tr>
-                <td><code>ngapakin migrasi:anyar [--seed]</code></td>
-                <td><code>ngapakin migrate:fresh</code></td>
+                <td><code>larapak migrasi:anyar [--seed]</code></td>
+                <td><code>larapak migrate:fresh</code></td>
                 <td>Membersihkan seluruh tabel dan menjalankan kembali migrasi dari awal.</td>
             </tr>
             <tr>
-                <td><code>ngapakin mudhun</code></td>
-                <td><code>ngapakin rollback</code></td>
+                <td><code>larapak mudhun</code></td>
+                <td><code>larapak rollback</code></td>
                 <td>Membatalkan (rollback) batch migrasi database terakhir.</td>
             </tr>
             <tr>
-                <td><code>ngapakin bibiti</code></td>
-                <td><code>ngapakin db:seed</code></td>
+                <td><code>larapak bibiti</code></td>
+                <td><code>larapak db:seed</code></td>
                 <td>Menjalankan database seeder untuk mengisi data uji coba awal.</td>
             </tr>
         </tbody>
@@ -141,28 +186,28 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>ngapakin gawean:tandang</code></td>
-                <td><code>ngapakin queue:work</code></td>
+                <td><code>larapak gawean:tandang</code></td>
+                <td><code>larapak queue:work</code></td>
                 <td>Menjalankan worker pemrosesan background queue.</td>
             </tr>
             <tr>
-                <td><code>ngapakin resik:cache</code></td>
-                <td><code>ngapakin cache:clear</code></td>
+                <td><code>larapak resik:cache</code></td>
+                <td><code>larapak cache:clear</code></td>
                 <td>Membersihkan file dan memori cache internal aplikasi.</td>
             </tr>
             <tr>
-                <td><code>ngapakin rikat:rakit</code></td>
-                <td><code>ngapakin css:build</code></td>
+                <td><code>larapak rikat:rakit</code></td>
+                <td><code>larapak css:build</code></td>
                 <td>Kompilasi JIT file CSS utility ke <code>njobo/css/rikat.css</code>.</td>
             </tr>
             <tr>
-                <td><code>ngapakin rikat:pantau</code></td>
-                <td><code>ngapakin css:watch</code></td>
+                <td><code>larapak rikat:pantau</code></td>
+                <td><code>larapak css:watch</code></td>
                 <td>Watcher file template <code>.nview</code> dan kompilasi CSS otomatis.</td>
             </tr>
             <tr>
-                <td><code>ngapakin coba</code></td>
-                <td><code>ngapakin test</code></td>
+                <td><code>larapak coba</code></td>
+                <td><code>larapak test</code></td>
                 <td>Menjalankan seluruh unit test framework Larapak.</td>
             </tr>
         </tbody>

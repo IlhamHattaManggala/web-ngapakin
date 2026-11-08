@@ -1,4 +1,4 @@
-name: Deploy Web Ngapakin
+name: Deploy Web Ngapakin (LarapakGo)
 
 on:
   push:
@@ -20,5 +20,5 @@ jobs:
           script: |
             cd /opt/apps/web-ngapakin
             git pull origin main
-            docker compose pull app
+            docker compose build app
             docker compose up -d

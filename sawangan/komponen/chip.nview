@@ -19,18 +19,18 @@
         </div>
         <div class="component-canvas">
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                <l-chip label="Ngapakin V1.1"></l-chip>
-                <l-chip label="Python 3.10" icon="terminal"></l-chip>
+                <l-chip label="LarapakGo v1.0"></l-chip>
+                <l-chip label="Go 1.22+" icon="terminal"></l-chip>
                 <l-chip label="JIT Engine" icon="zap"></l-chip>
                 <l-chip label="Dialek Banyumasan" icon="message-square"></l-chip>
             </div>
         </div>
         <div class="component-code">
             <pre><code>&lt;!-- Chip Teks Dasar --&gt;
-&lt;l-chip label="Ngapakin V1.1"&gt;&lt;/l-chip&gt;
+&lt;l-chip label="LarapakGo v1.0"&gt;&lt;/l-chip&gt;
 
 &lt;!-- Chip Berikon --&gt;
-&lt;l-chip label="Python 3.10" icon="terminal"&gt;&lt;/l-chip&gt;
+&lt;l-chip label="Go 1.22+" icon="terminal"&gt;&lt;/l-chip&gt;
 &lt;l-chip label="JIT Engine" icon="zap"&gt;&lt;/l-chip&gt;</code></pre>
         </div>
     </div>

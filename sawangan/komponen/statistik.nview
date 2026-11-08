@@ -19,14 +19,14 @@
     <div class="component-canvas component-canvas-stacked">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; width: 100%;">
     <l-stat label="Permintaan Masuk" value="854,210" trend="&uarr; 24.5%" severity="success" desc="+14.2k sejak minggu lalu"></l-stat>
-    <l-stat label="Durasi Respon" value="8.4 ms" trend="Cepat" severity="info" desc="Rata-rata latensi WSGI"></l-stat>
+    <l-stat label="Durasi Respon" value="0.8 ms" trend="Cepat" severity="info" desc="Rata-rata latensi Native Go"></l-stat>
     <l-stat label="Uptime Server" value="99.98%" trend="Stabil" severity="success" desc="Tanpa crash selama 30 hari"></l-stat>
 </div>
     </div>
     <pre class="component-code-block"><code>&lt;!-- Dashboard KPI Cards Deklaratif --&gt;
 &lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;
     &lt;l-stat label="Permintaan Masuk" value="854,210" trend="↑ 24.5%" severity="success" desc="+14.2k sejak minggu lalu"&gt;&lt;/l-stat&gt;
-    &lt;l-stat label="Durasi Respon" value="8.4 ms" trend="Cepat" severity="info" desc="Rata-rata latensi WSGI"&gt;&lt;/l-stat&gt;
+    &lt;l-stat label="Durasi Respon" value="0.8 ms" trend="Cepat" severity="info" desc="Rata-rata latensi Native Go"&gt;&lt;/l-stat&gt;
     &lt;l-stat label="Uptime Server" value="99.98%" trend="Stabil" severity="success" desc="Tanpa crash 30 hari"&gt;&lt;/l-stat&gt;
 &lt;/div&gt;</code></pre>
 </div>

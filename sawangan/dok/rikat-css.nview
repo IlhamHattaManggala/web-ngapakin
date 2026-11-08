@@ -16,15 +16,15 @@
     <p>Engine Rikat CSS memindai seluruh file template <code>sawangan/**/*.nview</code> dan mengekstrak kelas-kelas yang Anda gunakan ke dalam bundle CSS bersih di <code>njobo/css/rikat.css</code>:</p>
 
     <pre><code># Kompilasi CSS satu kali untuk produksi (Dialek Ngapak)
-ngapakin rikat:rakit
-# Atau alias standar: ngapakin css:build
+larapak rikat:rakit
+# Atau alias standar: larapak css:build
 
 # Mode watcher otomatis saat Anda mengedit file template
-ngapakin rikat:pantau
-# Atau alias standar: ngapakin css:watch</code></pre>
+larapak rikat:pantau
+# Atau alias standar: larapak css:watch</code></pre>
 
     <div class="callout">
-        <strong>Peningkatan Resolusi Jalur di v1.1.0:</strong> Perintah kompilasi CSS secara cerdas membaca dialek bahasa proyek yang aktif: otomatis membaca template di <code>sawangan/</code> dan menghasilkan berkas di <code>njobo/css/rikat.css</code> pada dialek Ngapak, atau <code>resources/views/</code> dan <code>public/css/rikat.css</code> pada dialek standar.
+        <strong>Peningkatan Resolusi Jalur di LarapakGo:</strong> Perintah kompilasi CSS terintegrasi langsung dalam binary Go. Engine memindai template di <code>sawangan/</code> dan menghasilkan berkas di <code>njobo/css/rikat.css</code> pada dialek Ngapak (atau <code>resources/views/</code> dan <code>public/css/rikat.css</code> pada dialek standar) tanpa Node.js maupun PostCSS.
     </div>
 
     <h2>Dukungan Utilitas Lengkap</h2>
