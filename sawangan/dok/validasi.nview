@@ -1,0 +1,146 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Mesin Validasi Formulir Deklaratif</h2>
+    <p>LarapakGo menyertakan mesin validasi formulir terintegrasi yang ditulis murni dalam Go Standard Library. Anda dapat memvalidasi data request HTTP secara deklaratif di controller sebelum memproses logika bisnis atau menyimpannya ke database.</p>
+
+    <h2>1. Melakukan Validasi di Controller</h2>
+    <p>Gunakan method <code>req.validasi()</code> untuk memeriksa aturan masukan pengguna:</p>
+
+    <pre><code># jeroan/Pangatur/DaftarController.ngpk
+
+gawe simpan(req, res)
+    # Deklarasi aturan validasi
+    aturan = [
+        "nama": "required|min:3|max:50",
+        "email": "required|email",
+        "umur": "required|numeric|min:18",
+        "sandi": "required|min:8|confirmed"
+    ]
+    
+    v = req.validasi(aturan)
+    
+    # Periksa apakah ada aturan yang gagal
+    nek v.fails() ya
+        # Kembalikan ke halaman sebelumnya beserta input lama dan pesan galat
+        balekna res.karo_input().karo_kliru(v.errors()).balek()
+    rampung
+
+    # Jika validasi lolos, lanjutkan penyimpanan
+    db.tabel("pengguna").lebokna([
+        "nama": req.input("nama"),
+        "email": req.input("email"),
+        "sandi": sandi.gawe(req.input("sandi"))
+    ])
+
+    balekna res.redirect("/masuk")
+rampung</code></pre>
+
+    <h2>2. Daftar Aturan Validasi Lengkap</h2>
+    <p>Berikut adalah aturan validasi standar yang didukung oleh LarapakGo:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Aturan</th>
+                <th>Sintaksis</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>required</code></td>
+                <td><code>required</code></td>
+                <td>Wajib diisi; tidak boleh kosong atau hanya berisi spasi.</td>
+            </tr>
+            <tr>
+                <td><code>email</code></td>
+                <td><code>email</code></td>
+                <td>Format alamat email valid (memiliki username dan domain sah).</td>
+            </tr>
+            <tr>
+                <td><code>numeric</code></td>
+                <td><code>numeric</code></td>
+                <td>Hanya boleh berisi karakter angka (bilangan bulat maupun desimal).</td>
+            </tr>
+            <tr>
+                <td><code>alpha</code></td>
+                <td><code>alpha</code></td>
+                <td>Hanya boleh berisi karakter huruf abjad (a-z, A-Z).</td>
+            </tr>
+            <tr>
+                <td><code>min</code></td>
+                <td><code>min:N</code></td>
+                <td>Panjang teks minimal N karakter, atau nilai angka minimal N.</td>
+            </tr>
+            <tr>
+                <td><code>max</code></td>
+                <td><code>max:N</code></td>
+                <td>Panjang teks maksimal N karakter, atau nilai angka maksimal N.</td>
+            </tr>
+            <tr>
+                <td><code>in</code></td>
+                <td><code>in:a,b,c</code></td>
+                <td>Nilai masukan harus merupakan salah satu dari pilihan yang diberikan.</td>
+            </tr>
+            <tr>
+                <td><code>confirmed</code></td>
+                <td><code>confirmed</code></td>
+                <td>Nilai field harus identik dengan field pasangannya <code>{field}_confirmation</code>.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Menampilkan Pesan Galat di View (<code>@error</code>)</h2>
+    <p>Di dalam file template Sawangan (<code>.nview</code>), gunakan direktif <code>@error("nama_field")</code> untuk merender pesan kesalahan validasi secara otomatis:</p>
+
+    <pre><code>&lt;!-- sawangan/daftar.nview --&gt;
+&lt;form action="/daftar" method="POST"&gt;
+    &#64;csrf
+
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;Nama Lengkap:&lt;/label&gt;
+        &lt;input type="text" name="nama" value="&#123;&#123; lawas('nama') &#125;&#125;"&gt;
+        
+        &#64;error("nama")
+            &lt;span class="text-danger"&gt;&#123;&#123; pesan &#125;&#125;&lt;/span&gt;
+        &#64;rampung
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;Alamat Email:&lt;/label&gt;
+        &lt;input type="email" name="email" value="&#123;&#123; lawas('email') &#125;&#125;"&gt;
+        
+        &#64;error("email")
+            &lt;span class="text-danger"&gt;&#123;&#123; pesan &#125;&#125;&lt;/span&gt;
+        &#64;rampung
+    &lt;/div&gt;
+
+    &lt;button type="submit"&gt;Daftar Akun&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+    <h2>4. Mempertahankan Nilai Input Sebelumnya (<code>lawas</code> / <code>old</code>)</h2>
+    <p>Ketika formulir gagal divalidasi, pengguna tidak perlu mengetik ulang seluruh isian. LarapakGo menyimpan nilai input sebelumnya di sesi kilat sementara dan menyediakannya melalui helper <code>lawas('field')</code> atau <code>old('field')</code>:</p>
+
+    <pre><code>&lt;!-- Nilai input lama akan otomatis terisi kembali --&gt;
+&lt;input type="text" name="judul" value="&#123;&#123; lawas('judul') &#125;&#125;"&gt;</code></pre>
+
+    <div class="callout">
+        <strong>Penyaringan Otomatis (Safe Filtering):</strong> Field bertipe rahasia seperti <code>sandi</code>, <code>password</code>, dan <code>pin</code> secara otomatis dikecualikan dari helper <code>lawas()</code> demi alasan keamanan.
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/controller" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Controller &amp; Request</span></a>
+        <a href="/dok/middleware" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Middleware &amp; CSRF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

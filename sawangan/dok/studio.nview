@@ -1,0 +1,62 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Route Studio, Database Inspector &amp; SQL Profiler</h2>
+    <p>LarapakGo menghadirkan lingkungan pengembang modern terintegrasi (DX - Developer Experience) kelas dunia. Tanpa memasang alat pihak ketiga seperti Postman, pgAdmin, atau DBeaver, Anda mendapatkan dashboard visual lengkap yang tertanam langsung di dalam binary Go.</p>
+
+    <h2>1. Mengakses Route &amp; API Studio (<code>/_studio</code>)</h2>
+    <p>Saat server pengembangan dijalankan via <code>larapak ladeni</code> atau <code>larapak serve</code>, antarmuka studio otomatis aktif dan dapat dibuka langsung di peramban:</p>
+
+    <pre><code>http://localhost:8000/_studio
+# Atau alias: http://localhost:8000/api-studio</code></pre>
+
+    <p>Fitur utama Route &amp; API Studio:</p>
+    <ul>
+        <li><strong>Daftar Rute Lengkap</strong>: Seluruh endpoint HTTP, metode (GET, POST, PUT, DELETE), parameter URL dinamis, aksi controller, dan middleware yang aktif disajikan dalam tabel interaktif yang dapat dicari dan difilter.</li>
+        <li><strong>Simulasi Request HTTP Langsung</strong>: Uji endpoint Anda secara langsung dari antarmuka web, kirimkan parameter body JSON/Form, custom HTTP headers, dan lihat status response, durasi latensi, serta payload yang dikembalikan.</li>
+        <li><strong>Ekspor Spesifikasi OpenAPI 3.0.3</strong>: Unduh atau tautkan spesifikasi standar OpenAPI / Swagger JSON secara otomatis melalui endpoint <code>/_studio/openapi.json</code>.</li>
+    </ul>
+
+    <h2>2. Visual Database Inspector</h2>
+    <p>Tab <strong>Database</strong> di Route Studio memungkinkan pengembang menjelajahi struktur data internal aplikasi tanpa membuka terminal command line database:</p>
+    <ul>
+        <li>Daftar seluruh tabel dalam database aktif (SQLite, MySQL, Postgres, atau SQL Server).</li>
+        <li>Inspeksi struktur skema: tipe data kolom, status nullability, default value, dan primary key.</li>
+        <li>Tampilan isi baris data (data rows) dengan paginasi dan filter pencarian cepat.</li>
+    </ul>
+
+    <h2>3. Real-Time SQL Profiler &amp; Query Logger</h2>
+    <p>Tab <strong>Query Logger &amp; Profiler</strong> merekam setiap kueri SQL yang dieksekusi oleh query builder ORM saat aplikasi merespons request:</p>
+    <ul>
+        <li><strong>Waktu Eksekusi Milidetik</strong>: Menghitung secara presisi durasi waktu eksekusi setiap perintah SQL di tingkat database engine.</li>
+        <li><strong>Deteksi Slow Query Otomatis</strong>: Memberikan penanda visual terhadap kueri yang lambat (penanda peringatan untuk query &gt; 10ms, dan penanda bahaya untuk query &gt; 50ms) untuk memudahkan optimasi indexing.</li>
+        <li><strong>Inspeksi Parameter Bindings</strong>: Melihat nilai variabel yang di-bind ke dalam query SQL untuk mencegah SQL injection.</li>
+        <li><strong>Pembersihan Log Kueri</strong>: Tombol sekali klik untuk mereset log riwayat kueri atau melalui API REST <code>/_studio/api/queries</code>.</li>
+    </ul>
+
+    <h2>4. Auto Hot-Reload &amp; Browser Live-Refresh (SSE)</h2>
+    <p>LarapakGo menyertakan sistem auto hot-reload bawaan yang aktif secara default pada <code>larapak serve</code> atau <code>larapak ladeni</code>:</p>
+    <ul>
+        <li><strong>Hot-Reload In-Memory (&lt; 10 ms)</strong>: Saat berkas <code>.ngpk</code>, <code>.nview</code>, atau <code>.env</code> diubah dan disimpan, engine me-reload router dan template dalam memori tanpa memutus port socket TCP.</li>
+        <li><strong>Browser Refresh Otomatis</strong>: Dilengkapi koneksi Server-Sent Events (SSE) bawaan di mode pengembangan; halaman peramban web akan otomatis merefresh dirinya sendiri begitu kode disimpan tanpa Anda perlu menekan tombol F5!</li>
+    </ul>
+
+    <div class="callout">
+        <strong>Keamanan di Mode Produksi:</strong> Route Studio dan Profiler SQL secara otomatis dinonaktifkan ketika lingkungan disetel ke <code>APP_ENV=production</code> demi menjaga kerahasiaan data server.
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/rikat-ui" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Rikat UI Reaktif</span></a>
+        <a href="/dok/docker" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Deployment &amp; Docker</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

@@ -68,6 +68,22 @@ GET      | /dok/{slug}                    | HomeController@bab             | Non
 POST     | /api/produk                    | ProdukController@simpan        | csrf                
 GET      | /api-studio                    | StudioController@index         | None</code></pre>
 
+    <h2>Pengelompokan Rute (Route Grouping)</h2>
+    <p>Kelola kumpulan rute dengan prefix URL atau middleware bersama menggunakan <code>rute.grup()</code>:</p>
+
+    <pre><code># Mengelompokkan rute panel admin
+rute.grup("/admin", gawe()
+    rute.get("/dasbor", "AdminController@dasbor")
+    rute.get("/pengguna", "AdminController@pengguna")
+    rute.get("/setelan", "AdminController@setelan")
+rampung)</code></pre>
+
+    <h2>Pembatasan Laju Akses (Route Rate Limiting)</h2>
+    <p>Cegah serangan brute-force atau bot spam pada rute sensitif dengan metode <code>.wates(maksimal, detik)</code> atau <code>.throttle()</code>:</p>
+
+    <pre><code># Batasi maksimal 5 percobaan setiap 60 detik (mengembalikan HTTP 429 jika melebihi)
+rute.post("/masuk", "AuthController@login").wates(5, 60)</code></pre>
+
     <h2>Response Caching Terintegrasi</h2>
     <p>LarapakGo menyertakan middleware cache in-memory bawaan untuk mempercepat respons rute publik atau API secara drastis tanpa panggilan database berulang:</p>
     <pre><code># Cache respons rute selama 60 detik (Dialek Ngapak)
@@ -77,7 +93,7 @@ rute.get("/api/kurs", "KursController@index").simpen(60)
 rute.get("/api/kurs", "KursController@index").cache(60)</code></pre>
 
     <div class="callout">
-        <strong>Eksplorasi Rute Interaktif (Route &amp; API Studio):</strong> LarapakGo menyertakan UI Studio bawaan. Akses <a href="/_studio">Route Studio (<code>/_studio</code>)</a> atau <a href="/api-studio">API Studio (<code>/api-studio</code>)</a> untuk menguji rute, memvalidasi parameter, dan melakukan simulasi request HTTP langsung di peramban tanpa Postman!
+        <strong>Eksplorasi Rute Interaktif (Route &amp; API Studio):</strong> LarapakGo menyertakan UI Studio bawaan. Akses <a href="/_studio">Route Studio (<code>/_studio</code>)</a> atau <a href="/api-studio">API Studio (<code>/api-studio</code>)</a> untuk menguji rute, memvalidasi parameter, dan melakukan simulasi request HTTP langsung di peramban tanpa Postman! Dokumentasi rute juga otomatis diekspor ke format OpenAPI 3.0.3 di <code>/_studio/openapi.json</code>.
     </div>
 
     <div class="bottom-nav">

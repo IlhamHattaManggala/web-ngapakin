@@ -80,7 +80,7 @@ docker compose exec web larapak dalan:daptar
     </div>
 
     <div class="bottom-nav">
-        <a href="/dok/rikat-ui" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Rikat UI Reaktif</span></a>
+        <a href="/dok/studio" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Route Studio &amp; SQL Profiler</span></a>
         <a href="/dok/cli" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Referensi Larapak CLI</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
 </div>

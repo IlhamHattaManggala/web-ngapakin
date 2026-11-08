@@ -53,6 +53,16 @@ gawe baca_bab(slug, res)
         subjudul = "Pewarisan layout, section, direktif lokalisasi multi-bahasa, dan komponen RikatLive."
     rampung
 
+    nek slug == "validasi" ya
+        judule = "Validasi Formulir & Pesan Galat"
+        subjudul = "Mesin validasi deklaratif di controller, aturan standar, direktif @error, dan flashing old input."
+    rampung
+
+    nek slug == "otentikasi" ya
+        judule = "Otentikasi, Sandi PBKDF2 & Sesi"
+        subjudul = "Scaffolding larapak gawe:auth, password hasher RFC 2898, cookie sesi HMAC-SHA256, dan pesan kilat."
+    rampung
+
     nek slug == "migrasi" ya
         judule = "Migrasi Skema Database"
         subjudul = "Manajemen versi skema database, rollback, status migrasi, dan multi-database driver."
@@ -63,6 +73,16 @@ gawe baca_bab(slug, res)
         subjudul = "Fluent Query Builder, Soft Deletes, model relasi, model factory, dan SQL Profiler."
     rampung
 
+    nek slug == "antrian" ya
+        judule = "Antrian Latar Belakang, Redis & Event"
+        subjudul = "Queue workers non-blocking, klien Redis murni Go (RESP), dan sistem event listener kedadeyan."
+    rampung
+
+    nek slug == "storage" ya
+        judule = "Penyimpanan Berkas, Upload & Mailer"
+        subjudul = "Penanganan multipart upload berkas, disk storage, helper asset, dan pengiriman email SMTP."
+    rampung
+
     nek slug == "rikat-css" ya
         judule = "Frontend Rikat CSS Engine"
         subjudul = "Framework CSS utility-first JIT berkinerja tinggi tanpa ketergantungan Node.js/npm."
@@ -71,6 +91,11 @@ gawe baca_bab(slug, res)
     nek slug == "rikat-ui" ya
         judule = "Frontend Rikat UI Komponen"
         subjudul = "Mesin web components reaktif dengan two-way data binding dan komponen enterprise."
+    rampung
+
+    nek slug == "studio" ya
+        judule = "Route Studio, DB Inspector & Profiler"
+        subjudul = "Lingkungan pengembang visual terintegrasi: inspektur database, penanda slow query, dan OpenAPI export."
     rampung
 
     nek slug == "docker" ya

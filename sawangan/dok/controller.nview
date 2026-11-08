@@ -52,23 +52,37 @@ rampung</code></pre>
     <h2>Objek Request (<code>req</code>)</h2>
     <p>Setiap aksi controller menerima parameter <code>req</code> yang menyediakan akses ke seluruh data permintaan:</p>
     <ul>
+        <li><code>req.input("nama")</code> / <code>req.isi("nama")</code>: Mengambil nilai masukan dari formulir POST atau query URL.</li>
+        <li><code>req.all()</code> / <code>req.kabeh()</code>: Mengambil seluruh payload data request dalam format kamus/map.</li>
         <li><code>req.params</code>: Dictionary parameter URL dinamis (contoh: <code>req.params["slug"]</code>).</li>
-        <li><code>req.query</code>: Parameter query string (contoh: <code>req.query["cari"]</code> pada <code>/produk?cari=kaos</code>).</li>
-        <li><code>req.body</code>: Data payload formulir (POST/PUT) atau parsed JSON body.</li>
-        <li><code>req.headers</code>: Header HTTP dari klien (contoh: <code>req.headers["authorization"]</code>).</li>
+        <li><code>req.query("cari")</code>: Parameter query string (contoh: <code>/produk?cari=kaos</code>).</li>
+        <li><code>req.berkas("foto")</code>: Membaca berkas unggahan pengguna.</li>
+        <li><code>req.headers["authorization"]</code>: Header HTTP dari klien.</li>
     </ul>
 
     <h2>Objek Response (<code>res</code>)</h2>
     <ul>
         <li><code>res.view(view_name, context)</code>: Merender template tampilan di <code>sawangan/</code>.</li>
         <li><code>res.json(data, status=200)</code>: Mengirim data terformat JSON.</li>
+        <li><code>res.resource(data, "ResourceNama", meta)</code>: Mentransformasi output JSON API berstandar OpenAPI.</li>
         <li><code>res.redirect(url, status=302)</code>: Mengalihkan pengguna ke URL lain.</li>
+        <li><code>res.karo_input().karo_kliru(galat).balek()</code>: Redirect balik dengan flashing form input dan error validasi.</li>
         <li><code>res.cookie(nama, nilai)</code>: Mengatur HTTP cookie klien.</li>
     </ul>
 
+    <h2>Klien HTTP Standar Bawaan (<code>http.get</code> &amp; <code>http.post</code>)</h2>
+    <p>LarapakGo menyertakan klien HTTP native murni Go untuk mengonsumsi API pihak ketiga secara langsung tanpa pustaka tambahan:</p>
+
+    <pre><code># Mengambil data dari REST API publik
+respon = http.get("https://api.github.com/zen")
+
+nek respon.ok ya
+    tulis("Kutipan Zen: " + respon.body)
+rampung</code></pre>
+
     <div class="bottom-nav">
         <a href="/dok/routing" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Routing &amp; Penanganan URL</span></a>
-        <a href="/dok/middleware" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Middleware &amp; CSRF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="/dok/validasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Validasi Formulir Deklaratif</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
 </div>
 

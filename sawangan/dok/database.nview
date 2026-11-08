@@ -110,7 +110,7 @@ rampung)</code></pre>
 
     <div class="bottom-nav">
         <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Migrasi Skema Database</span></a>
-        <a href="/dok/rikat-css" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Rikat CSS Engine (JIT)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="/dok/antrian" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Antrian, Redis &amp; Event</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
 </div>
 

@@ -27,8 +27,22 @@ DB_PORT=3306
 DB_USER=root
 DB_PASS=
 
-CACHE_DRIVER=file
-QUEUE_DRIVER=sync</code></pre>
+CACHE_DRIVER=memory
+QUEUE_DRIVER=sync
+
+# Pengaturan Redis Standar (Opsional)
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=
+REDIS_DB=0
+
+# Pengaturan Surat Elektronik (SMTP)
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM_ADDRESS=halo@larapak.my.id
+MAIL_FROM_NAME="Larapak Framework"</code></pre>
 
     <h2>Daftar Variabel Kunci</h2>
     

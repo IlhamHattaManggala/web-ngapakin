@@ -1,0 +1,96 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Sistem Otentikasi &amp; Sandi Kriptografis</h2>
+    <p>LarapakGo menyediakan fondasi keamanan dan otentikasi lengkap yang dibangun murni menggunakan pustaka kriptografi Go Standard Library (<code>crypto/sha256</code>, <code>crypto/subtle</code>, <code>crypto/hmac</code>). Tanpa membutuhkan CGo atau dependensi eksternal, Anda mendapatkan perlindungan level perbankan secara instan.</p>
+
+    <h2>1. Scaffolding Otentikasi Otomatis</h2>
+    <p>LarapakGo dapat membuatkan seluruh alur otentikasi (registrasi akun, login, logout, dashboard terproteksi, model pengguna, dan migrasi tabel) hanya dengan satu perintah CLI:</p>
+
+    <pre><code># Dialek Ngapak Asli
+larapak gawe:auth
+
+# Atau menggunakan alias standar
+larapak make:auth</code></pre>
+
+    <p>Perintah ini secara otomatis menghasilkan:</p>
+    <ul>
+        <li><code>lumbung/migrasi/..._gawe_tabel_pengguna.ngpk</code>: Skema tabel pengguna dengan kolom <code>email</code> unik dan <code>sandi</code> terenkripsi.</li>
+        <li><code>jeroan/Wujud/Pengguna.ngpk</code>: Model ORM pengguna.</li>
+        <li><code>jeroan/Pangatur/AuthController.ngpk</code>: Controller penanganan formulir login, daftar, dan sesi.</li>
+        <li><code>jeroan/Pencegat/AuthMiddleware.ngpk</code>: Filter pencegat akses rute terproteksi.</li>
+        <li><code>sawangan/auth/masuk.nview</code> &amp; <code>daftar.nview</code>: Template antarmuka formulir otentikasi.</li>
+    </ul>
+
+    <h2>2. Password Hasher PBKDF2-SHA256 (RFC 2898)</h2>
+    <p>LarapakGo menggunakan algoritma hashing standar industri <strong>PBKDF2-SHA256</strong> dengan salt acak 16-byte kriptografis dan 100.000 iterasi putaran:</p>
+
+    <pre><code># Membuat hash sandi baru saat registrasi
+hash_sandi = sandi.gawe("kata_sandi_rahasia")
+
+# Memverifikasi kecocokan sandi saat login
+nek sandi.cocok("kata_sandi_rahasia", hash_sandi) ya
+    tulis "Sandi cocok! Akses diberikan."
+liyane
+    tulis "Sandi salah! Akses ditolak."
+rampung</code></pre>
+
+    <div class="callout">
+        <strong>Perlindungan Timing Attack:</strong> Fungsi verifikasi sandi dan token CSRF di LarapakGo menggunakan perbandingan waktu-konstan (<em>constant-time comparison</em>) melalui <code>subtle.ConstantTimeCompare</code> untuk mencegah eksploitasi analisis waktu respon jaringan.
+    </div>
+
+    <h2>3. Manajemen Sesi Terenkripsi (HMAC-SHA256)</h2>
+    <p>Data sesi pengguna disimpan di dalam HTTP cookie aman yang ditandatangani secara digital dengan kunci <code>APP_KEY</code> untuk mencegah manipulasi cookie di sisi peramban (*cookie tampering*):</p>
+
+    <pre><code># Menyimpan data ke dalam sesi
+sesi.simpen("user_id", pengguna.id)
+sesi.simpen("peran", "admin")
+
+# Membaca data dari sesi
+user_id = sesi.jupuk("user_id")
+
+# Menghapus data sesi (misal saat logout)
+sesi.busak("user_id")
+sesi.resik()  # Mengosongkan seluruh sesi</code></pre>
+
+    <h2>4. Pesan Kilat (Flash Messages)</h2>
+    <p>Pesan kilat adalah notifikasi yang hanya bertahan untuk satu siklus request berikutnya (misal menampilkan pesan "Data berhasil disimpan" setelah redirect):</p>
+
+    <pre><code># Di Controller:
+sesi.kilat("pesan", "Data profil panjenengan kasil dianyari!")
+balekna res.redirect("/profil")</code></pre>
+
+    <p>Di file template Sawangan (<code>.nview</code>), render pesan kilat dengan direktif <code>@flash</code>:</p>
+
+    <pre><code>&lt;!-- sawangan/profil.nview --&gt;
+&#64;flash("pesan")
+    &lt;div class="alert alert-success"&gt;
+        &#123;&#123; pesan &#125;&#125;
+    &lt;/div&gt;
+&#64;rampung</code></pre>
+
+    <h2>5. Direktif Pengecekan Sesi di View (<code>@session</code>)</h2>
+    <p>Anda dapat memeriksa keberadaan variabel sesi pengguna langsung di template:</p>
+
+    <pre><code>&#64;session("user_id")
+    &lt;p&gt;Sugeng rawuh kembali! ID Akun: &#123;&#123; nilai &#125;&#125;&lt;/p&gt;
+    &lt;a href="/logout"&gt;Metu (Keluar)&lt;/a&gt;
+&#64;liyane
+    &lt;a href="/masuk"&gt;Mlebu (Masuk)&lt;/a&gt;
+&#64;rampung</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/template" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Sistem Template Sawangan</span></a>
+        <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Migrasi Skema Database</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

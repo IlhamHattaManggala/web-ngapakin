@@ -162,14 +162,22 @@
                     <l-tree-node label="Sintaksis NgapakIn" icon="code" href="/dok/sintaksis"></l-tree-node>
                     <l-tree-node label="Routing & Penanganan URL" icon="share-2" href="/dok/routing"></l-tree-node>
                     <l-tree-node label="Controller & Request" icon="server" href="/dok/controller"></l-tree-node>
+                    <l-tree-node label="Validasi Formulir" icon="check-square" href="/dok/validasi"></l-tree-node>
                     <l-tree-node label="Middleware & CSRF" icon="shield" href="/dok/middleware"></l-tree-node>
                     <l-tree-node label="Sistem Template Sawangan" icon="layout" href="/dok/template"></l-tree-node>
+                    <l-tree-node label="Otentikasi & Sandi" icon="lock" href="/dok/otentikasi"></l-tree-node>
                 </l-tree-node>
 
                 <!-- 4. Database & Model -->
                 <l-tree-node label="Database & Model" icon="database" expanded>
                     <l-tree-node label="Migrasi Skema Database" icon="refresh-cw" href="/dok/migrasi"></l-tree-node>
                     <l-tree-node label="Database & Model ORM" icon="database" href="/dok/database"></l-tree-node>
+                </l-tree-node>
+
+                <!-- 5. Layanan & Antrian -->
+                <l-tree-node label="Layanan & Arsitektur" icon="cpu" expanded>
+                    <l-tree-node label="Antrian, Redis & Event" icon="repeat" href="/dok/antrian"></l-tree-node>
+                    <l-tree-node label="Penyimpanan & Mailer" icon="inbox" href="/dok/storage"></l-tree-node>
                 </l-tree-node>
 
                 <!-- 5. Frontend Rikat -->
@@ -234,9 +242,9 @@
                 </l-tree-node>
 
                 <!-- 6. Deployment & Alat -->
-                <l-tree-node label="Deployment & Alat" icon="terminal">
+                <l-tree-node label="Deployment & Alat" icon="terminal" expanded>
                     <l-tree-node label="Deployment & Docker" icon="server" href="/dok/docker"></l-tree-node>
-                    <l-tree-node label="Route & API Studio" icon="zap" href="/_studio"></l-tree-node>
+                    <l-tree-node label="Route Studio & Profiler" icon="activity" href="/dok/studio"></l-tree-node>
                     <l-tree-node label="Referensi Larapak CLI" icon="terminal" href="/dok/cli"></l-tree-node>
                 </l-tree-node>
             </l-tree>

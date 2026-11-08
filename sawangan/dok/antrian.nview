@@ -1,0 +1,93 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Antrian Latar Belakang, Redis &amp; Sistem Event</h2>
+    <p>Operasi intensif yang memakan waktu lama (seperti pengiriman email massal, pemrosesan video, atau sinkronisasi API pihak ketiga) sebaiknya didelegasikan ke antrian latar belakang agar pengguna tidak mengalami kelambatan saat menelusuri aplikasi.</p>
+
+    <p>LarapakGo menyertakan subsistem antrian terdistribusi, klien protokol Redis murni Go (tanpa library pihak ketiga di <code>go.mod</code>), serta dispatcher event sinkron maupun asinkron.</p>
+
+    <h2>1. Membuat Job Antrian Baru</h2>
+    <p>Gunakan generator CLI untuk membuat kelas tugas latar belakang baru di folder <code>jeroan/Gawean/</code>:</p>
+
+    <pre><code># Dialek Ngapak Asli
+larapak gawe:gawean KirimEmailPesanan
+
+# Atau menggunakan alias standar
+larapak make:job KirimEmailPesanan</code></pre>
+
+    <p>Struktur berkas job (<code>jeroan/Gawean/KirimEmailPesanan.ngpk</code>):</p>
+    <pre><code># jeroan/Gawean/KirimEmailPesanan.ngpk
+
+gawe tangani(payload)
+    # Logika eksekusi latar belakang
+    email.kirim([
+        "marang": payload["email"],
+        "subyek": "Konfirmasi Pesanan #" + payload["id_pesanan"],
+        "sawangan": "emails/pesanan",
+        "data": payload
+    ])
+rampung</code></pre>
+
+    <h2>2. Memasukkan Tugas ke Antrian (Dispatching)</h2>
+    <p>Dari dalam controller atau modul mana pun, dorong tugas ke antrian:</p>
+
+    <pre><code># Memasukkan tugas ke antrian default
+antrian.kirim("KirimEmailPesanan", [
+    "id_pesanan": "ORD-9982",
+    "email": "pelanggan@example.com",
+    "total": 150000
+])</code></pre>
+
+    <h2>3. Menjalankan Queue Worker</h2>
+    <p>Jalankan proses pekerja (worker) untuk memproses tugas-tugas yang masuk secara non-blocking:</p>
+
+    <pre><code># Dialek Ngapak Asli
+larapak gawean:tandang
+
+# Atau alias standar
+larapak queue:work</code></pre>
+
+    <h2>4. Native Redis Client (100% Go Standard Library)</h2>
+    <p>LarapakGo menyertakan implementasi penuh protokol <strong>RESP (REdis Serialization Protocol)</strong> murni berbasis socket jaringan standar Go (<code>net.Dial</code>) dengan connection pool otomatis (<code>sync.Pool</code>).</p>
+
+    <pre><code># Konfigurasi di .env untuk performa enterprise:
+QUEUE_DRIVER=redis
+CACHE_DRIVER=redis
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=
+REDIS_DB=0</code></pre>
+
+    <p>Ketika <code>QUEUE_DRIVER=redis</code> diaktifkan, antrian dieksekusi dengan metode <code>BRPOP</code> hemat CPU yang ideal untuk arsitektur multi-server atau multi-container.</p>
+
+    <h2>5. Sistem Event &amp; Listener (<code>kedadeyan</code>)</h2>
+    <p>Sistem event memungkinkan komponen aplikasi saling berkomunikasi secara terisolasi tanpa kopling erat (<em>loose coupling</em>):</p>
+
+    <h3>Mendaftarkan Listener:</h3>
+    <pre><code># Mendaftarkan penangan event di awal aplikasi
+kedadeyan.rungokna("pesanan.digawe", gawe(ev, payload)
+    tulis("Notifikasi: Pesanan baru masuk dari " + payload["nama"])
+rampung)</code></pre>
+
+    <h3>Memicu Event (Dispatch):</h3>
+    <pre><code># 1. Pengiriman Sinkron (dieksekusi langsung di thread saat itu juga)
+kedadeyan.kirim("pesanan.digawe", ["id": "ORD-1", "nama": "Slamet"])
+
+# 2. Pengiriman Asinkron (dieksekusi di background Goroutine tanpa menahan response HTTP)
+kedadeyan.kirim_async("pesanan.digawe", ["id": "ORD-1", "nama": "Slamet"])</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/database" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Database &amp; Model ORM</span></a>
+        <a href="/dok/storage" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Storage &amp; Mailer SMTP</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung

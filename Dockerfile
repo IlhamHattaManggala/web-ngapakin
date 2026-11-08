@@ -29,3 +29,4 @@ ENV APP_ENV=production \
     DB_DATABASE=database.sqlite
 
 CMD ["larapak", "serve", "8000"]
+

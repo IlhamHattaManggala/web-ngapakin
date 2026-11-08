@@ -102,13 +102,30 @@
 &#64;rikatlive "PenghitungKlik"
 &lt;!-- Atau alias: &#64;live "PenghitungKlik" --&gt;</code></pre>
 
+    <h2>9. Notifikasi Kilat &amp; Status Sesi (<code>&#64;flash</code>, <code>&#64;session</code>)</h2>
+    <p>Tampilkan pesan notifikasi satu-kali baca atau periksa status sesi langsung di antarmuka:</p>
+    <pre><code>&#64;flash("sukses")
+    &lt;div class="alert alert-success"&gt;&#123;&#123; pesan &#125;&#125;&lt;/div&gt;
+&#64;rampung
+
+&#64;session("pengguna_id")
+    &lt;p&gt;Akun aktif terhubung: &#123;&#123; nilai &#125;&#125;&lt;/p&gt;
+&#64;rampung</code></pre>
+
+    <h2>10. Halaman Galat Kustom (404 &amp; 500)</h2>
+    <p>LarapakGo secara otomatis mendeteksi berkas template kesalahan kustom jika Anda menyediakannya di <code>sawangan/errors/</code>:</p>
+    <ul>
+        <li><code>sawangan/errors/404.nview</code>: Halaman ketika rute URL atau data tidak ditemukan.</li>
+        <li><code>sawangan/errors/500.nview</code>: Halaman ketika terjadi kegagalan server internal di mode produksi.</li>
+    </ul>
+
     <div class="callout">
         <strong>Performa Ekstrem di LarapakGo:</strong> Mesin template Sawangan di LarapakGo dikompilasi secara native dalam Go standard library. Evaluasi directive bersarang (<em>nested blocks</em>), sanitasi XSS otomatis, dan rendering partial berjalan dalam skala mikrodetik dengan alokasi memori minimal.
     </div>
 
     <div class="bottom-nav">
         <a href="/dok/middleware" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Middleware &amp; CSRF</span></a>
-        <a href="/dok/migrasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Migrasi Skema Database</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="/dok/otentikasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Otentikasi &amp; Sandi PBKDF2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </div>
 </div>
 

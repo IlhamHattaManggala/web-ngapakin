@@ -1,0 +1,93 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <h2>Penyimpanan Berkas, Upload &amp; Mailer SMTP</h2>
+    <p>LarapakGo menyediakan subsistem penanganan berkas unggahan, manajemen disk penyimpanan (storage), serta pengirim surat elektronik (email) berbasis protokol SMTP standar murni dalam Go Standard Library.</p>
+
+    <h2>1. Menangani Upload Berkas di Controller</h2>
+    <p>Ketika pengguna mengunggah berkas melalui formulir HTML ber-enctype <code>multipart/form-data</code>, Anda dapat membacanya langsung via <code>req.berkas("nama_input")</code> atau <code>req.file("nama_input")</code>:</p>
+
+    <pre><code># jeroan/Pangatur/ProfilController.ngpk
+
+gawe simpan_avatar(req, res)
+    # Membaca berkas yang diunggah
+    avatar = req.berkas("foto_profil")
+    
+    nek avatar == kosong ya
+        balekna res.karo_kliru(["foto_profil": "Berkas foto wajib dipilih."]).balek()
+    rampung
+
+    # Simpan berkas ke subfolder 'avatars' dengan nama acak aman
+    path_simpanan = avatar.simpen_neng("avatars")
+    
+    # Update lokasi file di database pengguna
+    db.tabel("pengguna").neng("id", req.session("user_id")).owahi([
+        "avatar": path_simpanan
+    ])
+
+    sesi.kilat("pesan", "Foto profil berhasil diperbarui!")
+    balekna res.redirect("/profil")
+rampung</code></pre>
+
+    <h2>2. Menampilkan Aset Berkas di Template (<code>asset</code>)</h2>
+    <p>Gunakan helper <code>asset()</code> di dalam template Sawangan untuk menghasilkan tautan URL publik yang benar ke berkas statis atau upload:</p>
+
+    <pre><code>&lt;!-- sawangan/profil.nview --&gt;
+&lt;img src="&#123;&#123; asset(pengguna.avatar) &#125;&#125;" alt="Foto Profil" class="avatar-img"&gt;</code></pre>
+
+    <h2>3. Manipulasi Berkas Tingkat Lanjut (<code>storage</code> / <code>lumbung</code>)</h2>
+    <p>Objek bawaan <code>storage</code> menyediakan fungsi-fungsi praktis untuk membaca, menulis, memeriksa, dan menghapus berkas:</p>
+
+    <pre><code># Menyimpan konten teks mentah ke file
+storage.simpen("laporan/rekap.csv", "No,Nama,Nilai\n1,Slamet,100")
+
+# Memeriksa apakah suatu berkas ada
+nek storage.ana("laporan/rekap.csv") ya
+    # Membaca seluruh isi berkas
+    konten = storage.jupuk("laporan/rekap.csv")
+    tulis("Panjang berkas: " + konten.dawa)
+rampung
+
+# Menghapus berkas dari disk
+storage.busak("laporan/rekap.csv")
+
+# Mendapatkan path absolut di sistem operasi
+jalur_lengkap = storage.dalan("laporan/rekap.csv")</code></pre>
+
+    <h2>4. Pengiriman Email via Native SMTP Go (<code>email.kirim</code>)</h2>
+    <p>LarapakGo menyertakan driver surat elektronik murni berbasis paket standar <code>net/smtp</code>. Konfigurasikan kredensial SMTP Anda di <code>.env</code>:</p>
+
+    <pre><code>MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=kunci_rahasia
+MAIL_PASSWORD=sandi_rahasia
+MAIL_FROM_ADDRESS=halo@larapak.my.id
+MAIL_FROM_NAME="Larapak Framework"</code></pre>
+
+    <p>Kirimkan email kaya (HTML) menggunakan template Sawangan yang ada di <code>sawangan/emails/</code>:</p>
+
+    <pre><code>email.kirim([
+    "marang": "pengguna@example.com",
+    "subyek": "Sugeng Rawuh neng LarapakGo!",
+    "sawangan": "emails/welcome",
+    "data": [
+        "nama": "Ilham",
+        "url_verifikasi": "https://larapak.my.id/verifikasi?token=xyz"
+    ]
+])</code></pre>
+
+    <div class="bottom-nav">
+        <a href="/dok/antrian" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Antrian, Redis &amp; Event</span></a>
+        <a href="/dok/rikat-css" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Rikat CSS Engine (JIT)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
