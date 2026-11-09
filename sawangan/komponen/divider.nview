@@ -47,7 +47,7 @@
                     <l-divider align="left"><span style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #f4f4f5;"><l-icon name="shield" size="14"></l-icon> Keamanan &amp; Autentikasi</span></l-divider>
                 </div>
                 <div>
-                    <l-divider align="center"><span class="c-badge c-badge-primary">VERSI 1.1.0</span></l-divider>
+                    <l-divider align="center"><span class="c-badge c-badge-primary">VERSI 1.0.0</span></l-divider>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
 &lt;l-divider align="left"&gt;&lt;span&gt;&lt;l-icon name="shield"&gt;&lt;/l-icon&gt; Keamanan&lt;/span&gt;&lt;/l-divider&gt;
 
 &lt;!-- Divider dengan Badge --&gt;
-&lt;l-divider align="center"&gt;&lt;span class="c-badge c-badge-primary"&gt;VERSI 1.1.0&lt;/span&gt;&lt;/l-divider&gt;</code></pre>
+&lt;l-divider align="center"&gt;&lt;span class="c-badge c-badge-primary"&gt;VERSI 1.0.0&lt;/span&gt;&lt;/l-divider&gt;</code></pre>
         </div>
     </div>
 

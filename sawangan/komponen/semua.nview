@@ -221,7 +221,7 @@
             </div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5;">Visualisasi urutan kejadian waktu, jejak audit, dan log status pesanan.</p>
             <div style="font-size: 0.75rem; color: #ffffff; border-left: 2px solid var(--primary); padding-left: 0.5rem;">
-                <div>Build v1.1.0 Berhasil</div>
+                <div>Build v1.0.0 Berhasil</div>
                 <div style="color: var(--text-dim); font-size: 0.65rem;">10:45 WIB</div>
             </div>
         </a>

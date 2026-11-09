@@ -39,7 +39,7 @@
     <div class="component-canvas">
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
             <l-tooltip text="Versi rilis stabil terbaru Larapak" position="top">
-                <l-badge value="v1.1.0 Stable" severity="success"></l-badge>
+                <l-badge value="v1.0.0 Stable" severity="success"></l-badge>
             </l-tooltip>
             <l-tooltip text="Menunggu verifikasi admin" position="top">
                 <l-badge value="Pending" severity="warning"></l-badge>
@@ -51,7 +51,7 @@
     </div>
     <pre class="component-code-block"><code>&lt;!-- Wrapper &lt;l-tooltip&gt; atau Atribut pTooltip pada Elemen Apa Pun --&gt;
 &lt;l-tooltip text="Versi rilis stabil terbaru Larapak" position="top"&gt;
-    &lt;l-badge value="v1.1.0 Stable" severity="success"&gt;&lt;/l-badge&gt;
+    &lt;l-badge value="v1.0.0 Stable" severity="success"&gt;&lt;/l-badge&gt;
 &lt;/l-tooltip&gt;
 
 &lt;span pTooltip="Info panduan"&gt;Arahkan kursor ke sini&lt;/span&gt;</code></pre>

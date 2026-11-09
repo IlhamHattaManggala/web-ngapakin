@@ -28,12 +28,6 @@
         <li><strong>Pemasang Windows Resmi &amp; Ekstensi VS Code</strong>: Installer setup Windows resmi <code>LarapakGo-Setup-v1.0.0.exe</code> dan ekstensi resmi <code>larapak-vscode-1.0.0.vsix</code>.</li>
     </ul>
 
-    <h2>Larapak Framework v1.1.0</h2>
-    <p>Rilis v1.1.0 menghadirkan dukungan penuh <strong>Perintah CLI Dialek Ngapak Asli (Dual-Support)</strong>, generator Database Seeder baru, serta perbaikan sistem nesting pada Template Engine Sawangan.</p>
-
-    <h2>Larapak Framework v1.0.9</h2>
-    <p>Pembaruan v1.0.9 menghadirkan kemudahan instalasi tingkat tinggi tanpa ketergantungan runtime eksternal dan dukungan container Docker modern.</p>
-
     <div class="bottom-nav">
         <span></span>
         <a href="/dok/instalasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Instalasi &amp; Memulai Cepat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>

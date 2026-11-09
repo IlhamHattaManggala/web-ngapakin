@@ -19,7 +19,7 @@
     <div class="component-canvas component-canvas-stacked">
         <div style="width: 100%;">
     <l-timeline>
-        <l-timeline-event title="Penyebaran Versi 1.1.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)">
+        <l-timeline-event title="Penyebaran Versi 1.0.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)">
             Build container Docker selesai dalam 42 detik. Semua pengujian rute unit test lulus.
         </l-timeline-event>
         <l-timeline-event title="Migrasi Skema Database" time="Kemarin, 16:30 WIB" color="#3b82f6">
@@ -33,7 +33,7 @@
     </div>
     <pre class="component-code-block"><code>&lt;!-- PrimeNG-Style Declarative Timeline --&gt;
 &lt;l-timeline&gt;
-    &lt;l-timeline-event title="Rilis v1.1.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)"&gt;
+    &lt;l-timeline-event title="Rilis v1.0.0 Berhasil" time="Hari ini, 10:45 WIB" color="var(--primary)"&gt;
         Build container Docker selesai dalam 42 detik.
     &lt;/l-timeline-event&gt;
     &lt;l-timeline-event title="Migrasi Database" time="Kemarin, 16:30 WIB" color="#3b82f6"&gt;
