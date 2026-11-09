@@ -18,9 +18,13 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            sudo chown -R $USER:$USER /opt/apps/web-ngapakin 2>/dev/null || sudo chown -R $(id -u):$(id -g) /opt/apps/web-ngapakin 2>/dev/null || true
+            sudo chmod -R u+rwX /opt/apps/web-ngapakin 2>/dev/null || true
+            rm -f /opt/apps/web-ngapakin/.git/index.lock 2>/dev/null || sudo rm -f /opt/apps/web-ngapakin/.git/index.lock 2>/dev/null || true
             git config --global --add safe.directory /opt/apps/web-ngapakin
+            sudo git config --global --add safe.directory /opt/apps/web-ngapakin 2>/dev/null || true
             cd /opt/apps/web-ngapakin
-            git fetch origin main
-            git reset --hard origin/main
-            docker compose build --no-cache app
-            docker compose up -d --force-recreate
+            git fetch origin main || sudo git fetch origin main
+            git reset --hard origin/main || sudo git reset --hard origin/main
+            docker compose build --no-cache app || sudo docker compose build --no-cache app
+            docker compose up -d --force-recreate || sudo docker compose up -d --force-recreate
