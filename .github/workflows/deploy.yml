@@ -18,7 +18,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            git config --global --add safe.directory /opt/apps/web-ngapakin
             cd /opt/apps/web-ngapakin
-            git pull origin main
-            docker compose build app
-            docker compose up -d
+            git fetch origin main
+            git reset --hard origin/main
+            docker compose build --no-cache app
+            docker compose up -d --force-recreate
