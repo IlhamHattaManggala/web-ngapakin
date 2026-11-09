@@ -5,7 +5,8 @@ WORKDIR /build
 RUN apk add --no-cache git ca-certificates
 
 # Clone repositori LarapakGo dan kompilasi binary mandiri
-RUN git clone https://github.com/IlhamHattaManggala/LarapakGo.git .
+RUN git clone https://github.com/IlhamHattaManggala/LarapakGo.git . && \
+    sed -i 's/go 1.25.*/go 1.22/g' go.mod
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o /usr/local/bin/larapak ./cmd/larapak
 
 # Runtime stage ultra-ringan
