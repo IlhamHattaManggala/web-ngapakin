@@ -12,7 +12,7 @@
     <h2>Manajemen Migrasi Database</h2>
     <p>Migrasi adalah kontrol versi untuk struktur database Anda. Melalui migrasi, tim pengembang dapat memodifikasi skema tabel secara aman, konsisten, dan mudah dilacak.</p>
 
-    <p>File skema migrasi disimpan di dalam folder <code>lumbung/migrasi/</code>.</p>
+    <p>File skema migrasi disimpan di dalam folder <code>lumbung/owahan/</code> (pada dialek Ngapak) atau <code>database/migrations/</code> (pada dialek standar).</p>
 
     <h2>1. Membuat File Migrasi Baru</h2>
     <p>Gunakan perintah CLI untuk menghasilkan cetak biru migrasi baru:</p>
@@ -22,23 +22,19 @@ larapak gawe:migrasi gawe_tabel_produk
 # Atau menggunakan alias standar
 larapak make:migration gawe_tabel_produk</code></pre>
 
-    <p>Perintah ini akan membuat file migrasi terstempel waktu, misalnya <code>lumbung/migrasi/2026_10_31_000001_gawe_tabel_produk.ngpk</code>:</p>
+    <p>Perintah ini akan membuat file migrasi SQL terstempel waktu, misalnya <code>lumbung/owahan/20261109120000_gawe_tabel_produk.sql</code>:</p>
 
-    <pre><code># lumbung/migrasi/2026_10_31_000001_gawe_tabel_produk.ngpk
+    <pre><code>-- Migrasi tabel produk nggo LarapakGo
+-- Digawe: 2026-11-09 12:00:00
 
-gawe munggah(skema)
-    skema.gawe("produk", gawe(tabel)
-        tabel.id()
-        tabel.teks("nama", 150)
-        tabel.angka("harga")
-        tabel.teks("deskripsi").bisa_kosong()
-        tabel.waktu()
-    rampung)
-rampung
-
-gawe mudhun(skema)
-    skema.bubar("produk")
-rampung</code></pre>
+CREATE TABLE IF NOT EXISTS produk (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nama VARCHAR(150) NOT NULL,
+    harga REAL DEFAULT 0,
+    deskripsi TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
 
     <h2>2. Menjalankan Perintah Migrasi</h2>
     

@@ -4,6 +4,45 @@ gawe index(req, res)
     balekna baca_bab("changelog", res)
 rampung
 
+gawe unduh(req, res)
+    judule = "Pusat Unduhan Resmi LarapakGo"
+    subjudul = "Unduh Windows Setup Installer (.exe), berkas biner mandiri portable, dan ekstensi resmi LarapakGo."
+    konteks = [
+        "title": judule,
+        "description": subjudul,
+        "subjudul": subjudul,
+        "badge": "November 2026 / v1.0.0 (Go Edition)",
+        "current_url": "/unduh"
+    ]
+    balekna res.view("unduh.nview", konteks)
+rampung
+
+gawe unduh_item(req, res)
+    item = req.params["item"]
+    
+    nek item == "setup" utawa item == "installer" utawa item == "LarapakGo-Setup-v1.0.0.exe" ya
+        balekna res.redirect("https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/LarapakGo-Setup-v1.0.0.exe")
+    rampung
+
+    nek item == "windows" utawa item == "larapak.exe" utawa item == "larapak-v1.0.0-windows-amd64.exe" ya
+        balekna res.redirect("https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-windows-amd64.exe")
+    rampung
+
+    nek item == "linux" utawa item == "larapak-v1.0.0-linux-amd64" ya
+        balekna res.redirect("https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-linux-amd64")
+    rampung
+
+    nek item == "macos" utawa item == "darwin" utawa item == "larapak-v1.0.0-darwin-arm64" ya
+        balekna res.redirect("https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-darwin-arm64")
+    rampung
+
+    nek item == "vscode" utawa item == "vsix" utawa item == "larapak-vscode-1.0.0.vsix" ya
+        balekna res.redirect("https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-vscode-1.0.0.vsix")
+    rampung
+
+    balekna res.redirect("/unduh")
+rampung
+
 gawe bab(req, res)
     slug = req.params["slug"]
     balekna baca_bab(slug, res)
@@ -282,8 +321,9 @@ gawe sitemap(req, res)
     
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
     xml = xml + "  <url>\n    <loc>" + base_url + "/</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
+    xml = xml + "  <url>\n    <loc>" + base_url + "/unduh</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
     
-    doks = ["changelog", "instalasi", "struktur", "konfigurasi", "sintaksis", "routing", "controller", "middleware", "template", "migrasi", "database", "rikat-css", "rikat-ui", "docker", "cli"]
+    doks = ["changelog", "instalasi", "struktur", "konfigurasi", "sintaksis", "routing", "controller", "validasi", "middleware", "template", "otentikasi", "migrasi", "database", "antrian", "storage", "rikat-css", "rikat-ui", "studio", "docker", "cli"]
     baleni slug neng doks
         xml = xml + "  <url>\n    <loc>" + base_url + "/dok/" + slug + "</loc>\n    <lastmod>" + today + "</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n"
     rampung

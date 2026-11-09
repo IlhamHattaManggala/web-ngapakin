@@ -45,7 +45,7 @@
 &lt;/l-dialog&gt;</code></pre>
 
     <h2>RikatLive: Komponen Server-Driven Reaktif</h2>
-    <p>RikatLive menghadirkan interaktivitas modern serupa Livewire langsung di LarapakGo: status komponen hidup di server, aksi dikirim via WebSocket/AJAX, dan antarmuka diperbarui secara instan melalui teknik morphing DOM tanpa memuat ulang halaman.</p>
+    <p>RikatLive menghadirkan interaktivitas modern serupa Livewire langsung di LarapakGo: status komponen hidup di server, aksi dikirim via AJAX/Fetch ke endpoint <code>/_rikat/live</code>, dan antarmuka diperbarui secara instan melalui teknik morphing DOM tanpa memuat ulang halaman.</p>
 
     <pre><code># Membuat komponen RikatLive baru (Dialek Ngapak)
 larapak gawe:urip HitungPengunjung
@@ -53,7 +53,28 @@ larapak gawe:urip HitungPengunjung
 # Atau alias standar
 larapak make:live HitungPengunjung</code></pre>
 
-    <p>Gunakan komponen ini di dalam view dengan directive <code>&#64;rikatlive("HitungPengunjung")</code>.</p>
+    <p>Perintah ini secara otomatis menghasilkan skrip logika di <code>jeroan/Urip/HitungPengunjung.ngpk</code> dan berkas template di <code>sawangan/live/hitungpengunjung.nview</code>:</p>
+
+    <pre><code># 1. Logika Komponen (jeroan/Urip/HitungPengunjung.ngpk)
+# Variabel di tingkat terluar otomatis menjadi reactive state:
+count = 0
+
+gawe tambah(step)
+    nek step == kosong ya
+        step = 1
+    rampung
+    count = count + step
+rampung</code></pre>
+
+    <pre><code>&lt;!-- 2. Template Tampilan (sawangan/live/hitungpengunjung.nview) --&gt;
+&lt;div class="card p-4 text-center"&gt;
+    &lt;h3&gt;Total Hitungan: &#123;&#123; count &#125;&#125;&lt;/h3&gt;
+    &lt;button wire:click="tambah(1)" class="btn-primary mt-2"&gt;Tambah +1&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+    <p>Gunakan komponen ini di dalam halaman template Sawangan mana pun dengan direktif:</p>
+    <pre><code>&#64;rikatlive("HitungPengunjung")
+&lt;!-- Atau alias: &#64;live("HitungPengunjung") --&gt;</code></pre>
 
     <div class="bottom-nav">
         <a href="/dok/rikat-css" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Rikat CSS Engine (JIT)</span></a>

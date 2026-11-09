@@ -67,8 +67,8 @@ jalur_lengkap = storage.dalan("laporan/rekap.csv")</code></pre>
 
     <pre><code>MAIL_HOST=smtp.mailtrap.io
 MAIL_PORT=2525
-MAIL_USERNAME=kunci_rahasia
-MAIL_PASSWORD=sandi_rahasia
+MAIL_USERNAME=
+MAIL_PASSWORD=
 MAIL_FROM_ADDRESS=halo@larapak.my.id
 MAIL_FROM_NAME="Larapak Framework"</code></pre>
 

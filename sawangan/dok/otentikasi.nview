@@ -34,10 +34,10 @@ larapak make:auth</code></pre>
     <p>LarapakGo menggunakan algoritma hashing standar industri <strong>PBKDF2-SHA256</strong> dengan salt acak 16-byte kriptografis dan 100.000 iterasi putaran:</p>
 
     <pre><code># Membuat hash sandi baru saat registrasi
-hash_sandi = sandi.gawe("kata_sandi_rahasia")
+hash_sandi = sandi.gawe("rahasia123")
 
 # Memverifikasi kecocokan sandi saat login
-nek sandi.cocok("kata_sandi_rahasia", hash_sandi) ya
+nek sandi.cocok("rahasia123", hash_sandi) ya
     tulis "Sandi cocok! Akses diberikan."
 liyane
     tulis "Sandi salah! Akses ditolak."

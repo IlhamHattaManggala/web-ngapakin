@@ -1,0 +1,248 @@
+@layout "layout.nview"
+
+@section "content"
+
+<div class="page-header">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-desc">{{ subjudul }}</p>
+    <span class="version-pill">{{ badge }}</span>
+</div>
+
+<div class="prose">
+    <p>LarapakGo hadir dengan arsitektur <strong>100% Go Standard Library</strong> tanpa dependensi pihak ketiga dan tanpa membutuhkan runtime Python maupun Node.js. Pilih format berkas yang sesuai dengan kebutuhan sistem Anda di bawah ini:</p>
+
+    <!-- Windows Primary Showcase Grid -->
+    <h2 style="margin-top: 1.5rem; margin-bottom: 1rem;">Paket Resmi Windows (64-bit)</h2>
+
+    <div class="download-featured-grid">
+        <!-- Card 1: Setup Installer -->
+        <div class="download-box download-box-highlight">
+            <div class="download-box-badge">Rekomendasi Windows</div>
+            <div class="download-box-header">
+                <div class="download-icon-circle">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+                        <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.901-1.799"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="download-box-title">LarapakGo Setup Installer (.exe)</h3>
+                    <p class="download-box-sub">Pemasang wizard grafis resmi untuk Windows 10 / 11 / Server</p>
+                </div>
+            </div>
+
+            <ul class="download-feature-list">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Pendaftaran otomatis ke variabel sistem <code>PATH</code> (langsung kenal perintah <code>larapak</code>)</span>
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Menyertakan uninstaller bersih di Control Panel / Settings</span>
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Ukuran berkas kompak: <strong>5.74 MB</strong></span>
+                </li>
+            </ul>
+
+            <div class="download-box-actions">
+                <a href="/unduh/setup" class="btn-download-primary" title="Unduh LarapakGo Setup Installer Windows">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Unduh Setup Installer (.exe) - 5.7 MB</span>
+                </a>
+                <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/LarapakGo-Setup-v1.0.0.exe" target="_blank" rel="noopener noreferrer" class="btn-download-sublink">
+                    Mirror Tautan Langsung GitHub
+                </a>
+            </div>
+
+            <div class="download-hash-box">
+                <span class="hash-label">SHA-256:</span>
+                <code>d8a63e9e4fa1445fca4bad6caf946e1668c2a07abf2cea21608f550a13fd0cfc</code>
+            </div>
+        </div>
+
+        <!-- Card 2: Standalone Portable Binary .exe -->
+        <div class="download-box">
+            <div class="download-box-badge badge-neutral">Portabel / Standalone</div>
+            <div class="download-box-header">
+                <div class="download-icon-circle icon-circle-neutral">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="download-box-title">LarapakGo Standalone CLI (.exe)</h3>
+                    <p class="download-box-sub">Biner tunggal mandiri portabel tanpa proses instalasi wizard</p>
+                </div>
+            </div>
+
+            <ul class="download-feature-list">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Single executable mandiri: cukup letakkan di folder kerja atau copy ke direktori PATH</span>
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Ideal untuk server CI/CD, USB drive portabel, atau automated deployment</span>
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Ukuran berkas: <strong>10.5 MB</strong></span>
+                </li>
+            </ul>
+
+            <div class="download-box-actions">
+                <a href="/unduh/windows" class="btn-download-secondary" title="Unduh LarapakGo Standalone Binary Windows">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Unduh Standalone .exe - 10.5 MB</span>
+                </a>
+                <a href="https://github.com/IlhamHattaManggala/LarapakGo/raw/main/dist/larapak-v1.0.0-windows-amd64.exe" target="_blank" rel="noopener noreferrer" class="btn-download-sublink">
+                    Mirror Tautan Langsung GitHub
+                </a>
+            </div>
+
+            <div class="download-hash-box">
+                <span class="hash-label">SHA-256:</span>
+                <code>3f7f6748961f2d89c7378cb78849036b924d53d2b9918fb533b5e25319101701</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Platform Downloads -->
+    <h2 style="margin-top: 2.5rem; margin-bottom: 1rem;">Platform Linux, macOS &amp; Ekstensi VS Code</h2>
+
+    <div class="download-secondary-grid">
+        <!-- Linux Card -->
+        <div class="download-compact-card">
+            <div class="download-compact-head">
+                <div class="download-compact-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="download-compact-title">Linux (x86_64 / AMD64)</h4>
+                    <span class="download-compact-meta">Biner Mandiri Linux / 10.2 MB</span>
+                </div>
+            </div>
+            <p class="download-compact-desc">Kompatibel dengan Ubuntu, Debian, Fedora, Arch, CentOS, Alpine, dll.</p>
+            <div class="download-compact-actions">
+                <a href="/unduh/linux" class="btn-compact-download">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Unduh Biner Linux</span>
+                </a>
+            </div>
+            <div class="download-hash-compact">
+                <span>SHA-256: <code>e0166bec5dd20c1cc97c590a4f9c0005...</code></span>
+            </div>
+        </div>
+
+        <!-- macOS Card -->
+        <div class="download-compact-card">
+            <div class="download-compact-head">
+                <div class="download-compact-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.06-.51 2.68-1.26z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="download-compact-title">macOS (Apple Silicon / ARM64)</h4>
+                    <span class="download-compact-meta">Biner Mandiri macOS / 9.88 MB</span>
+                </div>
+            </div>
+            <p class="download-compact-desc">Dioptimalkan native untuk prosesor Apple Silicon M1, M2, M3, M4.</p>
+            <div class="download-compact-actions">
+                <a href="/unduh/macos" class="btn-compact-download">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Unduh Biner macOS</span>
+                </a>
+            </div>
+            <div class="download-hash-compact">
+                <span>SHA-256: <code>6c045c7cfae41b2f864e0172f9922fe0...</code></span>
+            </div>
+        </div>
+
+        <!-- VS Code Card -->
+        <div class="download-compact-card">
+            <div class="download-compact-head">
+                <div class="download-compact-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="download-compact-title">Ekstensi VS Code (.vsix)</h4>
+                    <span class="download-compact-meta">Paket Ekstensi Editor / 171 KB</span>
+                </div>
+            </div>
+            <p class="download-compact-desc">Pewarnaan sintaksis TextMate, auto-completion, dan tema berkas resmi.</p>
+            <div class="download-compact-actions">
+                <a href="/unduh/vscode" class="btn-compact-download">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Unduh Ekstensi .vsix</span>
+                </a>
+            </div>
+            <div class="download-hash-compact">
+                <span>SHA-256: <code>490a5227c931f38ef9c666212ca8f59d...</code></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skrip Satu Baris untuk Unix -->
+    <h2 style="margin-top: 2.5rem; margin-bottom: 1rem;">Instalasi Cepat Otomatis Linux &amp; macOS</h2>
+    <p>Jika Anda lebih menyukai instalasi otomatis satu baris melalui terminal command line:</p>
+
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/IlhamHattaManggala/LarapakGo/main/install.sh | bash</code></pre>
+
+    <!-- Verifikasi Integritas SHA-256 -->
+    <h2>Cara Memverifikasi Integritas Berkas (SHA-256)</h2>
+    <p>Setelah mengunduh berkas installer atau biner mandiri, Anda dapat memverifikasi integritas checksum melalui terminal:</p>
+
+    <pre><code># Di Windows PowerShell:
+Get-FileHash .\LarapakGo-Setup-v1.0.0.exe -Algorithm SHA256
+
+# Di Linux / macOS Terminal:
+sha256sum larapak-v1.0.0-linux-amd64</code></pre>
+
+    <!-- Langkah Awal -->
+    <h2>Langkah Pertama Setelah Mengunduh</h2>
+    <ol>
+        <li>
+            <strong>Verifikasi Instalasi CLI</strong>: Buka terminal baru dan jalankan:
+            <pre><code>larapak version</code></pre>
+        </li>
+        <li>
+            <strong>Membuat Proyek Baru</strong>:
+            <pre><code>larapak anyar toko-online --bahasa=ngapak
+cd toko-online</code></pre>
+        </li>
+        <li>
+            <strong>Menjalankan Server Lokal</strong>:
+            <pre><code>larapak ladeni 8000</code></pre>
+        </li>
+    </ol>
+
+    <div class="callout">
+        <strong>Pusat Bantuan &amp; Dokumentasi:</strong> Untuk mempelajari struktur direktori, routing, database ORM, dan RikatLive UI secara lengkap, silakan kunjungi <a href="/dok/instalasi">Panduan Instalasi Lengkap</a> atau <a href="/dok/changelog">Catatan Rilis Framework</a>.
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dok/changelog" class="btn-page-nav btn-page-nav-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Sebelumnya: Catatan Rilis</span></a>
+        <a href="/dok/instalasi" class="btn-page-nav btn-page-nav-next"><span>Selanjutnya: Panduan Instalasi Cepat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+    </div>
+</div>
+
+@rampung
+

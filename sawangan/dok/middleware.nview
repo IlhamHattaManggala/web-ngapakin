@@ -42,7 +42,8 @@ rampung</code></pre>
 &lt;/form&gt;</code></pre>
 
     <p>Directive <code>@csrf</code> akan otomatis merender input hidden:</p>
-    <pre><code>&lt;input type="hidden" name="_token" value="d2a71f8b4..."&gt;</code></pre>
+    <pre><code>&lt;input type="hidden" name="_csrf" value="d2a71f8b4..."&gt;</code></pre>
+    <p>Sistem keamanan LarapakGo secara otomatis mengenali field <code>_csrf</code>, <code>_token</code>, maupun <code>csrf_token</code>.</p>
 
     <p>Untuk panggilan AJAX/Fetch dari JavaScript, Anda dapat menyertakan token di header HTTP <code>X-CSRF-TOKEN</code>.</p>
 

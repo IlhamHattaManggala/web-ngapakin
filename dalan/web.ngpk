@@ -3,6 +3,8 @@
 rute.get("/", "HomeController@index")
 rute.get("/sitemap.xml", "HomeController@sitemap")
 rute.get("/robots.txt", "HomeController@robots")
+rute.get("/unduh", "HomeController@unduh")
+rute.get("/unduh/{item}", "HomeController@unduh_item")
 rute.get("/dok/{slug}", "HomeController@bab")
 rute.get("/komponen", "HomeController@komponen_semua")
 rute.get("/komponen/{slug}", "HomeController@komponen_detail")

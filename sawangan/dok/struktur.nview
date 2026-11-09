@@ -20,12 +20,14 @@
 │   ├── Pangatur/        # Controller aksi &amp; logika bisnis
 │   ├── Wujud/           # Model Database &amp; relasi ORM
 │   ├── Pencegat/        # Middleware HTTP request &amp; filter
+│   ├── Urip/            # Komponen server-driven RikatLive
+│   ├── Sumber/          # JSON API Resource Transformers
 │   ├── Kedadeyan/       # Event Listeners &amp; Dispatcher
 │   └── Gawean/          # Asynchronous Background Queue Jobs
 ├── lumbung/             # Database &amp; Penyimpanan (Storage)
-│   ├── migrasi/         # File skema migrasi tabel
+│   ├── owahan/          # File skema migrasi tabel SQL
 │   ├── bibit/           # Database seeder / data awal
-│   ├── pabrik/          # Model Factories untuk data mocking
+│   ├── pabrik/          # Model Factories untuk data dummy
 │   └── simpenan/        # Upload file dan log internal
 ├── basa/                # Terjemahan &amp; Kamus Multi-Bahasa (i18n)
 │   ├── ngpk.json        # Bahasa Ngapak
@@ -87,14 +89,34 @@
                 <td>Folder statis yang dapat diakses langsung oleh peramban pengguna.</td>
             </tr>
             <tr>
-                <td><code>lumbung/migrasi/</code></td>
+                <td><code>lumbung/owahan/</code></td>
                 <td><code>database/migrations/</code></td>
-                <td>Definisi struktur tabel database untuk versioning skema.</td>
+                <td>Definisi struktur skema migrasi tabel SQL berurutan.</td>
             </tr>
             <tr>
                 <td><code>lumbung/bibit/</code></td>
                 <td><code>database/seeders/</code></td>
                 <td>Berkas seeder untuk pengisian data uji coba awal database.</td>
+            </tr>
+            <tr>
+                <td><code>lumbung/pabrik/</code></td>
+                <td><code>database/factories/</code></td>
+                <td>Pabrik data dummy (faker) untuk pengujian dan seeding.</td>
+            </tr>
+            <tr>
+                <td><code>jeroan/Urip/</code></td>
+                <td><code>app/Live/</code></td>
+                <td>Komponen server-driven reaktif RikatLive.</td>
+            </tr>
+            <tr>
+                <td><code>jeroan/Sumber/</code></td>
+                <td><code>app/Resources/</code></td>
+                <td>Format standarisasi JSON API Resource Transformers.</td>
+            </tr>
+            <tr>
+                <td><code>basa/</code></td>
+                <td><code>resources/lang/</code></td>
+                <td>Kamus translasi lokalisasi multi-bahasa JSON.</td>
             </tr>
         </tbody>
     </table>
